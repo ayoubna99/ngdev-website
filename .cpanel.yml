@@ -1,0 +1,5 @@
+# Add the file to your repo root, then:
+git add .cpanel.yml
+git add .gitignore        # make sure node_modules is ignored
+git commit -m "Add .cpanel.yml and fix .gitignore"
+git push
