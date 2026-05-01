@@ -3,253 +3,414 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NG Development - Custom Software Agency</title>
+  <title>NG Development — Custom Software for Growing Businesses</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
   <!-- Background -->
-  <div class="gradient-bg"></div>
-  <div class="grid-overlay"></div>
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
-  <div class="orb orb-3"></div>
+  <div class="bg-base"></div>
+  <div class="bg-grid"></div>
+  <div class="bg-glow glow-1"></div>
+  <div class="bg-glow glow-2"></div>
 
   <!-- Navigation -->
   <nav id="navbar">
     <div class="nav-container">
       <a href="#home" class="logo">
         <div class="logo-icon">
-          <img src="assets/ngdev_logo.png" alt="NG Development logo" width="24" />
+          <img src="assets/ngdev_logo.png" alt="NG Development" width="22" height="22" />
         </div>
         <span class="logo-text">NG Development</span>
       </a>
-
-      <ul class="nav-links">
-        <li><a href="#home" class="nav-link active">Home</a></li>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home"     class="nav-link active">Home</a></li>
         <li><a href="#services" class="nav-link">Services</a></li>
-        <li><a href="#projects" class="nav-link">Projects</a></li>
-        <li><a href="#process" class="nav-link">Process</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li><a href="#work"     class="nav-link">Work</a></li>
+        <li><a href="#process"  class="nav-link">Process</a></li>
+        <li><a href="#contact"  class="nav-link">Contact</a></li>
       </ul>
+      <a href="#contact" class="btn btn-nav">Start a Project</a>
+      <button class="mobile-menu" id="mobile-menu" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
 
-  <!-- HERO -->
+  <!-- ═══ HERO ═══ -->
   <section class="hero" id="home">
     <div class="hero-content fade-in">
-
-      <div class="hero-badge">
-        <span class="status-dot"></span> Available for New Projects
+      <div class="hero-eyebrow">
+        <span class="dot-live"></span> Open to new projects
       </div>
 
-      <h1>Custom Software & Automation Systems for Businesses</h1>
+      <h1>
+        We build software<br>
+        <em>your business actually needs.</em>
+      </h1>
 
-      <p class="hero-subtitle">
-        We design and build tailored web applications, dashboards, and automation tools 
-        that help businesses streamline operations, reduce manual work, and scale efficiently.
+      <p class="hero-sub">
+        We help growing companies replace slow manual processes with custom web systems —
+        designed around your workflow, built to scale with you.
       </p>
 
       <div class="hero-cta">
-        <a href="#contact" class="btn btn-primary">Start a Project</a>
-        <a href="#projects" class="btn btn-secondary">View Projects</a>
+        <a href="#contact" class="btn btn-primary">Start a Project →</a>
+        <a href="#work"    class="btn btn-ghost">See Our Work</a>
       </div>
 
+      <div class="hero-trust">
+        <span>Full-stack web & mobile</span>
+        <span class="sep">·</span>
+        <span>Laravel &amp; Flutter</span>
+        <span class="sep">·</span>
+        <span>End-to-end delivery</span>
+      </div>
     </div>
   </section>
 
-  <!-- STATS -->
-  <section class="stats-section fade-in">
-    <div class="stats-grid">
-
-      <div class="stat-card">
-        <div class="stat-number">Business-Focused</div>
-        <div class="stat-label">Solutions that solve real problems</div>
-      </div>
-
-      <div class="stat-card">
-        <div class="stat-number">Custom Built</div>
-        <div class="stat-label">Tailored to your workflows</div>
-      </div>
-
-      <div class="stat-card">
-        <div class="stat-number">Full-Stack</div>
-        <div class="stat-label">Frontend, Backend & APIs</div>
-      </div>
-
-      <div class="stat-card">
-        <div class="stat-number">Scalable</div>
-        <div class="stat-label">Built for long-term growth</div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- SERVICES -->
+  <!-- ═══ SERVICES ═══ -->
   <section class="section" id="services">
     <div class="section-header fade-in">
-      <div class="section-badge">Services</div>
-      <h2 class="section-title">What We Do</h2>
-      <p class="section-subtitle">
-        We build systems that improve efficiency and eliminate manual work.
+      <p class="eyebrow">What We Build</p>
+      <h2>Solutions, not just software.</h2>
+      <p class="section-sub">
+        Every project starts with a business problem — not a tech stack.
+        Here's how we help.
       </p>
     </div>
 
     <div class="services-grid">
 
       <div class="service-card fade-in">
-        <div class="service-icon">🌐</div>
-        <h3 class="service-title">Custom Web Applications</h3>
-        <p class="service-description">
-          Tailored systems designed around your business workflows — not generic websites.
+        <div class="svc-num">01</div>
+        <h3>Custom Web Applications</h3>
+        <p>
+          Still managing things in spreadsheets? We build web applications
+          tailored to your exact workflow — so your team stops doing manually
+          what a system should handle automatically.
         </p>
+        <ul class="svc-list">
+          <li>Internal tools &amp; admin panels</li>
+          <li>Client portals &amp; dashboards</li>
+          <li>E-commerce &amp; order systems</li>
+          <li>Multi-user role management</li>
+        </ul>
       </div>
 
       <div class="service-card fade-in">
-        <div class="service-icon">⚙️</div>
-        <h3 class="service-title">Business Automation</h3>
-        <p class="service-description">
-          Automate repetitive tasks and reduce manual work across your operations.
+        <div class="svc-num">02</div>
+        <h3>Mobile Applications</h3>
+        <p>
+          Reach your customers or empower your field teams with a mobile app
+          that works seamlessly on both iOS and Android — without paying for
+          two separate builds.
         </p>
+        <ul class="svc-list">
+          <li>Cross-platform (Flutter)</li>
+          <li>App Store &amp; Play Store publishing</li>
+          <li>Offline-capable apps</li>
+          <li>Push notifications &amp; real-time sync</li>
+        </ul>
       </div>
 
       <div class="service-card fade-in">
-        <div class="service-icon">📊</div>
-        <h3 class="service-title">Dashboards & Admin Panels</h3>
-        <p class="service-description">
-          Centralized systems to manage data, users, and business processes.
+        <div class="svc-num">03</div>
+        <h3>Backend Systems &amp; APIs</h3>
+        <p>
+          Need your tools to talk to each other? We build the backend infrastructure
+          that connects your systems, automates your data flow, and keeps everything
+          running reliably — even under load.
         </p>
+        <ul class="svc-list">
+          <li>RESTful APIs (Laravel)</li>
+          <li>Third-party integrations</li>
+          <li>Authentication &amp; security</li>
+          <li>Database design &amp; optimisation</li>
+        </ul>
       </div>
 
     </div>
   </section>
 
-  <!-- PROJECTS -->
-  <section class="section" id="projects">
+  <!-- ═══ CASE STUDIES ═══ -->
+  <section class="section" id="work">
     <div class="section-header fade-in">
-      <div class="section-badge">Projects</div>
-      <h2 class="section-title">Case Studies</h2>
-      <p class="section-subtitle">
-        Systems built to solve real business problems.
+      <p class="eyebrow">Our Work</p>
+      <h2>Projects that solved real problems.</h2>
+      <p class="section-sub">
+        A look at two products we built — the challenge, what we shipped, and the outcome.
       </p>
     </div>
 
-    <div class="projects-grid">
+    <div class="cases-grid">
 
-      <!-- Project 1 -->
-      <div class="project-card fade-in">
-        <div class="project-image">
-          <img src="assets/NGMedIcon.png" alt="Project">
+      <!-- Case 1 -->
+      <div class="case-card fade-in">
+        <div class="case-image">
+          <img src="assets/NGMedIcon.png" alt="NGMed E-Commerce Platform" />
+          <span class="case-tag">Web Application</span>
         </div>
-        <div class="project-content">
-          <h3 class="project-title">E-Commerce System</h3>
-
-          <p class="project-description">
-            <strong>Problem:</strong> Managing orders manually.<br><br>
-            <strong>Solution:</strong> Built a full system with payments and admin dashboard.<br><br>
-            <strong>Result:</strong> Faster operations and better order tracking.
-          </p>
-
+        <div class="case-body">
+          <h3>NGMed — Medical E-Commerce Platform</h3>
+          <div class="case-blocks">
+            <div class="case-block">
+              <span class="block-label problem">Problem</span>
+              <p>Managing product listings, orders, and vendor stock across multiple suppliers was being done manually in spreadsheets, leading to errors and slow fulfilment.</p>
+            </div>
+            <div class="case-block">
+              <span class="block-label solution">Solution</span>
+              <p>We built a full e-commerce system with inventory tracking, order management, and a vendor dashboard — all under one platform.</p>
+            </div>
+            <div class="case-block">
+              <span class="block-label result">Result</span>
+              <p>Order processing time cut significantly. Staff now manage the full product catalogue and order pipeline without touching a spreadsheet.</p>
+            </div>
+          </div>
+          <div class="case-tech">
+            <span>PHP / Laravel</span>
+            <span>JavaScript</span>
+            <span>MySQL</span>
+          </div>
         </div>
       </div>
 
-      <!-- Project 2 -->
-      <div class="project-card fade-in">
-        <div class="project-image">
-          <img src="assets/icon3.png" alt="Project">
+      <!-- Case 2 -->
+      <div class="case-card fade-in">
+        <div class="case-image">
+          <img src="assets/icon3.png" alt="Guess My Grade App" />
+          <span class="case-tag">Mobile App</span>
         </div>
-        <div class="project-content">
-          <h3 class="project-title">Student Performance App</h3>
-
-          <p class="project-description">
-            <strong>Problem:</strong> Students couldn't track performance easily.<br><br>
-            <strong>Solution:</strong> Built a predictive grade system.<br><br>
-            <strong>Result:</strong> Better academic planning and insights.
-          </p>
-
+        <div class="case-body">
+          <h3>Guess My Grade — Student Performance App</h3>
+          <div class="case-blocks">
+            <div class="case-block">
+              <span class="block-label problem">Problem</span>
+              <p>University students had no reliable way to track module grades, estimate final averages, or plan which subjects to focus on — especially under the complex LMD grading system.</p>
+            </div>
+            <div class="case-block">
+              <span class="block-label solution">Solution</span>
+              <p>We built a cross-platform mobile app with grade entry, GPA calculation, and academic planning — published on both Android and iOS.</p>
+            </div>
+            <div class="case-block">
+              <span class="block-label result">Result</span>
+              <p>Adopted by students across multiple universities. Consistent 4+ star rating with strong organic word-of-mouth growth among LMD and engineering cohorts.</p>
+            </div>
+          </div>
+          <div class="case-tech">
+            <span>Flutter</span>
+            <span>Firebase</span>
+            <span>Laravel</span>
+          </div>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- PROCESS -->
-  <section class="section" id="process">
+  <!-- ═══ PROCESS ═══ -->
+  <section class="section section-alt" id="process">
     <div class="section-header fade-in">
-      <div class="section-badge">Process</div>
-      <h2 class="section-title">How We Work</h2>
+      <p class="eyebrow">How We Work</p>
+      <h2>Simple. Transparent. Reliable.</h2>
+      <p class="section-sub">
+        No endless back-and-forth. No mystery invoices. Here's exactly what working
+        with us looks like — from first call to live system.
+      </p>
     </div>
 
-    <div class="services-grid">
+    <div class="process-grid fade-in">
 
-      <div class="service-card fade-in">
-        <h3>1. Discovery</h3>
-        <p>We understand your business and needs.</p>
+      <div class="process-step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h4>Discovery Call</h4>
+          <p>We spend 30–60 minutes learning your business, your bottlenecks, and what a successful outcome looks like. No pitch, just listening.</p>
+        </div>
       </div>
 
-      <div class="service-card fade-in">
-        <h3>2. Planning</h3>
-        <p>We design the best solution.</p>
+      <div class="process-connector"></div>
+
+      <div class="process-step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h4>Scope &amp; Proposal</h4>
+          <p>We document exactly what we'll build, set a realistic timeline, and agree on a fixed price — before a single line of code is written.</p>
+        </div>
       </div>
 
-      <div class="service-card fade-in">
-        <h3>3. Development</h3>
-        <p>We build your system.</p>
+      <div class="process-connector"></div>
+
+      <div class="process-step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h4>Build &amp; Review</h4>
+          <p>We work in short cycles and share progress regularly. You always know what's been built and what's coming next — no black boxes.</p>
+        </div>
       </div>
 
-      <div class="service-card fade-in">
-        <h3>4. Delivery</h3>
-        <p>We deploy and support.</p>
+      <div class="process-connector"></div>
+
+      <div class="process-step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <h4>Launch &amp; Handover</h4>
+          <p>We deploy, handle the technical setup, and make sure your team knows how to use what we built. We stay available after launch.</p>
+        </div>
       </div>
 
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- ═══ CONTACT ═══ -->
   <section class="section" id="contact">
     <div class="section-header fade-in">
-      <div class="section-badge">Start a Project</div>
-      <h2 class="section-title">Let's Work Together</h2>
-      <p class="section-subtitle">
-        Tell us about your project and we’ll get back to you.
+      <p class="eyebrow">Get in Touch</p>
+      <h2>Let's talk about your project.</h2>
+      <p class="section-sub">
+        Tell us what you're trying to solve. We'll respond within 24 hours.
       </p>
     </div>
 
-    <div class="contact-container">
-      <div class="contact-cards fade-in">
+    <div class="contact-layout fade-in">
 
-        <div class="contact-card">
-          <div class="contact-icon">📧</div>
-          <h3>Email</h3>
-          <p><a href="mailto:business@ngdev.org">business@ngdev.org</a></p>
-        </div>
-
-        <div class="contact-card">
-          <div class="contact-icon">
-            <img src="assets/facebook.png" width="24">
+      <!-- Form -->
+      <div class="contact-form-wrap">
+        <form id="contact-form" novalidate>
+          <div class="field-row">
+            <div class="field-group">
+              <label for="name">Your Name</label>
+              <input type="text"   id="name"    name="name"    placeholder="Karim Benali" required />
+              <span class="err" id="err-name"></span>
+            </div>
+            <div class="field-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email"   name="email"   placeholder="karim@company.com" required />
+              <span class="err" id="err-email"></span>
+            </div>
           </div>
-          <h3>Facebook</h3>
-        </div>
-
-        <div class="contact-card">
-          <div class="contact-icon">
-            <img src="assets/instagram.jpg" width="24">
+          <div class="field-group">
+            <label for="message">What are you trying to build?</label>
+            <textarea id="message" name="message" rows="5"
+              placeholder="Briefly describe the problem you want to solve or what you'd like to automate..."
+              required></textarea>
+            <span class="err" id="err-msg"></span>
           </div>
-          <h3>Instagram</h3>
-        </div>
-
+          <button type="submit" class="btn btn-primary btn-full">
+            Send Message →
+          </button>
+          <p class="form-note">We typically reply within one business day.</p>
+          <p class="form-success" id="form-success" style="display:none">
+            ✓ Message sent — we'll be in touch soon.
+          </p>
+        </form>
       </div>
+
+      <!-- Sidebar -->
+      <div class="contact-sidebar">
+        <div class="sidebar-card">
+          <div class="sidebar-icon">📧</div>
+          <p class="sidebar-label">Email</p>
+          <a href="mailto:business@ngdev.org">business@ngdev.org</a>
+        </div>
+        <div class="sidebar-card">
+          <div class="sidebar-icon">
+            <img src="assets/facebook.png" alt="Facebook" width="28" height="28" />
+          </div>
+          <p class="sidebar-label">Facebook</p>
+          <a href="https://facebook.com/profile.php?id=61575545468520" target="_blank" rel="noopener">
+            Visit our page →
+          </a>
+        </div>
+        <div class="sidebar-card">
+          <div class="sidebar-icon">
+            <img src="assets/instagram.jpg" alt="Instagram" width="28" height="28" style="border-radius:6px" />
+          </div>
+          <p class="sidebar-label">Instagram</p>
+          <a href="https://instagram.com/ngdevelopment1/" target="_blank" rel="noopener">
+            @ngdevelopment1 →
+          </a>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- ═══ FOOTER ═══ -->
   <footer>
-    <div class="footer-content fade-in">
-      <span>NG Development</span>
-      <p>Custom software solutions for modern businesses.</p>
-      <p>&copy; 2026 NG Development</p>
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <div class="logo-icon">
+          <img src="assets/ngdev_logo.png" alt="NG Development" width="20" height="20" />
+        </div>
+        <span>NG Development</span>
+      </div>
+      <p class="footer-copy">
+        © 2025 NG Development. Custom software for growing businesses.
+      </p>
     </div>
   </footer>
 
+  <script src="script.js"></script>
+  <script>
+    // Contact form submission
+    const form = document.getElementById('contact-form');
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const name    = document.getElementById('name');
+        const email   = document.getElementById('email');
+        const message = document.getElementById('message');
+        let ok = true;
+
+        [document.getElementById('err-name'),
+         document.getElementById('err-email'),
+         document.getElementById('err-msg')].forEach(el => el.textContent = '');
+
+        if (!name.value.trim()) {
+          document.getElementById('err-name').textContent = 'Name is required.'; ok = false;
+        }
+        const emailRx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRx.test(email.value.trim())) {
+          document.getElementById('err-email').textContent = 'Enter a valid email.'; ok = false;
+        }
+        if (message.value.trim().length < 20) {
+          document.getElementById('err-msg').textContent = 'Please write at least 20 characters.'; ok = false;
+        }
+        if (!ok) return;
+
+        const btn = form.querySelector('button[type=submit]');
+        btn.textContent = 'Sending…';
+        btn.disabled = true;
+
+        try {
+          const res = await fetch('/send-email', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              name: name.value.trim(),
+              email: email.value.trim(),
+              message: message.value.trim()
+            })
+          });
+          const data = await res.json();
+          if (data.ok) {
+            form.reset();
+            document.getElementById('form-success').style.display = 'block';
+          } else {
+            btn.textContent = 'Try again';
+          }
+        } catch {
+          btn.textContent = 'Try again';
+        } finally {
+          btn.disabled = false;
+          if (btn.textContent === 'Sending…') btn.textContent = 'Send Message →';
+        }
+      });
+    }
+  </script>
 </body>
 </html>
