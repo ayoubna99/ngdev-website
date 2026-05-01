@@ -6,7 +6,7 @@ const __dirname = path.dirname(__filename);
 const app = express();
 
 // Static files (index.html, style.css, script.js, assets)
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname)));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
