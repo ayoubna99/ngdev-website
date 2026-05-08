@@ -1,416 +1,1515 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NG Development — Custom Software for Growing Businesses</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NG Development — Software Solutions for Modern Businesses</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #080808;
+    --bg-2: #0f0f0f;
+    --bg-3: #161616;
+    --border: rgba(255,255,255,0.08);
+    --text: #f0ede8;
+    --text-muted: rgba(240,237,232,0.45);
+    --text-dim: rgba(240,237,232,0.65);
+    --accent: #c8f53d;
+    --accent-dim: rgba(200,245,61,0.12);
+    --accent-dim2: rgba(200,245,61,0.06);
+    --font-display: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* Noise overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+    opacity: 0.025;
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 0 48px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(8,8,8,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    transition: border-color 0.3s;
+  }
+
+  .nav-logo {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 17px;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-logo-mark {
+    width: 28px; height: 28px;
+    background: var(--accent);
+    border-radius: 6px;
+    display: grid;
+    place-items: center;
+  }
+
+  .nav-logo-mark svg { width: 16px; height: 16px; }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text-dim);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--text); }
+
+  .nav-cta {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    color: var(--bg) !important;
+    background: var(--accent);
+    padding: 9px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: opacity 0.2s !important;
+  }
+
+  .nav-cta:hover { opacity: 0.88; }
+
+  /* ─── HERO ─── */
+  #hero {
+    min-height: 100vh;
+    padding-top: 72px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 56px 80px 80px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 36px;
+  }
+
+  .hero-tag::before {
+    content: '';
+    display: block;
+    width: 24px; height: 1px;
+    background: var(--accent);
+  }
+
+  .hero-h1 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(40px, 4vw, 64px);
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+    color: var(--text);
+    margin-bottom: 28px;
+  }
+
+  .hero-h1 em {
+    font-style: italic;
+    font-weight: 700;
+    color: var(--text-dim);
+  }
+
+  .hero-sub {
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--text-dim);
+    max-width: 440px;
+    margin-bottom: 48px;
+    font-weight: 300;
+  }
+
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    color: var(--bg);
+    background: var(--accent);
+    padding: 14px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+
+  .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+
+  .btn-secondary {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-muted);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s;
+  }
+
+  .btn-secondary:hover { color: var(--text); }
+
+  .hero-stats {
+    margin-top: 72px;
+    display: flex;
+    gap: 48px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border);
+  }
+
+  .stat-item {}
+  .stat-num {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 32px;
+    letter-spacing: -0.03em;
+    color: var(--text);
+    display: block;
+  }
+  .stat-label {
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+    display: block;
+    margin-top: 4px;
+  }
+
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-img-wrap {
+    position: absolute;
+    inset: 0;
+  }
+
+  .hero-img-wrap img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: 0.55;
+  }
+
+  .hero-img-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, var(--bg) 0%, transparent 40%),
+                linear-gradient(to top, var(--bg) 0%, transparent 30%);
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 48px;
+    left: 80px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    z-index: 3;
+  }
+
+  .hero-scroll-line {
+    width: 40px; height: 1px;
+    background: var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-scroll-line::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: var(--accent);
+    animation: scrollLine 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollLine {
+    0% { left: -100%; }
+    50% { left: 0; }
+    100% { left: 100%; }
+  }
+
+  /* ─── SECTION BASE ─── */
+  section { padding: 120px 80px; }
+
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+  }
+
+  .section-label span {
+    opacity: 0.4;
+    font-weight: 400;
+    font-family: var(--font-body);
+  }
+
+  .section-h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(32px, 3vw, 52px);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    color: var(--text);
+  }
+
+  .section-h2 em {
+    font-style: italic;
+    color: var(--text-dim);
+  }
+
+  /* ─── MARQUEE / TICKER ─── */
+  .marquee-wrap {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 0;
+    overflow: hidden;
+    background: var(--bg-2);
+  }
+
+  .marquee-track {
+    display: flex;
+    gap: 64px;
+    width: max-content;
+    animation: marquee 30s linear infinite;
+  }
+
+  .marquee-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+
+  .marquee-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ─── SERVICES ─── */
+  #services { background: var(--bg); }
+
+  .services-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: end;
+    margin-bottom: 80px;
+  }
+
+  .services-intro {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--text-dim);
+    font-weight: 300;
+    padding-top: 12px;
+    align-self: end;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .service-card {
+    background: var(--bg-2);
+    padding: 48px;
+    transition: background 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+
+  .service-card:hover { background: var(--bg-3); }
+  .service-card:hover::before { transform: scaleX(1); }
+
+  .service-num {
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .service-icon {
+    width: 44px; height: 44px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    background: var(--accent-dim2);
+    transition: background 0.3s, border-color 0.3s;
+  }
+
+  .service-card:hover .service-icon {
+    background: var(--accent-dim);
+    border-color: rgba(200,245,61,0.25);
+  }
+
+  .service-icon svg {
+    width: 20px; height: 20px;
+    stroke: var(--accent);
+    fill: none;
+    stroke-width: 1.5;
+  }
+
+  .service-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .service-desc {
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: var(--text-muted);
+    font-weight: 300;
+  }
+
+  /* ─── PROJECTS ─── */
+  #projects { background: var(--bg-2); padding: 120px 80px; }
+
+  .projects-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 72px;
+  }
+
+  .projects-link {
+    font-size: 13px;
+    color: var(--text-muted);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s;
+  }
+
+  .projects-link:hover { color: var(--accent); }
+
+  .case-studies { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+
+  .case-card {
+    background: var(--bg);
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 0;
+    transition: background 0.3s;
+    cursor: default;
+  }
+
+  .case-card:hover { background: var(--bg-3); }
+
+  .case-img {
+    position: relative;
+    overflow: hidden;
+    min-height: 340px;
+  }
+
+  .case-img img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+    transition: opacity 0.4s, transform 0.6s;
+  }
+
+  .case-card:hover .case-img img { opacity: 0.8; transform: scale(1.03); }
+
+  .case-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, transparent 60%, var(--bg) 100%);
+    transition: background 0.3s;
+  }
+
+  .case-card:hover .case-img-overlay {
+    background: linear-gradient(to right, transparent 60%, var(--bg-3) 100%);
+  }
+
+  .case-content {
+    padding: 56px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-left: 1px solid var(--border);
+  }
+
+  .case-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+  }
+
+  .tag {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-dim);
+    border: 1px solid rgba(200,245,61,0.2);
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+
+  .case-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 26px;
+    letter-spacing: -0.025em;
+    color: var(--text);
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+
+  .case-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 32px;
+  }
+
+  .case-block-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+
+  .case-block-text {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--text-dim);
+    font-weight: 300;
+  }
+
+  .case-result {
+    margin-top: 32px;
+    padding: 20px;
+    background: var(--accent-dim2);
+    border: 1px solid rgba(200,245,61,0.12);
+    border-radius: 8px;
+  }
+
+  .case-result-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .case-result-text {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--text-dim);
+    font-weight: 300;
+  }
+
+  /* ─── ABOUT ─── */
+  #about {
+    background: var(--bg);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    padding: 0;
+    min-height: 680px;
+  }
+
+  .about-img {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-img img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: 0.55;
+  }
+
+  .about-img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, transparent 50%, var(--bg) 100%);
+  }
+
+  .about-content {
+    padding: 120px 80px 120px 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .about-h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(28px, 2.6vw, 44px);
+    letter-spacing: -0.03em;
+    line-height: 1.12;
+    color: var(--text);
+    margin-bottom: 28px;
+  }
+
+  .about-text {
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--text-dim);
+    font-weight: 300;
+    margin-bottom: 48px;
+  }
+
+  .about-pillars {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .pillar {
+    padding: 24px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg-2);
+  }
+
+  .pillar-title {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .pillar-title::before {
+    content: '';
+    display: block;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .pillar-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* ─── PROCESS ─── */
+  #process { background: var(--bg-2); }
+
+  .process-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: end;
+    margin-bottom: 80px;
+  }
+
+  .process-intro {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--text-dim);
+    font-weight: 300;
+    padding-top: 12px;
+  }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .process-step {
+    background: var(--bg);
+    padding: 40px 32px;
+    position: relative;
+    transition: background 0.3s;
+  }
+
+  .process-step:hover { background: var(--bg-3); }
+
+  .process-step-num {
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 48px;
+  }
+
+  .process-icon {
+    width: 40px; height: 40px;
+    border-radius: 8px;
+    background: var(--accent-dim2);
+    border: 1px solid rgba(200,245,61,0.12);
+    display: grid;
+    place-items: center;
+    margin-bottom: 20px;
+    transition: background 0.3s;
+  }
+
+  .process-step:hover .process-icon {
+    background: var(--accent-dim);
+    border-color: rgba(200,245,61,0.25);
+  }
+
+  .process-icon svg {
+    width: 18px; height: 18px;
+    stroke: var(--accent);
+    fill: none;
+    stroke-width: 1.5;
+  }
+
+  .process-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+
+  .process-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  .process-connector {
+    position: absolute;
+    top: 56px; right: -1px;
+    width: 18px; height: 1px;
+    background: var(--accent);
+    z-index: 2;
+    display: none;
+  }
+
+  /* ─── CONTACT ─── */
+  #contact { background: var(--bg); }
+
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .contact-left {}
+
+  .contact-tagline {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(28px, 2.8vw, 46px);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    color: var(--text);
+    margin-bottom: 24px;
+  }
+
+  .contact-desc {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-dim);
+    font-weight: 300;
+    margin-bottom: 48px;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .contact-info-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 14px;
+    color: var(--text-dim);
+  }
+
+  .contact-info-icon {
+    width: 36px; height: 36px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    display: grid;
+    place-items: center;
+    background: var(--bg-2);
+    flex-shrink: 0;
+  }
+
+  .contact-info-icon svg {
+    width: 16px; height: 16px;
+    stroke: var(--accent);
+    fill: none;
+    stroke-width: 1.5;
+  }
+
+  .contact-form {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 48px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .form-field {
+    margin-bottom: 16px;
+  }
+
+  .form-field label {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+
+  .form-field input,
+  .form-field select,
+  .form-field textarea {
+    width: 100%;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 13px 16px;
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 300;
+    outline: none;
+    transition: border-color 0.2s;
+    appearance: none;
+  }
+
+  .form-field input:focus,
+  .form-field select:focus,
+  .form-field textarea:focus {
+    border-color: rgba(200,245,61,0.4);
+  }
+
+  .form-field textarea {
+    height: 120px;
+    resize: vertical;
+  }
+
+  .form-field select {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(240,237,232,0.4)' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 40px;
+  }
+
+  .form-field select option { background: var(--bg); }
+
+  .form-submit {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    color: var(--bg);
+    background: var(--accent);
+    border: none;
+    padding: 15px 28px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.2s;
+    margin-top: 8px;
+  }
+
+  .form-submit:hover { opacity: 0.88; transform: translateY(-1px); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    padding: 56px 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-logo {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: -0.02em;
+    color: var(--text-muted);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .footer-copy {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 13px;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--text); }
+
+  /* ─── ANIMATIONS ─── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .fade-up:nth-child(2) { transition-delay: 0.1s; }
+  .fade-up:nth-child(3) { transition-delay: 0.2s; }
+  .fade-up:nth-child(4) { transition-delay: 0.3s; }
+
+  /* ─── MOBILE ─── */
+  @media (max-width: 1024px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    section { padding: 80px 24px; }
+    #hero { grid-template-columns: 1fr; min-height: auto; padding-bottom: 80px; }
+    .hero-left { padding: 60px 24px 40px; }
+    .hero-right { height: 260px; }
+    .hero-right .hero-img-wrap::after { background: linear-gradient(to top, var(--bg) 0%, transparent 60%); }
+    .hero-stats { gap: 28px; }
+    .hero-scroll { left: 24px; bottom: 24px; }
+    .services-header { grid-template-columns: 1fr; gap: 24px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .case-card { grid-template-columns: 1fr; }
+    .case-img { min-height: 200px; }
+    .case-img-overlay { background: linear-gradient(to bottom, transparent 50%, var(--bg) 100%); }
+    .case-content { border-left: none; border-top: 1px solid var(--border); padding: 32px; }
+    .case-row { grid-template-columns: 1fr; gap: 16px; }
+    #about { grid-template-columns: 1fr; }
+    .about-img { height: 280px; }
+    .about-img::after { background: linear-gradient(to bottom, transparent 50%, var(--bg) 100%); }
+    .about-content { padding: 48px 24px; }
+    .about-pillars { grid-template-columns: 1fr; }
+    .process-header { grid-template-columns: 1fr; gap: 24px; }
+    .process-steps { grid-template-columns: 1fr; }
+    .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+    .form-row { grid-template-columns: 1fr; }
+    .contact-form { padding: 32px 24px; }
+    footer { flex-direction: column; gap: 24px; text-align: center; padding: 40px 24px; }
+    .projects-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+    #projects { padding: 80px 24px; }
+  }
+</style>
 </head>
 <body>
 
-  <!-- Background -->
-  <div class="bg-base"></div>
-  <div class="bg-grid"></div>
-  <div class="bg-glow glow-1"></div>
-  <div class="bg-glow glow-2"></div>
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-mark">
+      <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 3h5l4 5H6L2 3z" fill="#080808"/>
+        <path d="M7 8l2 5h5L9 3" fill="#080808" opacity="0.5"/>
+      </svg>
+    </div>
+    NG Development
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#projects">Work</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact" class="nav-cta">Get in touch</a></li>
+  </ul>
+</nav>
 
-  <!-- Navigation -->
-  <nav id="navbar">
-    <div class="nav-container">
-      <a href="#home" class="logo">
-        <div class="logo-icon">
-          <img src="assets/ngdev_logo.png" alt="NG Development" width="22" height="22" />
-        </div>
-        <span class="logo-text">NG Development</span>
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-tag">Software Development Studio</div>
+    <h1 class="hero-h1">We build scalable software solutions for <em>modern businesses.</em></h1>
+    <p class="hero-sub">NG Development designs and develops high-quality digital products tailored to business needs — from concept to production.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">
+        Get in touch
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
-      <ul class="nav-links" id="nav-links">
-        <li><a href="#home"     class="nav-link active">Home</a></li>
-        <li><a href="#services" class="nav-link">Services</a></li>
-        <li><a href="#work"     class="nav-link">Work</a></li>
-        <li><a href="#process"  class="nav-link">Process</a></li>
-        <li><a href="#contact"  class="nav-link">Contact</a></li>
-      </ul>
-      <a href="#contact" class="btn btn-nav">Start a Project</a>
-      <button class="mobile-menu" id="mobile-menu" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
+      <a href="#projects" class="btn-secondary">
+        View our work
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-num">3+</span>
+        <span class="stat-label">Years building</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">12+</span>
+        <span class="stat-label">Projects shipped</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">100%</span>
+        <span class="stat-label">Client retention</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-wrap">
+      <img src="https://images.unsplash.com/photo-1531973576160-7125cd663d86?w=1200&q=85&auto=format" alt="Developers working" loading="eager">
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    Scroll to explore
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <div class="marquee-item"><div class="marquee-dot"></div>Web Application Development</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Mobile Apps</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Backend Systems</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>UI/UX Design</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>SaaS Products</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>API Development</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Cloud Infrastructure</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Web Application Development</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Mobile Apps</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Backend Systems</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>UI/UX Design</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>SaaS Products</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>API Development</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Cloud Infrastructure</div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header">
+    <div>
+      <div class="section-label">What we do <span>/ 01</span></div>
+      <h2 class="section-h2">Services built for<br><em>business impact</em></h2>
+    </div>
+    <p class="services-intro">We focus on what matters most — delivering software that works reliably, scales with your business, and makes a measurable difference to how you operate.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card fade-up">
+      <div class="service-num">
+        01
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+      </div>
+      <h3 class="service-title">Custom Web Application Development</h3>
+      <p class="service-desc">We build full-featured web applications tailored to your workflows. Whether it's an internal tool, a client-facing platform, or a SaaS product — we design the architecture, develop every layer, and make sure it holds up at scale.</p>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-num">
+        02
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+        </div>
+      </div>
+      <h3 class="service-title">Mobile App Development</h3>
+      <p class="service-desc">Cross-platform mobile apps that deliver a consistent, high-quality experience on both iOS and Android. We build apps that are fast, intuitive, and designed around the way your users actually behave — not around technical constraints.</p>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-num">
+        03
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M20 17.58A5 5 0 0018 8h-1.26A8 8 0 104 16.25M8 16h.01M12 20h.01M16 16h.01"/></svg>
+        </div>
+      </div>
+      <h3 class="service-title">Backend & System Development</h3>
+      <p class="service-desc">Reliable, well-structured backends that power your product. We design APIs, data pipelines, and system integrations that are built to handle real traffic — with security, performance, and maintainability built in from day one.</p>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-num">
+        04
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        </div>
+      </div>
+      <h3 class="service-title">UI/UX Design</h3>
+      <p class="service-desc">Design that goes beyond aesthetics. We create interfaces that reduce friction, guide users toward the right actions, and reflect the quality of your product. Every design decision is grounded in usability and business logic, not trends.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="projects-header">
+    <div>
+      <div class="section-label">Case studies <span>/ 02</span></div>
+      <h2 class="section-h2">Selected <em>work</em></h2>
+    </div>
+    <a href="#contact" class="projects-link">
+      Start a project
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+  <div class="case-studies">
+
+    <!-- Case 1: Protectiny -->
+    <div class="case-card fade-up">
+      <div class="case-img">
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&q=80&auto=format" alt="DNS security dashboard">
+        <div class="case-img-overlay"></div>
+      </div>
+      <div class="case-content">
+        <div class="case-tags">
+          <span class="tag">SaaS</span>
+          <span class="tag">Security</span>
+          <span class="tag">Web + Mobile</span>
+        </div>
+        <h3 class="case-title">Protectiny — DNS Filtering SaaS Platform</h3>
+        <div class="case-row">
+          <div>
+            <p class="case-block-label">Problem</p>
+            <p class="case-block-text">Businesses lacked an accessible, locally-adapted solution for DNS-level network security. Existing tools were either too complex for small teams or priced for enterprise budgets.</p>
+          </div>
+          <div>
+            <p class="case-block-label">Solution</p>
+            <p class="case-block-text">We built a full DNS filtering platform from scratch — covering the web dashboard, mobile app, billing integrations, and device provisioning API — with an interface that makes security management straightforward for any team size.</p>
+          </div>
+        </div>
+        <div class="case-result">
+          <p class="case-result-label">→ Result</p>
+          <p class="case-result-text">Launched as the first DNS filtering SaaS targeting the Algerian market. Subscription billing, device management, and real-time filtering are fully operational in production with active customers.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Case 2: Metro App -->
+    <div class="case-card fade-up">
+      <div class="case-img">
+        <img src="https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=900&q=80&auto=format" alt="Mobile transit application">
+        <div class="case-img-overlay"></div>
+      </div>
+      <div class="case-content">
+        <div class="case-tags">
+          <span class="tag">Mobile App</span>
+          <span class="tag">Transit</span>
+          <span class="tag">Flutter</span>
+        </div>
+        <h3 class="case-title">metro_dz — Urban Transit Passenger App</h3>
+        <div class="case-row">
+          <div>
+            <p class="case-block-label">Problem</p>
+            <p class="case-block-text">Metro passengers had no digital tool to plan routes, check schedules, or purchase tickets — relying entirely on physical signage and on-site ticket queues.</p>
+          </div>
+          <div>
+            <p class="case-block-label">Solution</p>
+            <p class="case-block-text">A cross-platform mobile app giving passengers real-time line maps, schedule lookup, route search, and in-app ticket purchasing. The backend handles ticket validation, schedule management, and secure payment processing.</p>
+          </div>
+        </div>
+        <div class="case-result">
+          <p class="case-result-label">→ Result</p>
+          <p class="case-result-text">Replaced manual ticketing workflows with a fully digital experience. Ticket purchase time reduced from queue-based minutes to seconds. Route planning is now available entirely offline after first load.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Case 3: Guess My Grade -->
+    <div class="case-card fade-up">
+      <div class="case-img">
+        <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=900&q=80&auto=format" alt="Education mobile application">
+        <div class="case-img-overlay"></div>
+      </div>
+      <div class="case-content">
+        <div class="case-tags">
+          <span class="tag">Mobile App</span>
+          <span class="tag">Education</span>
+          <span class="tag">Android</span>
+        </div>
+        <h3 class="case-title">Guess My Grade — Academic Performance Tool</h3>
+        <div class="case-row">
+          <div>
+            <p class="case-block-label">Problem</p>
+            <p class="case-block-text">Students had no quick way to estimate their final grades or understand what scores they needed on upcoming exams to reach their target — forcing manual, error-prone calculations.</p>
+          </div>
+          <div>
+            <p class="case-block-label">Solution</p>
+            <p class="case-block-text">A lightweight Android app allowing students to input their module scores and weighted credits, instantly calculating current averages and the minimum grades needed to reach a target GPA. Clean UI designed for quick daily use.</p>
+          </div>
+        </div>
+        <div class="case-result">
+          <p class="case-result-label">→ Result</p>
+          <p class="case-result-text">Published on Google Play Store with positive user feedback. Students report using it before every exam session to understand exactly what they need to achieve — turning anxiety into actionable information.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" style="padding:0;">
+  <div class="about-img">
+    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1000&q=80&auto=format" alt="Team collaboration">
+  </div>
+  <div class="about-content">
+    <div class="section-label">Who we are <span>/ 03</span></div>
+    <h2 class="about-h2">A team focused on shipping software that actually works.</h2>
+    <p class="about-text">At NG Development, we build software the way we'd want it built for ourselves — with clean architecture, thoughtful design, and a serious commitment to reliability. We work closely with our clients through every phase of a project, and we don't ship until we're confident it's ready for the real world.<br><br>We're a lean team with broad expertise across web, mobile, and backend systems. That means faster decisions, fewer layers, and direct communication with the people doing the actual work. Our clients come back because we deliver what we commit to — and we're honest when things need to change.</p>
+    <div class="about-pillars">
+      <div class="pillar">
+        <div class="pillar-title">Reliability first</div>
+        <p class="pillar-desc">We build systems that hold up under real conditions — not just demos.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-title">Clean code, always</div>
+        <p class="pillar-desc">Every project is built to be maintained, extended, and handed off cleanly.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-title">Honest communication</div>
+        <p class="pillar-desc">We tell you what's realistic and flag issues before they become problems.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-title">Long-term thinking</div>
+        <p class="pillar-desc">We design for where your business is going, not just where it is today.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="process-header">
+    <div>
+      <div class="section-label">How we work <span>/ 04</span></div>
+      <h2 class="section-h2">A process built for<br><em>predictable delivery</em></h2>
+    </div>
+    <p class="process-intro">We follow a structured development process that keeps projects moving forward without surprises. Each phase has clear outputs and a defined handoff — so you always know what's happening and what comes next.</p>
+  </div>
+  <div class="process-steps">
+    <div class="process-step fade-up">
+      <div class="process-step-num">01</div>
+      <div class="process-icon">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      </div>
+      <h3 class="process-title">Discovery</h3>
+      <p class="process-desc">We start by understanding your business, your users, and the problem you're trying to solve — before writing a single line of code.</p>
+    </div>
+    <div class="process-step fade-up">
+      <div class="process-step-num">02</div>
+      <div class="process-icon">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+      </div>
+      <h3 class="process-title">Planning</h3>
+      <p class="process-desc">Architecture decisions, scope definition, and a clear roadmap. We align on what's being built and how, so there are no surprises mid-project.</p>
+    </div>
+    <div class="process-step fade-up">
+      <div class="process-step-num">03</div>
+      <div class="process-icon">
+        <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+      </div>
+      <h3 class="process-title">Development</h3>
+      <p class="process-desc">Iterative development with regular check-ins. We build in focused cycles, share progress frequently, and adapt quickly to feedback.</p>
+    </div>
+    <div class="process-step fade-up">
+      <div class="process-step-num">04</div>
+      <div class="process-icon">
+        <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      </div>
+      <h3 class="process-title">Testing</h3>
+      <p class="process-desc">Thorough testing across devices, edge cases, and real-world scenarios. We don't consider something done until it behaves correctly under pressure.</p>
+    </div>
+    <div class="process-step fade-up">
+      <div class="process-step-num">05</div>
+      <div class="process-icon">
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+      <h3 class="process-title">Deployment</h3>
+      <p class="process-desc">Smooth, stable releases with proper infrastructure setup, monitoring, and post-launch support to make sure everything runs as expected.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Get in touch <span>/ 05</span></div>
+  <div class="contact-inner">
+    <div class="contact-left">
+      <h2 class="contact-tagline">Let's build your<br>next project.</h2>
+      <p class="contact-desc">Tell us what you're working on. We'll set up a short call to understand your needs and figure out if we're the right fit.</p>
+      <div class="contact-info">
+        <div class="contact-info-item">
+          <div class="contact-info-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          contact@ngdev.org
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+          </div>
+          ngdev.org
+        </div>
+      </div>
+    </div>
+    <div class="contact-form">
+      <div class="form-row">
+        <div class="form-field">
+          <label>First name</label>
+          <input type="text" placeholder="Alex">
+        </div>
+        <div class="form-field">
+          <label>Last name</label>
+          <input type="text" placeholder="Johnson">
+        </div>
+      </div>
+      <div class="form-field">
+        <label>Email address</label>
+        <input type="email" placeholder="alex@company.com">
+      </div>
+      <div class="form-field">
+        <label>Company</label>
+        <input type="text" placeholder="Your company name">
+      </div>
+      <div class="form-field">
+        <label>What are you looking for?</label>
+        <select>
+          <option value="" disabled selected>Select a service</option>
+          <option>Web Application Development</option>
+          <option>Mobile App Development</option>
+          <option>Backend & System Development</option>
+          <option>UI/UX Design</option>
+          <option>Full Product Build</option>
+          <option>Something else</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label>Tell us about your project</label>
+        <textarea placeholder="Briefly describe what you're building, the problem you're solving, and your timeline if you have one."></textarea>
+      </div>
+      <button class="form-submit" type="button">
+        Send message
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </button>
     </div>
-  </nav>
+  </div>
+</section>
 
-  <!-- ═══ HERO ═══ -->
-  <section class="hero" id="home">
-    <div class="hero-content fade-in">
-      <div class="hero-eyebrow">
-        <span class="dot-live"></span> Open to new projects
-      </div>
-
-      <h1>
-        We build software<br>
-        <em>your business actually needs.</em>
-      </h1>
-
-      <p class="hero-sub">
-        We help growing companies replace slow manual processes with custom web systems —
-        designed around your workflow, built to scale with you.
-      </p>
-
-      <div class="hero-cta">
-        <a href="#contact" class="btn btn-primary">Start a Project →</a>
-        <a href="#work"    class="btn btn-ghost">See Our Work</a>
-      </div>
-
-      <div class="hero-trust">
-        <span>Full-stack web & mobile</span>
-        <span class="sep">·</span>
-        <span>Laravel &amp; Flutter</span>
-        <span class="sep">·</span>
-        <span>End-to-end delivery</span>
-      </div>
+<!-- FOOTER -->
+<footer>
+  <a href="#" class="footer-logo">
+    <div class="nav-logo-mark" style="width:22px;height:22px;">
+      <svg viewBox="0 0 16 16" fill="none" width="12" height="12">
+        <path d="M2 3h5l4 5H6L2 3z" fill="#080808"/>
+        <path d="M7 8l2 5h5L9 3" fill="#080808" opacity="0.5"/>
+      </svg>
     </div>
-  </section>
+    NG Development
+  </a>
+  <p class="footer-copy">© 2025 NG Development. All rights reserved.</p>
+  <ul class="footer-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#projects">Work</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="https://ngdev.org" target="_blank">ngdev.org</a></li>
+  </ul>
+</footer>
 
-  <!-- ═══ SERVICES ═══ -->
-  <section class="section" id="services">
-    <div class="section-header fade-in">
-      <p class="eyebrow">What We Build</p>
-      <h2>Solutions, not just software.</h2>
-      <p class="section-sub">
-        Every project starts with a business problem — not a tech stack.
-        Here's how we help.
-      </p>
-    </div>
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12 });
 
-    <div class="services-grid">
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-      <div class="service-card fade-in">
-        <div class="svc-num">01</div>
-        <h3>Custom Web Applications</h3>
-        <p>
-          Still managing things in spreadsheets? We build web applications
-          tailored to your exact workflow — so your team stops doing manually
-          what a system should handle automatically.
-        </p>
-        <ul class="svc-list">
-          <li>Internal tools &amp; admin panels</li>
-          <li>Client portals &amp; dashboards</li>
-          <li>E-commerce &amp; order systems</li>
-          <li>Multi-user role management</li>
-        </ul>
-      </div>
-
-      <div class="service-card fade-in">
-        <div class="svc-num">02</div>
-        <h3>Mobile Applications</h3>
-        <p>
-          Reach your customers or empower your field teams with a mobile app
-          that works seamlessly on both iOS and Android — without paying for
-          two separate builds.
-        </p>
-        <ul class="svc-list">
-          <li>Cross-platform (Flutter)</li>
-          <li>App Store &amp; Play Store publishing</li>
-          <li>Offline-capable apps</li>
-          <li>Push notifications &amp; real-time sync</li>
-        </ul>
-      </div>
-
-      <div class="service-card fade-in">
-        <div class="svc-num">03</div>
-        <h3>Backend Systems &amp; APIs</h3>
-        <p>
-          Need your tools to talk to each other? We build the backend infrastructure
-          that connects your systems, automates your data flow, and keeps everything
-          running reliably — even under load.
-        </p>
-        <ul class="svc-list">
-          <li>RESTful APIs (Laravel)</li>
-          <li>Third-party integrations</li>
-          <li>Authentication &amp; security</li>
-          <li>Database design &amp; optimisation</li>
-        </ul>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ═══ CASE STUDIES ═══ -->
-  <section class="section" id="work">
-    <div class="section-header fade-in">
-      <p class="eyebrow">Our Work</p>
-      <h2>Projects that solved real problems.</h2>
-      <p class="section-sub">
-        A look at two products we built — the challenge, what we shipped, and the outcome.
-      </p>
-    </div>
-
-    <div class="cases-grid">
-
-      <!-- Case 1 -->
-      <div class="case-card fade-in">
-        <div class="case-image">
-          <img src="assets/NGMedIcon.png" alt="NGMed E-Commerce Platform" />
-          <span class="case-tag">Web Application</span>
-        </div>
-        <div class="case-body">
-          <h3>NGMed — Medical E-Commerce Platform</h3>
-          <div class="case-blocks">
-            <div class="case-block">
-              <span class="block-label problem">Problem</span>
-              <p>Managing product listings, orders, and vendor stock across multiple suppliers was being done manually in spreadsheets, leading to errors and slow fulfilment.</p>
-            </div>
-            <div class="case-block">
-              <span class="block-label solution">Solution</span>
-              <p>We built a full e-commerce system with inventory tracking, order management, and a vendor dashboard — all under one platform.</p>
-            </div>
-            <div class="case-block">
-              <span class="block-label result">Result</span>
-              <p>Order processing time cut significantly. Staff now manage the full product catalogue and order pipeline without touching a spreadsheet.</p>
-            </div>
-          </div>
-          <div class="case-tech">
-            <span>PHP / Laravel</span>
-            <span>JavaScript</span>
-            <span>MySQL</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Case 2 -->
-      <div class="case-card fade-in">
-        <div class="case-image">
-          <img src="assets/icon3.png" alt="Guess My Grade App" />
-          <span class="case-tag">Mobile App</span>
-        </div>
-        <div class="case-body">
-          <h3>Guess My Grade — Student Performance App</h3>
-          <div class="case-blocks">
-            <div class="case-block">
-              <span class="block-label problem">Problem</span>
-              <p>University students had no reliable way to track module grades, estimate final averages, or plan which subjects to focus on — especially under the complex LMD grading system.</p>
-            </div>
-            <div class="case-block">
-              <span class="block-label solution">Solution</span>
-              <p>We built a cross-platform mobile app with grade entry, GPA calculation, and academic planning — published on both Android and iOS.</p>
-            </div>
-            <div class="case-block">
-              <span class="block-label result">Result</span>
-              <p>Adopted by students across multiple universities. Consistent 4+ star rating with strong organic word-of-mouth growth among LMD and engineering cohorts.</p>
-            </div>
-          </div>
-          <div class="case-tech">
-            <span>Flutter</span>
-            <span>Firebase</span>
-            <span>Laravel</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ═══ PROCESS ═══ -->
-  <section class="section section-alt" id="process">
-    <div class="section-header fade-in">
-      <p class="eyebrow">How We Work</p>
-      <h2>Simple. Transparent. Reliable.</h2>
-      <p class="section-sub">
-        No endless back-and-forth. No mystery invoices. Here's exactly what working
-        with us looks like — from first call to live system.
-      </p>
-    </div>
-
-    <div class="process-grid fade-in">
-
-      <div class="process-step">
-        <div class="step-num">1</div>
-        <div class="step-body">
-          <h4>Discovery Call</h4>
-          <p>We spend 30–60 minutes learning your business, your bottlenecks, and what a successful outcome looks like. No pitch, just listening.</p>
-        </div>
-      </div>
-
-      <div class="process-connector"></div>
-
-      <div class="process-step">
-        <div class="step-num">2</div>
-        <div class="step-body">
-          <h4>Scope &amp; Proposal</h4>
-          <p>We document exactly what we'll build, set a realistic timeline, and agree on a fixed price — before a single line of code is written.</p>
-        </div>
-      </div>
-
-      <div class="process-connector"></div>
-
-      <div class="process-step">
-        <div class="step-num">3</div>
-        <div class="step-body">
-          <h4>Build &amp; Review</h4>
-          <p>We work in short cycles and share progress regularly. You always know what's been built and what's coming next — no black boxes.</p>
-        </div>
-      </div>
-
-      <div class="process-connector"></div>
-
-      <div class="process-step">
-        <div class="step-num">4</div>
-        <div class="step-body">
-          <h4>Launch &amp; Handover</h4>
-          <p>We deploy, handle the technical setup, and make sure your team knows how to use what we built. We stay available after launch.</p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ═══ CONTACT ═══ -->
-  <section class="section" id="contact">
-    <div class="section-header fade-in">
-      <p class="eyebrow">Get in Touch</p>
-      <h2>Let's talk about your project.</h2>
-      <p class="section-sub">
-        Tell us what you're trying to solve. We'll respond within 24 hours.
-      </p>
-    </div>
-
-    <div class="contact-layout fade-in">
-
-      <!-- Form -->
-      <div class="contact-form-wrap">
-        <form id="contact-form" novalidate>
-          <div class="field-row">
-            <div class="field-group">
-              <label for="name">Your Name</label>
-              <input type="text"   id="name"    name="name"    placeholder="Karim Benali" required />
-              <span class="err" id="err-name"></span>
-            </div>
-            <div class="field-group">
-              <label for="email">Email Address</label>
-              <input type="email" id="email"   name="email"   placeholder="karim@company.com" required />
-              <span class="err" id="err-email"></span>
-            </div>
-          </div>
-          <div class="field-group">
-            <label for="message">What are you trying to build?</label>
-            <textarea id="message" name="message" rows="5"
-              placeholder="Briefly describe the problem you want to solve or what you'd like to automate..."
-              required></textarea>
-            <span class="err" id="err-msg"></span>
-          </div>
-          <button type="submit" class="btn btn-primary btn-full">
-            Send Message →
-          </button>
-          <p class="form-note">We typically reply within one business day.</p>
-          <p class="form-success" id="form-success" style="display:none">
-            ✓ Message sent — we'll be in touch soon.
-          </p>
-        </form>
-      </div>
-
-      <!-- Sidebar -->
-      <div class="contact-sidebar">
-        <div class="sidebar-card">
-          <div class="sidebar-icon">📧</div>
-          <p class="sidebar-label">Email</p>
-          <a href="mailto:business@ngdev.org">business@ngdev.org</a>
-        </div>
-        <div class="sidebar-card">
-          <div class="sidebar-icon">
-            <img src="assets/facebook.png" alt="Facebook" width="28" height="28" />
-          </div>
-          <p class="sidebar-label">Facebook</p>
-          <a href="https://facebook.com/profile.php?id=61575545468520" target="_blank" rel="noopener">
-            Visit our page →
-          </a>
-        </div>
-        <div class="sidebar-card">
-          <div class="sidebar-icon">
-            <img src="assets/instagram.jpg" alt="Instagram" width="28" height="28" style="border-radius:6px" />
-          </div>
-          <p class="sidebar-label">Instagram</p>
-          <a href="https://instagram.com/ngdevelopment1/" target="_blank" rel="noopener">
-            @ngdevelopment1 →
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ═══ FOOTER ═══ -->
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-logo">
-        <div class="logo-icon">
-          <img src="assets/ngdev_logo.png" alt="NG Development" width="20" height="20" />
-        </div>
-        <span>NG Development</span>
-      </div>
-      <p class="footer-copy">
-        © 2025 NG Development. Custom software for growing businesses.
-      </p>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
-  <script>
-    // Contact form submission
-    const form = document.getElementById('contact-form');
-    if (form) {
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const name    = document.getElementById('name');
-        const email   = document.getElementById('email');
-        const message = document.getElementById('message');
-        let ok = true;
-
-        [document.getElementById('err-name'),
-         document.getElementById('err-email'),
-         document.getElementById('err-msg')].forEach(el => el.textContent = '');
-
-        if (!name.value.trim()) {
-          document.getElementById('err-name').textContent = 'Name is required.'; ok = false;
-        }
-        const emailRx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRx.test(email.value.trim())) {
-          document.getElementById('err-email').textContent = 'Enter a valid email.'; ok = false;
-        }
-        if (message.value.trim().length < 20) {
-          document.getElementById('err-msg').textContent = 'Please write at least 20 characters.'; ok = false;
-        }
-        if (!ok) return;
-
-        const btn = form.querySelector('button[type=submit]');
-        btn.textContent = 'Sending…';
-        btn.disabled = true;
-
-        try {
-          const res = await fetch('/send-email', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              name: name.value.trim(),
-              email: email.value.trim(),
-              message: message.value.trim()
-            })
-          });
-          const data = await res.json();
-          if (data.ok) {
-            form.reset();
-            document.getElementById('form-success').style.display = 'block';
-          } else {
-            btn.textContent = 'Try again';
-          }
-        } catch {
-          btn.textContent = 'Try again';
-        } finally {
-          btn.disabled = false;
-          if (btn.textContent === 'Sending…') btn.textContent = 'Send Message →';
-        }
-      });
+  // Nav scroll effect
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
+      nav.style.borderBottomColor = 'rgba(255,255,255,0.06)';
+    } else {
+      nav.style.borderBottomColor = 'rgba(255,255,255,0.08)';
     }
-  </script>
+  });
+
+  // Smooth form submit feedback
+  const submitBtn = document.querySelector('.form-submit');
+  submitBtn.addEventListener('click', function() {
+    const fields = document.querySelectorAll('.contact-form input, .contact-form select, .contact-form textarea');
+    let filled = true;
+    fields.forEach(f => { if(!f.value) filled = false; });
+    if (!filled) {
+      submitBtn.textContent = 'Please fill in all fields';
+      submitBtn.style.background = 'rgba(200,245,61,0.6)';
+      setTimeout(() => {
+        submitBtn.innerHTML = 'Send message <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+        submitBtn.style.background = '';
+      }, 2000);
+      return;
+    }
+    submitBtn.textContent = '✓ Message sent — we\'ll be in touch shortly';
+    submitBtn.style.background = 'rgba(200,245,61,0.7)';
+    submitBtn.disabled = true;
+  });
+</script>
 </body>
 </html>
