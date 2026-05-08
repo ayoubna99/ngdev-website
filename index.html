@@ -570,6 +570,120 @@
     border-radius: 4px;
   }
 
+  .tag-soon {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #f0a04b;
+    background: rgba(240,160,75,0.1);
+    border: 1px solid rgba(240,160,75,0.25);
+    padding: 4px 10px;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .tag-soon::before {
+    content: '';
+    display: block;
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: #f0a04b;
+    animation: pulse-dot 1.8s ease-in-out infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.7); }
+  }
+
+  .case-card.wip {
+    position: relative;
+  }
+
+  .case-card.wip::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(240,160,75,0.1);
+    border-radius: 0;
+    pointer-events: none;
+  }
+
+  .wip .case-img img { opacity: 0.45; filter: saturate(0.7); }
+  .wip:hover .case-img img { opacity: 0.65; filter: saturate(0.9); }
+
+  .case-wip-banner {
+    margin-top: 28px;
+    padding: 18px 20px;
+    background: rgba(240,160,75,0.07);
+    border: 1px solid rgba(240,160,75,0.18);
+    border-radius: 8px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .case-wip-banner-icon {
+    width: 32px; height: 32px;
+    border-radius: 6px;
+    background: rgba(240,160,75,0.12);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .case-wip-banner-icon svg {
+    width: 15px; height: 15px;
+    stroke: #f0a04b;
+    fill: none;
+    stroke-width: 1.5;
+  }
+
+  .case-wip-banner-text {
+    font-size: 13px;
+    line-height: 1.6;
+    color: rgba(240,160,75,0.85);
+    font-weight: 300;
+  }
+
+  .case-wip-banner-text strong {
+    display: block;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    color: #f0a04b;
+  }
+
+  .case-features {
+    margin-top: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .feature-pill {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--text-muted);
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    padding: 4px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.02em;
+  }
+
+  .wip .feature-pill {
+    background: rgba(240,160,75,0.04);
+    border-color: rgba(240,160,75,0.12);
+    color: rgba(240,160,75,0.7);
+  }
+
   .case-title {
     font-family: var(--font-display);
     font-weight: 700;
@@ -1294,6 +1408,50 @@
         <div class="case-result">
           <p class="case-result-label">→ Result</p>
           <p class="case-result-text">Published on Google Play Store with positive user feedback. Students report using it before every exam session to understand exactly what they need to achieve — turning anxiety into actionable information.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Case 4: ngmed -->
+    <div class="case-card wip fade-up">
+      <div class="case-img">
+        <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=900&q=80&auto=format" alt="Medical equipment e-commerce platform">
+        <div class="case-img-overlay"></div>
+      </div>
+      <div class="case-content">
+        <div class="case-tags">
+          <span class="tag">E-Commerce</span>
+          <span class="tag">Healthcare</span>
+          <span class="tag">B2B Platform</span>
+          <span class="tag-soon">In Development</span>
+        </div>
+        <h3 class="case-title">ngmed — B2B Medical Equipment Commerce Platform</h3>
+        <div class="case-row">
+          <div>
+            <p class="case-block-label">Problem</p>
+            <p class="case-block-text">Hospitals and clinics procuring medical equipment had no dedicated digital channel — purchases happened through phone calls, paper catalogues, and manual invoicing that introduced errors, delays, and zero visibility into order status.</p>
+          </div>
+          <div>
+            <p class="case-block-label">Solution</p>
+            <p class="case-block-text">A full B2B e-commerce platform purpose-built for the medical supply chain — covering product catalogue management, order processing, and automated invoice generation with tax calculation, all in one coherent system tailored for institutional buyers.</p>
+          </div>
+        </div>
+        <div class="case-features">
+          <span class="feature-pill">Product catalogue & inventory</span>
+          <span class="feature-pill">Order management</span>
+          <span class="feature-pill">Tax-aware invoicing</span>
+          <span class="feature-pill">Client accounts & pricing tiers</span>
+          <span class="feature-pill">PDF invoice generation</span>
+          <span class="feature-pill">Order history & tracking</span>
+        </div>
+        <div class="case-wip-banner">
+          <div class="case-wip-banner-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div class="case-wip-banner-text">
+            <strong>Currently in development</strong>
+            Full platform built, pre-deployment phase. Targets hospitals, clinics, and medical procurement teams — replacing manual ordering workflows with a structured, auditable digital process.
+          </div>
         </div>
       </div>
     </div>
