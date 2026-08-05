@@ -37,7 +37,6 @@
     overflow-x: hidden;
   }
 
-  /* Noise overlay */
   body::before {
     content: '';
     position: fixed;
@@ -48,7 +47,6 @@
     z-index: 9999;
   }
 
-  /* ─── NAV ─── */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -119,7 +117,6 @@
 
   .nav-cta:hover { opacity: 0.88; }
 
-  /* ─── HERO ─── */
   #hero {
     min-height: 100vh;
     padding-top: 72px;
@@ -304,7 +301,6 @@
     100% { left: 100%; }
   }
 
-  /* ─── SECTION BASE ─── */
   section { padding: 120px 80px; }
 
   .section-label {
@@ -339,7 +335,6 @@
     color: var(--text-dim);
   }
 
-  /* ─── MARQUEE / TICKER ─── */
   .marquee-wrap {
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
@@ -379,7 +374,6 @@
     100% { transform: translateX(-50%); }
   }
 
-  /* ─── SERVICES ─── */
   #services { background: var(--bg); }
 
   .services-header {
@@ -482,7 +476,6 @@
     font-weight: 300;
   }
 
-  /* ─── PROJECTS ─── */
   #projects { background: var(--bg-2); padding: 120px 80px; }
 
   .projects-header {
@@ -741,7 +734,6 @@
     font-weight: 300;
   }
 
-  /* ─── ABOUT ─── */
   #about {
     background: var(--bg);
     display: grid;
@@ -835,7 +827,6 @@
     font-weight: 300;
   }
 
-  /* ─── PROCESS ─── */
   #process { background: var(--bg-2); }
 
   .process-header {
@@ -930,7 +921,6 @@
     display: none;
   }
 
-  /* ─── CONTACT ─── */
   #contact { background: var(--bg); }
 
   .contact-inner {
@@ -1077,8 +1067,18 @@
   }
 
   .form-submit:hover { opacity: 0.88; transform: translateY(-1px); }
+  .form-submit:disabled { cursor: not-allowed; opacity: 0.6; transform: none; }
 
-  /* ─── FOOTER ─── */
+  .form-status {
+    margin-top: 14px;
+    font-size: 13px;
+    line-height: 1.5;
+    display: none;
+  }
+  .form-status.show { display: block; }
+  .form-status.ok { color: var(--accent); }
+  .form-status.err { color: #f0a04b; }
+
   footer {
     background: var(--bg);
     border-top: 1px solid var(--border);
@@ -1120,7 +1120,6 @@
 
   .footer-links a:hover { color: var(--text); }
 
-  /* ─── ANIMATIONS ─── */
   .fade-up {
     opacity: 0;
     transform: translateY(24px);
@@ -1136,7 +1135,6 @@
   .fade-up:nth-child(3) { transition-delay: 0.2s; }
   .fade-up:nth-child(4) { transition-delay: 0.3s; }
 
-  /* ─── MOBILE ─── */
   @media (max-width: 1024px) {
     nav { padding: 0 24px; }
     .nav-links { display: none; }
@@ -1444,13 +1442,13 @@
           <span class="feature-pill">PDF invoice generation</span>
           <span class="feature-pill">Order history & tracking</span>
         </div>
-       
-         
+
+
           <div class="case-result">
             <p class="case-result-label">→ Result</p>
             Full platform built, pre-deployment phase. Targets hospitals, clinics, and medical procurement teams — replacing manual ordering workflows with a structured, auditable digital process.
           </div>
-        
+
       </div>
     </div>
 
@@ -1562,28 +1560,28 @@
         </div>
       </div>
     </div>
-    <div class="contact-form">
+    <form class="contact-form" id="contact-form" novalidate>
       <div class="form-row">
         <div class="form-field">
-          <label>First name</label>
-          <input type="text" placeholder="Alex">
+          <label for="firstName">First name</label>
+          <input type="text" id="firstName" name="firstName" placeholder="Alex" required>
         </div>
         <div class="form-field">
-          <label>Last name</label>
-          <input type="text" placeholder="Johnson">
+          <label for="lastName">Last name</label>
+          <input type="text" id="lastName" name="lastName" placeholder="Johnson" required>
         </div>
       </div>
       <div class="form-field">
-        <label>Email address</label>
-        <input type="email" placeholder="alex@company.com">
+        <label for="email">Email address</label>
+        <input type="email" id="email" name="email" placeholder="alex@company.com" required>
       </div>
       <div class="form-field">
-        <label>Company</label>
-        <input type="text" placeholder="Your company name">
+        <label for="company">Company</label>
+        <input type="text" id="company" name="company" placeholder="Your company name">
       </div>
       <div class="form-field">
-        <label>What are you looking for?</label>
-        <select>
+        <label for="service">What are you looking for?</label>
+        <select id="service" name="service" required>
           <option value="" disabled selected>Select a service</option>
           <option>Web Application Development</option>
           <option>Mobile App Development</option>
@@ -1594,14 +1592,15 @@
         </select>
       </div>
       <div class="form-field">
-        <label>Tell us about your project</label>
-        <textarea placeholder="Briefly describe what you're building, the problem you're solving, and your timeline if you have one."></textarea>
+        <label for="message">Tell us about your project</label>
+        <textarea id="message" name="message" placeholder="Briefly describe what you're building, the problem you're solving, and your timeline if you have one." required></textarea>
       </div>
-      <button class="form-submit" type="button">
-        Send message
+      <button class="form-submit" type="submit">
+        <span class="form-submit-label">Send message</span>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </button>
-    </div>
+      <div class="form-status" id="form-status"></div>
+    </form>
   </div>
 </section>
 
@@ -1647,25 +1646,76 @@
     }
   });
 
-  // Smooth form submit feedback
-  const submitBtn = document.querySelector('.form-submit');
-  submitBtn.addEventListener('click', function() {
-    const fields = document.querySelectorAll('.contact-form input, .contact-form select, .contact-form textarea');
-    let filled = true;
-    fields.forEach(f => { if(!f.value) filled = false; });
-    if (!filled) {
-      submitBtn.textContent = 'Please fill in all fields';
-      submitBtn.style.background = 'rgba(200,245,61,0.6)';
-      setTimeout(() => {
-        submitBtn.innerHTML = 'Send message <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
-        submitBtn.style.background = '';
-      }, 2000);
-      return;
+  // Contact form -> real backend submission (POST /send-email)
+  const contactForm = document.getElementById('contact-form');
+  const statusEl = document.getElementById('form-status');
+
+  if (contactForm) {
+    const submitBtn = contactForm.querySelector('.form-submit');
+    const submitLabel = submitBtn.querySelector('.form-submit-label');
+    const defaultLabel = submitLabel.textContent;
+
+    function setStatus(message, type) {
+      statusEl.textContent = message;
+      statusEl.className = 'form-status show ' + type;
     }
-    submitBtn.textContent = '✓ Message sent — we\'ll be in touch shortly';
-    submitBtn.style.background = 'rgba(200,245,61,0.7)';
-    submitBtn.disabled = true;
-  });
+
+    contactForm.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      if (!contactForm.checkValidity()) {
+        contactForm.reportValidity();
+        return;
+      }
+
+      const firstName = document.getElementById('firstName').value.trim();
+      const lastName = document.getElementById('lastName').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const company = document.getElementById('company').value.trim();
+      const service = document.getElementById('service').value;
+      const message = document.getElementById('message').value.trim();
+
+      const fullName = `${firstName} ${lastName}`.trim();
+      const fullMessage =
+        (company ? `Company: ${company}\n` : '') +
+        (service ? `Interested in: ${service}\n\n` : '\n') +
+        message;
+
+      submitBtn.disabled = true;
+      submitLabel.textContent = 'Sending...';
+      statusEl.className = 'form-status';
+
+      try {
+        const res = await fetch('/send-email', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: fullName,
+            email: email,
+            message: fullMessage,
+          }),
+        });
+
+        let data = {};
+        try { data = await res.json(); } catch (_) {}
+
+        if (res.ok && data.ok) {
+          submitLabel.textContent = '✓ Message sent';
+          setStatus("Thanks — we'll be in touch shortly.", 'ok');
+          contactForm.reset();
+        } else {
+          submitLabel.textContent = 'Send message';
+          submitBtn.disabled = false;
+          setStatus(data.error || 'Something went wrong. Please try again or email us directly.', 'err');
+        }
+      } catch (err) {
+        console.error('Contact form error:', err);
+        submitLabel.textContent = 'Send message';
+        submitBtn.disabled = false;
+        setStatus('Network error — please try again or email business@ngdev.org directly.', 'err');
+      }
+    });
+  }
 </script>
 </body>
 </html>
