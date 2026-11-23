@@ -567,8 +567,9 @@
   .founder { display: flex; flex-direction: column; border-radius: 22px; padding: 32px; background: linear-gradient(160deg, rgba(200,245,61,0.12), rgba(238,240,234,0.03) 55%); border: 1px solid rgba(238,240,234,0.12); }
   .founder .k { margin-top: 22px; margin-bottom: 10px; }
   .f-head { display: flex; align-items: center; gap: 18px; }
-  .f-mono { width: 64px; height: 64px; flex-shrink: 0; border-radius: 18px; display: grid; place-items: center; background: var(--lime); color: var(--ink); font-family: var(--mono); font-size: 22px; font-weight: 700; letter-spacing: -0.04em; transform: rotate(-4deg); transition: transform .6s var(--ease); }
+  .f-mono { width: 84px; height: 84px; flex-shrink: 0; border-radius: 20px; overflow: hidden; box-shadow: 0 0 0 3px var(--night), 0 0 0 4.5px var(--lime); display: grid; place-items: center; background: var(--lime); color: var(--ink); font-family: var(--mono); font-size: 22px; font-weight: 700; letter-spacing: -0.04em; transform: rotate(-4deg); transition: transform .6s var(--ease); }
   .founder:hover .f-mono { transform: rotate(0); }
+  .f-mono img { width: 100%; height: 100%; object-fit: cover; }
   .f-name { font-size: clamp(22px, 2vw, 28px); font-weight: 700; font-stretch: 108%; letter-spacing: -0.025em; line-height: 1.15; }
   .f-role { font-family: var(--mono); font-size: 12.5px; color: var(--lime); margin-top: 6px; }
   .f-bio { font-size: 15.5px; line-height: 1.7; color: rgba(238,240,234,0.72); margin-top: 22px; max-width: 52ch; }
@@ -892,7 +893,7 @@
     <div class="founders">
       <article class="founder" data-reveal="up">
         <div class="f-head">
-          <span class="f-mono" aria-hidden="true">NA</span>
+          <span class="f-mono"><img src="assets/team/nadjem-ayoub.jpg" alt="Nadjem Ayoub" width="480" height="480" loading="lazy"></span>
           <div>
             <p class="f-name">Nadjem Ayoub</p>
             <p class="f-role">Co-founder · Software &amp; product</p>
@@ -909,7 +910,7 @@
       </article>
       <article class="founder" data-reveal="up">
         <div class="f-head">
-          <span class="f-mono" aria-hidden="true">MO</span>
+          <span class="f-mono"><img src="assets/team/mekhlef-oussama.jpg" alt="Mekhlef Mohamed Oussama" width="320" height="320" loading="lazy"></span>
           <div>
             <p class="f-name">Mekhlef Mohamed Oussama</p>
             <p class="f-role">Co-founder · IT infrastructure &amp; security</p>
