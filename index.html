@@ -4,8 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NG Development — Software &amp; IT Services for Modern Businesses</title>
-<meta name="description" content="NG Development builds web, mobile and backend software, and with our IT partner installs, secures and supports the infrastructure it runs on: servers, backups, cybersecurity and IT support.">
+<meta name="description" content="NG Development builds web, mobile and backend software, and installs, secures and supports the infrastructure it runs on: servers, backups, cybersecurity and IT support.">
 <meta name="theme-color" content="#f6f8f3">
+<link rel="alternate" hreflang="en" href="https://ngdev.org/">
+<link rel="alternate" hreflang="fr" href="https://ngdev.org/fr/">
+<link rel="alternate" hreflang="x-default" href="https://ngdev.org/">
 <script>
   (function () {
     var d = document.documentElement;
@@ -141,6 +144,9 @@
   .nav-links a.is-active { color: var(--ink); }
 
   .nav-right { display: flex; align-items: center; gap: 8px; }
+  .lang-switch { display: grid; place-items: center; height: 44px; min-width: 44px; padding: 0 10px; border-radius: 12px; border: 1px solid var(--line-2); background: var(--card); font-family: var(--mono); font-size: 13px; font-weight: 500; transition: background-color .2s, border-color .2s; }
+  .lang-switch:hover { background: var(--lime); border-color: var(--lime); }
+  .mobile-menu a.lang-m { font-size: clamp(20px, 5.5vw, 28px); color: var(--muted); margin-top: 16px; --i: 6; }
 
   .burger { display: none; width: 44px; height: 44px; border-radius: 12px; border: 1px solid var(--line-2); background: var(--card); cursor: pointer; position: relative; }
   .burger span { position: absolute; left: 13px; right: 13px; height: 1.5px; background: var(--ink); transition: transform .4s var(--ease), top .4s var(--ease); }
@@ -710,6 +716,7 @@
     <li><a href="#process">process</a></li>
   </ul>
   <div class="nav-right">
+    <a class="lang-switch" href="/fr/" hreflang="fr" lang="fr" aria-label="Version française">FR</a>
     <a href="#contact" class="btn btn-primary btn-sm nav-cta" data-roll>Get in touch</a>
     <button class="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
   </div>
@@ -722,6 +729,7 @@
   <a href="#projects" style="--i:3">work<span>/</span></a>
   <a href="#about" style="--i:4">about<span>/</span></a>
   <a href="#contact" style="--i:5">get-in-touch<span>/</span></a>
+  <a class="lang-m" href="/fr/" hreflang="fr" lang="fr">français<span>/</span></a>
 </div>
 
 <!-- HERO -->
