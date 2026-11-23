@@ -154,7 +154,7 @@ TEXT = {
     'SaaS fleet management platform': 'Plateforme SaaS de gestion de flotte',
     # work
     'selected-work/': 'réalisations/', 'Case studies': 'Études de cas', 'Start a project': 'Lancer un projet',
-    'DNS security dashboard': 'Tableau de bord de sécurité DNS', 'Security': 'Sécurité',
+    'Protectiny web dashboard showing blocked DNS requests': 'Tableau de bord web Protectiny, requêtes DNS bloquées', 'Security': 'Sécurité',
     'Protectiny — DNS Filtering SaaS Platform': 'Protectiny — Plateforme SaaS de filtrage DNS',
     'problem/': 'problème/', 'solution/': 'solution/', 'result/': 'résultat/',
     'Businesses lacked an accessible, locally-adapted solution for DNS-level network security. Existing tools were either too complex for small teams or priced for enterprise budgets.':

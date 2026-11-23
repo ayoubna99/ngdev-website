@@ -593,6 +593,9 @@
   .shot figcaption b { font-size: 14px; font-weight: 600; line-height: 1.3; }
   .shot figcaption span { font-family: var(--mono); font-size: 11.5px; color: var(--lime); }
   /* ───────── CASE EXTRAS ───────── */
+  .pt-media { background: radial-gradient(120% 90% at 50% 50%, #0f2236 0%, #0a1e2c 55%, #05121f 100%); }
+  .pt-media img { left: 4%; width: 92%; object-fit: contain; filter: none; }
+  .pt-media .case-file { background: rgba(5,18,31,0.75); color: var(--night-text); border-color: rgba(238,240,234,0.15); }
   .case-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
   .tag-private { display: inline-flex; align-items: center; gap: 7px; font-family: var(--mono); font-size: 12px; color: var(--lime); background: var(--ink); padding: 4px 11px; border-radius: 999px; }
   .tag-private::before { content: ''; width: 8px; height: 7px; border-radius: 2px; background: var(--lime); box-shadow: 0 -3px 0 -1px var(--ink), 0 -4px 0 0 var(--lime); }
@@ -977,8 +980,8 @@
       <!-- Protectiny -->
       <article class="case">
         <div class="case-card">
-          <div class="case-media">
-            <div class="cm-in"><img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&q=80&auto=format" alt="Tableau de bord de sécurité DNS" loading="lazy"></div>
+          <div class="case-media pt-media">
+            <div class="cm-in"><img src="../assets/projects/protectiny-dashboard.webp" alt="Tableau de bord web Protectiny, requêtes DNS bloquées" width="1157" height="826" loading="lazy"></div>
             <span class="case-file">protectiny/dns-filtering</span>
           </div>
           <div class="case-body">
