@@ -556,7 +556,7 @@
   .partner .btn-ghost:hover { border-color: var(--night-text); background: rgba(238,240,234,0.06); }
   .p-block { border-radius: 18px; padding: 22px 24px; background: rgba(238,240,234,0.04); border: 1px solid rgba(238,240,234,0.1); }
   .p-quote { font-size: clamp(17px, 1.5vw, 20px); line-height: 1.5; letter-spacing: -0.01em; color: var(--night-text); }
-  .certs { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .certs { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
   .certs li { display: flex; flex-direction: column; gap: 4px; padding: 14px; border-radius: 12px; background: rgba(238,240,234,0.05); border-left: 2px solid var(--lime); }
   .certs b { font-size: 14px; font-weight: 600; line-height: 1.3; }
   .certs span { font-size: 12px; color: rgba(238,240,234,0.55); }
@@ -593,6 +593,10 @@
   .shot figcaption b { font-size: 14px; font-weight: 600; line-height: 1.3; }
   .shot figcaption span { font-family: var(--mono); font-size: 11.5px; color: var(--lime); }
   /* ───────── CASE EXTRAS ───────── */
+  .case-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 24px; }
+  .case-stats div { display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; border-radius: 14px; background: var(--bg); border: 1px solid var(--line); }
+  .case-stats dd { order: 1; font-family: var(--mono); font-size: clamp(24px, 2.2vw, 32px); font-weight: 500; letter-spacing: -0.03em; line-height: 1.05; color: var(--green); }
+  .case-stats dt { order: 2; font-size: 12.5px; line-height: 1.4; color: var(--muted); }
   .pt-media { background: radial-gradient(120% 90% at 50% 50%, #0f2236 0%, #0a1e2c 55%, #05121f 100%); }
   .pt-media img { left: 4%; width: 92%; object-fit: contain; filter: none; }
   .pt-media .case-file { background: rgba(5,18,31,0.75); color: var(--night-text); border-color: rgba(238,240,234,0.15); }
@@ -909,20 +913,19 @@
             <p class="f-role">Co-fondateur · Ingénierie logicielle &amp; sécurité</p>
           </div>
         </div>
-        <p class="f-bio">Ingénieur logiciel autodidacte, il codait bien avant l'université. Il dirige le développement et des équipes de 2 à 5 personnes sur nos produits, et s'est spécialisé dans les agents IA autonomes et la sécurité applicative &amp; réseau : Recon-AI, Life, NAQLI, SkyShift et la plateforme Protectiny.</p>
+        <p class="f-bio">Ingénieur logiciel autodidacte, il codait bien avant l'université. Il dirige le développement de chaque produit, avec des équipes allant jusqu'à cinq ingénieurs, et s'est spécialisé dans les agents IA autonomes et la sécurité applicative &amp; réseau : Recon-AI, Life, NAQLI, SkyShift et la plateforme Protectiny.</p>
         <dl class="p-stats">
-          <div><dt>Ingénieurs par équipe dirigée</dt><dd>2–5</dd></div>
-          <div><dt>Modules de détection Recon-AI</dt><dd>20+</dd></div>
-          <div><dt>Tests automatisés dans Life</dt><dd>402</dd></div>
+          <div><dt>Fondation de NG Development</dt><dd>2022</dd></div>
+          <div><dt>Produits mis en production</dt><dd>12+</dd></div>
+          <div><dt>Ingénieurs dirigés sur un même projet</dt><dd>5</dd></div>
         </dl>
-        <p class="k">parcours/</p>
+        <p class="k">certifications/</p>
         <ul class="certs">
           <li><b>Google Cybersecurity</b><span>Certificat professionnel</span></li>
-          <li><b>Licence en informatique</b><span>Université de Ghardaïa · 2026</span></li>
-          <li><b>Hackathons</b><span>NASA Space Apps 2026 (chef d'équipe) · Meta Global AI</span></li>
+          <li><b>NASA Space Apps Challenge</b><span>Certificat · 2026</span></li>
         </ul>
         <p class="k">outils/</p>
-        <div class="chips"><span>Laravel</span><span>PHP</span><span>Flutter</span><span>Kotlin</span><span>TypeScript</span><span>Python (async)</span><span>Playwright</span><span>PostgreSQL</span><span>MySQL</span><span>Supabase</span><span>Docker</span><span>GitHub Actions</span><span>Agents LLM</span><span>OWASP Top 10</span><span>DAST</span></div>
+        <div class="chips"><span>Python (async)</span><span>TypeScript</span><span>Agents LLM</span><span>Kotlin</span><span>Flutter</span><span>Docker</span><span>PostgreSQL</span><span>GitHub Actions</span><span>Supabase</span><span>Playwright</span><span>OWASP Top 10</span><span>DAST</span><span>Laravel</span><span>PHP</span><span>MySQL</span></div>
       </article>
       <article class="founder" data-reveal="up">
         <div class="f-head">
@@ -945,7 +948,7 @@
           <li><b>CompTIA A+</b><span>CompTIA</span></li>
         </ul>
         <p class="k">outils/</p>
-        <div class="chips"><span>Kaspersky</span><span>ESET</span><span>Sophos</span><span>Microsoft Defender</span><span>Intune</span><span>Microsoft 365</span><span>Exchange</span><span>SharePoint</span><span>Synology</span><span>QNAP</span><span>Hyper-V</span><span>VMware</span><span>Proxmox</span><span>Active Directory</span><span>Veeam</span></div>
+        <div class="chips"><span>Microsoft Defender</span><span>Intune</span><span>Microsoft 365</span><span>Proxmox</span><span>Veeam</span><span>Active Directory</span><span>Sophos</span><span>Kaspersky</span><span>ESET</span><span>SharePoint</span><span>Exchange</span><span>Hyper-V</span><span>VMware</span><span>Synology</span><span>QNAP</span></div>
       </article>
     </div>
     <div class="team-foot">
@@ -1157,6 +1160,11 @@
               <span class="feature">Sans compte</span>
               <span class="feature">EN, FR, AR, DE, ES</span>
             </div>
+            <dl class="case-stats">
+              <div><dd>402</dd><dt>Tests automatisés (backend, Flutter, Kotlin)</dt></div>
+              <div><dd>18</dd><dt>Outils dans l'agent de planification</dt></div>
+              <div><dd>1M</dd><dt>Tokens de contexte analysés chaque nuit</dt></div>
+            </dl>
             <div class="result">
               <p class="k">confidentialité/</p>
               <p class="v">L'utilisation des applications reste sur le téléphone. Seul le texte du programme du soir est envoyé au serveur, et il est supprimé juste après traitement. Life n'utilise pas le service d'accessibilité d'Android et ne lit jamais le contenu des autres applications.</p>
@@ -1243,6 +1251,11 @@
                 <p class="v">Un moteur de détection déterministe de plus de 20 modules (XSS, injection SQL, SSTI, contrôle d'accès défaillant, secrets exposés, TLS/DNS/e-mail) couplé à un agent IA qui adapte les charges à la cible, confirme les failles réelles et re-teste chaque résultat pour éliminer les faux positifs. Les résultats sont livrés sous forme de rapports clairs et priorisés.</p>
               </div>
             </div>
+            <dl class="case-stats">
+              <div><dd>20+</dd><dt>Modules de détection</dt></div>
+              <div><dd>110+</dd><dt>Tests automatisés</dt></div>
+              <div><dd>3</dd><dt>Verdicts par résultat : confirmé, faux positif, non concluant</dt></div>
+            </dl>
             <div class="result result-dark">
               <p class="k">pourquoi-privé/</p>
               <p class="v">Recon-AI est assez efficace pour que sa publication donne les mêmes capacités aux attaquants. Il reste donc privé, pour des raisons de sécurité : nous l'utilisons nous-mêmes, uniquement sur des sites dont les propriétaires ont autorisé le test, et les résultats ne sont communiqués qu'à eux.</p>

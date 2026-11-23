@@ -133,8 +133,8 @@ TEXT = {
     'Two co-founders, two complementary skill sets: one builds the software, the other runs and protects the infrastructure it lives on. Together they cover the whole stack.':
         "Deux co-fondateurs, deux expertises complémentaires : l'un développe les logiciels, l'autre exploite et protège l'infrastructure qui les héberge. Ensemble, ils couvrent toute la chaîne.",
     'Co-founder · Software engineering &amp; security': 'Co-fondateur · Ingénierie logicielle &amp; sécurité',
-    "Self-taught software engineer who was coding well before university. Leads engineering and teams of 2–5 people across our products, and specializes in autonomous AI agents and application &amp; network security: Recon-AI, Life, NAQLI, SkyShift and Protectiny's platform.":
-        "Ingénieur logiciel autodidacte, il codait bien avant l'université. Il dirige le développement et des équipes de 2 à 5 personnes sur nos produits, et s'est spécialisé dans les agents IA autonomes et la sécurité applicative &amp; réseau : Recon-AI, Life, NAQLI, SkyShift et la plateforme Protectiny.",
+    "Self-taught software engineer who was coding well before university. Leads engineering on every product, with teams of up to five engineers, and specializes in autonomous AI agents and application &amp; network security: Recon-AI, Life, NAQLI, SkyShift and Protectiny's platform.":
+        "Ingénieur logiciel autodidacte, il codait bien avant l'université. Il dirige le développement de chaque produit, avec des équipes allant jusqu'à cinq ingénieurs, et s'est spécialisé dans les agents IA autonomes et la sécurité applicative &amp; réseau : Recon-AI, Life, NAQLI, SkyShift et la plateforme Protectiny.",
     'Engineers per team led': 'Ingénieurs par équipe dirigée', 'Recon-AI detection modules': 'Modules de détection Recon-AI',
     'Automated tests in Life': 'Tests automatisés dans Life', 'highlights/': 'parcours/',
     'Professional Certificate': 'Certificat professionnel', 'BSc Computer Science': 'Licence en informatique',
@@ -311,3 +311,17 @@ JS = [
     ("'Network error. Please try again or email business@ngdev.org directly.'",
      "'Erreur réseau. Réessayez ou écrivez directement à business@ngdev.org.'"),
 ]
+
+TEXT.update({
+    'Founded NG Development': 'Fondation de NG Development',
+    'Products shipped to production': 'Produits mis en production',
+    'Engineers led on a single build': 'Ingénieurs dirigés sur un même projet',
+    'NASA Space Apps Challenge': 'NASA Space Apps Challenge',
+    'Certificate · 2026': 'Certificat · 2026',
+    'Detection modules': 'Modules de détection',
+    'Automated tests': 'Tests automatisés',
+    'Verdicts per finding: confirmed, false positive, inconclusive': 'Verdicts par résultat : confirmé, faux positif, non concluant',
+    'Automated tests (backend, Flutter, Kotlin)': 'Tests automatisés (backend, Flutter, Kotlin)',
+    'Tools in the planning agent': "Outils dans l'agent de planification",
+    'Token context read every night': 'Tokens de contexte analysés chaque nuit',
+})
