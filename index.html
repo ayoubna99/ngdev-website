@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NG Development — Software Solutions for Modern Businesses</title>
-<meta name="description" content="NG Development designs and develops high-quality digital products tailored to business needs, from concept to production. In development since 2020.">
+<title>NG Development — Software &amp; IT Services for Modern Businesses</title>
+<meta name="description" content="NG Development builds web, mobile and backend software, and with our IT partner installs, secures and supports the infrastructure it runs on: servers, backups, cybersecurity and IT support.">
 <meta name="theme-color" content="#f6f8f3">
 <script>
   (function () {
@@ -506,6 +506,104 @@
 
   .footer-end { display: flex; align-items: center; gap: 20px; }
 
+  /* ───────── SERVICE GROUPS ───────── */
+  .svc-group-head { display: flex; align-items: baseline; flex-wrap: wrap; gap: 8px 22px; margin: 0 0 22px; padding-top: 18px; border-top: 1px solid var(--line-2); }
+  .services-grid + .svc-group-head { margin-top: 72px; }
+  .svc-label { font-family: var(--mono); font-size: clamp(18px, 1.7vw, 22px); font-weight: 500; letter-spacing: -0.03em; }
+  .svc-label .slash { color: var(--green); }
+  .svc-group-head p { font-size: 15px; color: var(--muted); }
+  .svc-group-head a { color: var(--ink); border-bottom: 1px solid var(--lime-deep); }
+  .svc-group-head a:hover { color: var(--green); }
+  .it-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .it-card { min-height: 0; padding: 32px 30px 34px; }
+  .it-card .fn { padding-bottom: 28px; margin-bottom: 0; }
+  .it-card h3 { font-size: 21px; }
+  .it-card p { font-size: 14.5px; }
+  .it-list { list-style: none; margin-top: 20px; padding-top: 16px; border-top: 1px dashed var(--line-2); display: flex; flex-direction: column; gap: 7px; }
+  .it-list li { position: relative; padding-left: 18px; font-size: 13.5px; line-height: 1.5; color: var(--dim); }
+  .it-list li::before { content: ''; position: absolute; left: 0; top: .55em; width: 6px; height: 6px; background: var(--lime-deep); transform: rotate(45deg); }
+  /* ───────── PARTNER (dark band) ───────── */
+  .partner { position: relative; background: var(--night); color: var(--night-text); overflow: hidden; }
+  .partner::before {
+    content: ''; position: absolute; inset: 0; pointer-events: none; opacity: .5;
+    background-image: linear-gradient(rgba(238,240,234,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(238,240,234,0.06) 1px, transparent 1px);
+    background-size: 72px 72px;
+    -webkit-mask-image: radial-gradient(ellipse 60% 60% at 80% 20%, #000, transparent 75%);
+            mask-image: radial-gradient(ellipse 60% 60% at 80% 20%, #000, transparent 75%);
+  }
+  .partner .wrap { position: relative; }
+  .partner .slug .slash, .partner .scr { color: var(--lime); }
+  .partner .cursor { background: var(--lime); }
+  .partner .sec-title { color: rgba(238,240,234,0.78); }
+  .partner .lead { color: rgba(238,240,234,0.66); }
+  .partner .k { color: rgba(238,240,234,0.5); }
+  .partner-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 24px; align-items: start; }
+  .p-card { border-radius: 22px; padding: 30px; background: linear-gradient(160deg, rgba(200,245,61,0.14), rgba(238,240,234,0.03) 55%); border: 1px solid rgba(238,240,234,0.12); }
+  .p-top { display: flex; align-items: center; gap: 20px; }
+  .p-photo { width: 112px; height: 112px; flex-shrink: 0; border-radius: 22px; overflow: hidden; box-shadow: 0 0 0 3px var(--night), 0 0 0 4.5px var(--lime); transform: rotate(-3deg); transition: transform .6s var(--ease); }
+  .p-card:hover .p-photo { transform: rotate(0); }
+  .p-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .p-name { font-size: clamp(21px, 1.9vw, 26px); font-weight: 700; font-stretch: 108%; letter-spacing: -0.025em; line-height: 1.15; }
+  .p-role { font-size: 14px; color: rgba(238,240,234,0.66); margin-top: 6px; }
+  .p-badge { display: inline-block; margin-top: 12px; font-family: var(--mono); font-size: 11.5px; color: var(--ink); background: var(--lime); padding: 3px 10px; border-radius: 999px; }
+  .p-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 30px 0 26px; padding-top: 22px; border-top: 1px solid rgba(238,240,234,0.12); }
+  .p-stats div { display: flex; flex-direction: column; gap: 4px; }
+  .p-stats dd { order: 1; font-family: var(--mono); font-size: clamp(22px, 2.2vw, 30px); font-weight: 500; letter-spacing: -0.03em; color: var(--lime); line-height: 1.1; }
+  .p-stats dt { order: 2; font-size: 12.5px; line-height: 1.4; color: rgba(238,240,234,0.55); }
+  .p-links { display: flex; flex-wrap: wrap; gap: 10px; }
+  .partner .btn-primary { background: var(--lime); color: var(--ink); }
+  .partner .btn-primary::before { background: #fff; }
+  .partner .btn-ghost { background: transparent; border-color: rgba(238,240,234,0.25); color: var(--night-text); }
+  .partner .btn-ghost:hover { border-color: var(--night-text); background: rgba(238,240,234,0.06); }
+  .p-detail { display: grid; gap: 12px; }
+  .p-block { border-radius: 18px; padding: 22px 24px; background: rgba(238,240,234,0.04); border: 1px solid rgba(238,240,234,0.1); }
+  .p-quote { font-size: clamp(17px, 1.5vw, 20px); line-height: 1.5; letter-spacing: -0.01em; color: var(--night-text); }
+  .certs { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .certs li { display: flex; flex-direction: column; gap: 4px; padding: 14px; border-radius: 12px; background: rgba(238,240,234,0.05); border-left: 2px solid var(--lime); }
+  .certs b { font-size: 14px; font-weight: 600; line-height: 1.3; }
+  .certs span { font-size: 12px; color: rgba(238,240,234,0.55); }
+  .chips { display: flex; flex-wrap: wrap; gap: 7px; }
+  .chips span { font-family: var(--mono); font-size: 12px; padding: 5px 11px; border-radius: 999px; border: 1px solid rgba(238,240,234,0.16); color: rgba(238,240,234,0.8); transition: background-color .2s, color .2s, border-color .2s; }
+  .chips span:hover { background: var(--lime); color: var(--ink); border-color: var(--lime); }
+  .prods { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .prods a { position: relative; display: flex; flex-direction: column; gap: 4px; padding: 16px 40px 16px 16px; border-radius: 12px; background: rgba(238,240,234,0.05); border: 1px solid rgba(238,240,234,0.1); transition: background-color .25s, border-color .25s; }
+  .prods a:hover { background: rgba(200,245,61,0.1); border-color: rgba(200,245,61,0.5); }
+  .prods b { font-weight: 650; }
+  .prods span { font-size: 12.5px; line-height: 1.45; color: rgba(238,240,234,0.6); }
+  .prods i { position: absolute; right: 14px; top: 14px; font-style: normal; color: var(--lime); transition: transform .3s var(--ease); }
+  .prods a:hover i { transform: translate(3px, -3px); }
+  /* ───────── CASE EXTRAS ───────── */
+  .case-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+  .tag-private { display: inline-flex; align-items: center; gap: 7px; font-family: var(--mono); font-size: 12px; color: var(--lime); background: var(--ink); padding: 4px 11px; border-radius: 999px; }
+  .tag-private::before { content: ''; width: 8px; height: 7px; border-radius: 2px; background: var(--lime); box-shadow: 0 -3px 0 -1px var(--ink), 0 -4px 0 0 var(--lime); }
+  .result-dark { background: var(--ink); border-color: var(--ink); }
+  .result-dark .k { color: var(--lime); }
+  .result-dark .v { color: rgba(238,240,234,0.78); }
+  /* SkyShift drawn sky */
+  .sky-media { background: radial-gradient(120% 100% at 70% 20%, #1d2a3f 0%, #0d1320 55%, #06080d 100%); }
+  .sky { position: absolute; inset: 0; overflow: hidden; }
+  .sky-stars i { position: absolute; left: var(--x); top: var(--y); width: calc(var(--s) * 3px); height: calc(var(--s) * 3px); border-radius: 50%; background: #fff; box-shadow: 0 0 calc(var(--s) * 8px) rgba(255,255,255,0.7); animation: twinkle 3s ease-in-out infinite; animation-delay: calc(var(--s) * -2.3s); }
+  @keyframes twinkle { 50% { opacity: .35; } }
+  .sky-track { position: absolute; left: 6%; top: 76%; width: 92%; height: 1.5px; transform: rotate(-24deg); transform-origin: left; background: linear-gradient(90deg, transparent, rgba(200,245,61,0.85)); }
+  .sky-sat { position: absolute; left: 62%; top: 44%; width: 8px; height: 8px; margin: -4px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 18px 4px rgba(200,245,61,0.6); }
+  .sky-aim { position: absolute; left: 62%; top: 44%; width: 74px; height: 74px; margin: -37px; border: 1.5px solid rgba(200,245,61,0.7); border-radius: 50%; animation: aim 2.4s var(--ease) infinite; }
+  .sky-aim::before, .sky-aim::after { content: ''; position: absolute; background: rgba(200,245,61,0.7); }
+  .sky-aim::before { left: 50%; top: -10px; bottom: -10px; width: 1px; }
+  .sky-aim::after { top: 50%; left: -10px; right: -10px; height: 1px; }
+  @keyframes aim { 0% { transform: scale(1.5); opacity: 0; } 40% { transform: scale(1); opacity: 1; } 100% { transform: scale(1); opacity: .8; } }
+  .sky-label { position: absolute; right: calc(38% + 48px); top: calc(44% - 52px); font-family: var(--mono); font-size: 11.5px; color: rgba(238,240,234,0.85); background: rgba(6,8,13,0.7); border: 1px solid rgba(200,245,61,0.35); padding: 5px 9px; border-radius: 8px; white-space: nowrap; }
+  .sky-label b { color: var(--lime); font-weight: 500; margin-right: 4px; }
+  .sky-media .case-file, .recon-media .case-file { background: rgba(12,15,13,0.75); color: var(--night-text); border-color: rgba(238,240,234,0.15); }
+  /* Recon drawn terminal */
+  .recon-media { background: repeating-linear-gradient(135deg, #111512 0 14px, #0c0f0d 14px 28px); }
+  .recon { position: absolute; inset: 0; display: grid; place-items: center; padding: 24px; }
+  .rc-win { width: min(92%, 420px); border-radius: 14px; overflow: hidden; background: #070908; border: 1px solid rgba(238,240,234,0.1); box-shadow: 0 40px 70px -30px rgba(0,0,0,0.8); }
+  .rc-bar { height: 34px; display: flex; align-items: center; gap: 6px; padding: 0 12px; border-bottom: 1px solid rgba(238,240,234,0.08); }
+  .rc-bar i { width: 8px; height: 8px; border-radius: 50%; background: rgba(238,240,234,0.18); }
+  .rc-bar span { margin-left: auto; font-family: var(--mono); font-size: 11px; color: rgba(238,240,234,0.45); }
+  .rc-body { padding: 16px 16px 18px; font-family: var(--mono); font-size: 12px; line-height: 2; color: rgba(238,240,234,0.72); white-space: nowrap; overflow: hidden; }
+  .rc-body s { display: inline-block; width: var(--w); height: .95em; vertical-align: -.12em; background: rgba(238,240,234,0.85); border-radius: 2px; }
+  .rc-stamp { position: absolute; right: 9%; top: 13%; font-family: var(--mono); font-size: 20px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--lime); border: 2.5px solid var(--lime); padding: 4px 14px; border-radius: 8px; transform: rotate(9deg); opacity: .92; }
   /* ───────── RESPONSIVE ───────── */
   @media (max-width: 1024px) {
     :root { --pad: 22px; }
@@ -516,6 +614,9 @@
     .statement { padding: 110px var(--pad); }
     .sec-head { grid-template-columns: 1fr; margin-bottom: 44px; }
     .services-grid { grid-template-columns: 1fr; }
+    .it-grid { grid-template-columns: 1fr 1fr; }
+    .partner-grid { grid-template-columns: 1fr; }
+    .sky-media, .recon-media { min-height: 300px; }
     .service { min-height: 0; padding: 30px 24px 34px; }
     .fn { padding-bottom: 32px; }
     .case-card { grid-template-columns: 1fr; }
@@ -548,6 +649,13 @@
     .hero-stats { gap: 16px 32px; }
     .cat { width: 64px; height: 47px; }
     .pillars { grid-template-columns: 1fr; }
+    .it-grid { grid-template-columns: 1fr; }
+    .certs, .prods { grid-template-columns: 1fr; }
+    .p-card { padding: 24px 20px; }
+    .p-top { flex-direction: column; align-items: flex-start; }
+    .p-stats { grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+    .sky-label { right: auto; left: 8%; top: 12%; }
+    .rc-stamp { font-size: 15px; }
     .term-body { font-size: 12.5px; padding: 20px 18px; }
     .term-bar span { padding-right: 46px; }
   }
@@ -578,6 +686,7 @@
   </a>
   <ul class="nav-links">
     <li><a href="#services">services</a></li>
+    <li><a href="#partner">partner</a></li>
     <li><a href="#projects">work</a></li>
     <li><a href="#about">about</a></li>
     <li><a href="#process">process</a></li>
@@ -590,10 +699,11 @@
 
 <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
   <a href="#services" style="--i:0">services<span>/</span></a>
-  <a href="#projects" style="--i:1">work<span>/</span></a>
-  <a href="#about" style="--i:2">about<span>/</span></a>
-  <a href="#process" style="--i:3">process<span>/</span></a>
-  <a href="#contact" style="--i:4">get-in-touch<span>/</span></a>
+  <a href="#partner" style="--i:1">partner<span>/</span></a>
+  <a href="#projects" style="--i:2">work<span>/</span></a>
+  <a href="#about" style="--i:3">about<span>/</span></a>
+  <a href="#process" style="--i:4">process<span>/</span></a>
+  <a href="#contact" style="--i:5">get-in-touch<span>/</span></a>
 </div>
 
 <!-- HERO -->
@@ -603,13 +713,13 @@
   <canvas class="hero-canvas" aria-hidden="true"></canvas>
 
   <div class="hero-inner">
-    <p class="hero-slug" data-hero>software-development-studio/</p>
-    <h1 class="hero-h1" data-hero>We build scalable software solutions for modern businesses.</h1>
+    <p class="hero-slug" data-hero>software-and-it-studio/</p>
+    <h1 class="hero-h1" data-hero>We build your software and run the systems behind it.</h1>
     <div class="hero-row" data-hero>
-      <p class="hero-sub">NG Development designs and develops high-quality digital products tailored to business needs, from concept to production.</p>
+      <p class="hero-sub">NG Development designs and develops digital products. With our IT partner, we also install, secure and support the infrastructure they run on, from the first line of code to the server rack.</p>
       <div class="hero-actions">
         <a href="#contact" class="btn btn-primary magnetic" data-roll>Get in touch</a>
-        <a href="#projects" class="btn btn-ghost magnetic" data-roll>View our work</a>
+        <a href="#services" class="btn btn-ghost magnetic" data-roll>Explore services</a>
       </div>
     </div>
   </div>
@@ -617,6 +727,7 @@
   <dl class="hero-stats" data-hero>
     <div><dt>Started</dt><dd>2020</dd></div>
     <div><dt>Projects shipped</dt><dd>12+</dd></div>
+    <div><dt>IT interventions</dt><dd>400+</dd></div>
     <div><dt>Client retention</dt><dd>100%</dd></div>
   </dl>
 </section>
@@ -632,6 +743,11 @@
       <span>saas-products</span>
       <span>api-development</span>
       <span>cloud-infrastructure</span>
+      <span>servers-and-networks</span>
+      <span>cybersecurity</span>
+      <span>backup-and-recovery</span>
+      <span>it-support</span>
+      <span>security-audits</span>
     </div>
     <div class="marquee-group" aria-hidden="true">
       <span>web-application-development</span>
@@ -641,6 +757,11 @@
       <span>saas-products</span>
       <span>api-development</span>
       <span>cloud-infrastructure</span>
+      <span>servers-and-networks</span>
+      <span>cybersecurity</span>
+      <span>backup-and-recovery</span>
+      <span>it-support</span>
+      <span>security-audits</span>
     </div>
   </div>
 </div>
@@ -648,7 +769,7 @@
 <!-- STATEMENT -->
 <section class="statement" id="statement">
   <div class="wrap">
-    <p class="statement-text" data-scrub>We design and ship web platforms, mobile apps and backend systems that hold up in production, not just in demos.</p>
+    <p class="statement-text" data-scrub>From custom apps to servers, backups and endpoint security, we build, run and protect the technology your business depends on.</p>
   </div>
 </section>
 
@@ -658,15 +779,19 @@
     <div class="sec-head">
       <div>
         <h2 class="slug">services<span class="slash">/</span></h2>
-        <p class="sec-title" data-reveal="lines">Services built for business impact</p>
+        <p class="sec-title" data-reveal="lines">One team for your software and your IT</p>
       </div>
-      <p class="lead" data-reveal="lines">We focus on what matters most: delivering software that works reliably, scales with your business, and makes a measurable difference to how you operate.</p>
+      <p class="lead" data-reveal="lines">Most businesses juggle a developer for the app and someone else for the servers, the backups and the security. We cover both, so nothing falls between two contractors.</p>
+    </div>
+    <div class="svc-group-head" data-reveal="up">
+      <span class="svc-label">01 · build<span class="slash">/</span></span>
+      <p>Software we design and engineer for you.</p>
     </div>
     <div class="services-grid">
       <article class="service spot" data-reveal="up">
         <span class="fn">ng.web()</span>
         <h3>Custom Web Application Development</h3>
-        <p>We build full-featured web applications tailored to your workflows. Whether it's an internal tool, a client-facing platform, or a SaaS product, we design the architecture, develop every layer, and make sure it holds up at scale.</p>
+        <p>We build full-featured web applications tailored to your workflows. Whether it's an internal tool, a client-facing platform, a showcase site or a SaaS product, we design the architecture, develop every layer, integrate online payments (Slick Pay), and make sure it holds up at scale.</p>
       </article>
       <article class="service spot" data-reveal="up">
         <span class="fn">ng.mobile()</span>
@@ -683,6 +808,107 @@
         <h3>UI/UX Design</h3>
         <p>Design that goes beyond aesthetics. We create interfaces that reduce friction, guide users toward the right actions, and reflect the quality of your product. Every design decision is grounded in usability and business logic, not trends.</p>
       </article>
+    </div>
+    <div class="svc-group-head" data-reveal="up">
+      <span class="svc-label">02 · run &amp; protect<span class="slash">/</span></span>
+      <p>IT infrastructure, security and support, delivered with our partner <a href="#partner">Mekhlef Mohamed Oussama</a>.</p>
+    </div>
+    <div class="it-grid">
+      <article class="service it-card spot" data-reveal="up">
+        <span class="fn">ng.servers()</span>
+        <h3>Servers &amp; Infrastructure</h3>
+        <p>Installation, configuration and administration of your server environments, on-premises and in the cloud.</p>
+        <ul class="it-list"><li>Virtualization: Hyper-V, VMware, Proxmox</li><li>Active Directory</li><li>File sharing &amp; DHCP servers</li><li>High-availability services</li><li>Network &amp; infrastructure services</li></ul>
+      </article>
+      <article class="service it-card spot" data-reveal="up">
+        <span class="fn">ng.backup()</span>
+        <h3>Backup &amp; Recovery</h3>
+        <p>Backups only count if they restore. We set them up, schedule them, verify them and test the restore, so a bad day stays a small one.</p>
+        <ul class="it-list"><li>Local backup solutions</li><li>NAS storage servers (Synology, QNAP)</li><li>Scheduling &amp; verification</li><li>Restore testing</li></ul>
+      </article>
+      <article class="service it-card spot" data-reveal="up">
+        <span class="fn">ng.secure()</span>
+        <h3>Cybersecurity</h3>
+        <p>Protect every device and every account, with the right people having the right access, and nothing more.</p>
+        <ul class="it-list"><li>Endpoint protection: Kaspersky, ESET, Sophos, Defender</li><li>Access security</li><li>Rights &amp; permissions management</li><li>Web &amp; application filtering</li><li>Firewall management</li></ul>
+      </article>
+      <article class="service it-card spot" data-reveal="up">
+        <span class="fn">ng.support()</span>
+        <h3>IT Support</h3>
+        <p>Hands-on support for your team and your equipment, on-site or remote, from a broken laptop to a stubborn network incident.</p>
+        <ul class="it-list"><li>Level 2 / Level 3 technical support</li><li>Incident diagnosis &amp; resolution</li><li>User, access &amp; internet management</li><li>Equipment repair</li><li>Hardware fleet renewal</li></ul>
+      </article>
+      <article class="service it-card spot" data-reveal="up">
+        <span class="fn">ng.deploy()</span>
+        <h3>Deployment &amp; Migration</h3>
+        <p>Moving to new servers or rolling out a new solution, planned and documented so your business keeps running during the switch.</p>
+        <ul class="it-list"><li>Server rack installation</li><li>Server &amp; service migration</li><li>Solution deployment</li><li>Hosting &amp; ongoing support</li></ul>
+      </article>
+      <article class="service it-card spot" data-reveal="up">
+        <span class="fn">ng.audit()</span>
+        <h3>Security Audits</h3>
+        <p>We test your website the way an attacker would, using Recon, our private in-house engine, then hand you a clear, prioritized list of what to fix.</p>
+        <ul class="it-list"><li>Website &amp; web app pentesting</li><li>Exposure &amp; misconfiguration checks</li><li>Prioritized remediation report</li><li>Retest after fixes</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNER -->
+<section class="section partner" id="partner">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <h2 class="slug">partner<span class="slash">/</span></h2>
+        <p class="sec-title" data-reveal="lines">NG Development × Mekhlef Mohamed Oussama</p>
+      </div>
+      <p class="lead" data-reveal="lines">Software is only as reliable as the infrastructure under it. So we teamed up with an experienced systems, network and security engineer. Together we cover the whole stack: the app, the servers it runs on, and the people who use it every day.</p>
+    </div>
+    <div class="partner-grid">
+      <div class="p-card" data-reveal="up">
+        <div class="p-top">
+          <div class="p-photo"><img src="assets/partner-oussama.jpg" alt="Portrait of Mekhlef Mohamed Oussama" width="320" height="320" loading="lazy"></div>
+          <div>
+            <p class="p-name">Mekhlef Mohamed Oussama</p>
+            <p class="p-role">IT partner · Systems, networks &amp; security</p>
+            <p class="p-badge">trust at the core of every intervention</p>
+          </div>
+        </div>
+        <dl class="p-stats">
+          <div><dt>In the field since</dt><dd>2022</dd></div>
+          <div><dt>On-site &amp; remote interventions</dt><dd>400+</dd></div>
+          <div><dt>Certifications</dt><dd>3</dd></div>
+        </dl>
+        <div class="p-links">
+          <a class="btn btn-primary btn-sm" href="https://mes-ser-it.netlify.app/" target="_blank" rel="noopener" data-roll>Visit his website</a>
+          <a class="btn btn-ghost btn-sm" href="#contact" data-roll>Book an IT intervention</a>
+        </div>
+      </div>
+      <div class="p-detail">
+        <div class="p-block" data-reveal="up">
+          <p class="k">method/</p>
+          <p class="p-quote">Every intervention is scoped, adapted to your context and systematically documented, with full respect for the confidentiality and security of the information shared.</p>
+        </div>
+        <div class="p-block" data-reveal="up">
+          <p class="k">certifications/</p>
+          <ul class="certs">
+            <li><b>Kaspersky EDR Foundations</b><span>Kaspersky certified · 2025</span></li>
+            <li><b>Veeam</b><span>Veeam certified · technical sales</span></li>
+            <li><b>CompTIA A+</b><span>CompTIA certified</span></li>
+          </ul>
+        </div>
+        <div class="p-block" data-reveal="up">
+          <p class="k">stack/</p>
+          <div class="chips"><span>Kaspersky</span><span>ESET</span><span>Sophos</span><span>Microsoft Defender</span><span>Intune</span><span>Microsoft 365</span><span>Exchange</span><span>SharePoint</span><span>Synology</span><span>QNAP</span><span>Hyper-V</span><span>VMware</span><span>Proxmox</span><span>Active Directory</span><span>Veeam</span></div>
+        </div>
+        <div class="p-block" data-reveal="up">
+          <p class="k">saas-products/</p>
+          <div class="prods">
+            <a href="https://protectiny.com" target="_blank" rel="noopener"><b>Protectiny.com</b><span>Cybersecurity made simple for non-technical people</span><i aria-hidden="true">↗</i></a>
+            <a href="https://flotte-360.com" target="_blank" rel="noopener"><b>Flotte-360.com</b><span>SaaS fleet management platform</span><i aria-hidden="true">↗</i></a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -723,6 +949,9 @@
             <div class="result">
               <p class="k">result/</p>
               <p class="v">Launched as the first DNS filtering SaaS targeting the Algerian market. Subscription billing, device management, and real-time filtering are fully operational in production with active customers.</p>
+            </div>
+            <div class="case-links">
+              <a class="btn btn-primary btn-sm" href="https://protectiny.com" target="_blank" rel="noopener" data-roll>Visit protectiny.com</a>
             </div>
           </div>
         </div>
@@ -856,7 +1085,7 @@
             <span class="case-file">life/android</span>
           </div>
           <div class="case-body">
-            <div class="tags"><span class="tag">Mobile App</span><span class="tag">Android</span><span class="tag">AI Planning</span><span class="tag-soon">Coming soon on Google Play</span></div>
+            <div class="tags"><span class="tag">Mobile App</span><span class="tag">Android</span><span class="tag">AI Planning</span><span class="tag">Open source</span><span class="tag-soon">Coming soon on Google Play</span></div>
             <h3 class="case-title">Life — Screen Time &amp; Daily Planning App</h3>
             <div class="case-cols">
               <div>
@@ -881,6 +1110,95 @@
               <p class="k">privacy/</p>
               <p class="v">App usage stays on the phone. Only the nightly plan text is sent to the server, and it is deleted right after processing. Life doesn't use Android's Accessibility service and never reads what's inside other apps.</p>
             </div>
+            <div class="case-links">
+              <a class="btn btn-primary btn-sm" href="https://github.com/ayoubna99/life-agent" target="_blank" rel="noopener" data-roll>View Life on GitHub</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- SkyShift -->
+      <article class="case">
+        <div class="case-card">
+          <div class="case-media sky-media">
+            <div class="cm-in">
+              <div class="sky" aria-hidden="true">
+                <div class="sky-stars"><i style="--x:8%;--y:12%;--s:1"></i><i style="--x:22%;--y:30%;--s:0.6"></i><i style="--x:35%;--y:8%;--s:0.8"></i><i style="--x:48%;--y:22%;--s:1.2"></i><i style="--x:61%;--y:40%;--s:0.7"></i><i style="--x:74%;--y:14%;--s:1"></i><i style="--x:88%;--y:28%;--s:0.6"></i><i style="--x:14%;--y:55%;--s:0.9"></i><i style="--x:29%;--y:72%;--s:0.7"></i><i style="--x:43%;--y:63%;--s:1.1"></i><i style="--x:57%;--y:80%;--s:0.6"></i><i style="--x:70%;--y:66%;--s:0.9"></i><i style="--x:84%;--y:58%;--s:1.2"></i><i style="--x:92%;--y:84%;--s:0.7"></i><i style="--x:6%;--y:88%;--s:0.8"></i><i style="--x:38%;--y:44%;--s:0.6"></i><i style="--x:66%;--y:90%;--s:1"></i><i style="--x:80%;--y:40%;--s:0.5"></i><i style="--x:18%;--y:40%;--s:0.5"></i><i style="--x:52%;--y:6%;--s:0.6"></i></div>
+                <span class="sky-track"></span>
+                <span class="sky-sat"></span>
+                <span class="sky-aim"></span>
+                <span class="sky-label"><b>SAT-2291</b> moved 4.2″ · 287 K</span>
+              </div>
+            </div>
+            <span class="case-file">skyshift/spherex</span>
+          </div>
+          <div class="case-body">
+            <div class="tags"><span class="tag">Web App</span><span class="tag">Space Data</span><span class="tag">NASA Space Apps 2026</span><span class="tag">Open source</span></div>
+            <h3 class="case-title">SkyShift — See What Moved Across the Sky</h3>
+            <div class="case-cols">
+              <div>
+                <p class="k">problem/</p>
+                <p class="v">NASA's SPHEREx telescope maps the whole sky, but finding what moved through a given patch, like asteroids or satellites streaking across the frames, means digging through raw survey images by hand.</p>
+              </div>
+              <div>
+                <p class="k">solution/</p>
+                <p class="v">Point at any patch of sky and SkyShift shows what moved through it in SPHEREx images: stars, asteroids, and the satellites crossing the data, with each satellite's temperature estimated from SPHEREx's two cameras.</p>
+              </div>
+            </div>
+            <div class="result">
+              <p class="k">result/</p>
+              <p class="v">Built for the NASA Space Apps Challenge 2026 (Planet X &amp; SPHEREx). Live online and open source.</p>
+            </div>
+            <div class="case-links">
+              <a class="btn btn-primary btn-sm" href="https://sherex.ngdev.org" target="_blank" rel="noopener" data-roll>Open sherex.ngdev.org</a>
+              <a class="btn btn-ghost btn-sm" href="https://github.com/ayoubna99/spherex-skyshift" target="_blank" rel="noopener" data-roll>Source on GitHub</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Recon -->
+      <article class="case">
+        <div class="case-card">
+          <div class="case-media recon-media">
+            <div class="cm-in">
+              <div class="recon" aria-hidden="true">
+                <div class="rc-win">
+                  <div class="rc-bar"><i></i><i></i><i></i><span>recon — restricted</span></div>
+                  <div class="rc-body">
+                    <p><span class="t-p">$ </span><span class="t-c">recon --target ██████████.dz</span></p>
+                    <p><span class="t-k">[+] mapping attack surface </span><s style="--w:5.5em"></s></p>
+                    <p><span class="t-k">[+] fingerprinting stack </span><s style="--w:7em"></s></p>
+                    <p><span class="t-k">[+] probing </span><s style="--w:10em"></s></p>
+                    <p><span class="t-k">[+] chaining findings </span><s style="--w:6.5em"></s></p>
+                    <p><span class="t-ok">[✓] report ready → owner only</span></p>
+                  </div>
+                </div>
+                <span class="rc-stamp">private</span>
+              </div>
+            </div>
+            <span class="case-file">recon/restricted</span>
+          </div>
+          <div class="case-body">
+            <div class="tags"><span class="tag">Security</span><span class="tag">Pentesting</span><span class="tag">In-house tool</span><span class="tag-private">Private · not public</span></div>
+            <h3 class="case-title">Recon — Automated Website Pentesting Engine</h3>
+            <div class="case-cols">
+              <div>
+                <p class="k">problem/</p>
+                <p class="v">Most small businesses never have their website security-tested. Professional pentests are slow and expensive, so weaknesses sit unnoticed until someone else finds them first.</p>
+              </div>
+              <div>
+                <p class="k">solution/</p>
+                <p class="v">Recon is our in-house engine that looks at a website the way an attacker would: it maps the attack surface, probes for weaknesses and produces a clear, prioritized report that a non-specialist can act on.</p>
+              </div>
+            </div>
+            <div class="result result-dark">
+              <p class="k">why-private/</p>
+              <p class="v">Recon is effective enough that releasing it would hand the same capabilities to attackers. So it stays private, for security reasons: we run it ourselves, only on sites whose owners have authorized the test, and the findings go to them alone.</p>
+            </div>
+            <div class="case-links">
+              <a class="btn btn-primary btn-sm" href="#contact" data-roll>Request a security audit</a>
+            </div>
           </div>
         </div>
       </article>
@@ -903,7 +1221,7 @@
       <h3 class="about-h" data-reveal="lines">A team focused on shipping software that actually works.</h3>
       <div class="about-text">
         <p data-reveal="lines">At NG Development, we build software the way we'd want it built for ourselves: with clean architecture, thoughtful design, and a serious commitment to reliability. We work closely with our clients through every phase of a project, and we don't ship until we're confident it's ready for the real world.</p>
-        <p data-reveal="lines">We're a lean team with broad expertise across web, mobile, and backend systems. That means faster decisions, fewer layers, and direct communication with the people doing the actual work. Our clients come back because we deliver what we commit to, and we're honest when things need to change.</p>
+        <p data-reveal="lines">We're a lean team with broad expertise across web, mobile, and backend systems, and through our partnership with Mekhlef Mohamed Oussama, across IT infrastructure, networks and cybersecurity too. That means faster decisions, fewer layers, and direct communication with the people doing the actual work. Our clients come back because we deliver what we commit to, and we're honest when things need to change.</p>
       </div>
       <div class="pillars">
         <div class="pillar" data-reveal="up"><h3>Reliability first</h3><p>We build systems that hold up under real conditions, not just demos.</p></div>
@@ -1009,6 +1327,12 @@
           <option>Mobile App Development</option>
           <option>Backend &amp; System Development</option>
           <option>UI/UX Design</option>
+          <option>Servers &amp; IT Infrastructure</option>
+          <option>Backup &amp; Recovery</option>
+          <option>Cybersecurity</option>
+          <option>IT Support</option>
+          <option>Deployment &amp; Migration</option>
+          <option>Website Security Audit</option>
           <option>Full Product Build</option>
           <option>Something else</option>
         </select>
@@ -1039,10 +1363,11 @@
           </span>
           NG Development
         </a>
-        <p class="footer-note">Building software since 2020.</p>
+        <p class="footer-note">Building software since 2020. Running IT with our partner.</p>
       </div>
       <ul class="footer-links">
         <li><a href="#services">services/</a></li>
+        <li><a href="#partner">partner/</a></li>
         <li><a href="#projects">work/</a></li>
         <li><a href="#about">about/</a></li>
         <li><a href="#contact">contact/</a></li>
@@ -1239,7 +1564,8 @@ document.addEventListener('DOMContentLoaded', () => {
       [['p', '$ '], ['c', 'ngdev --info']],
       [['k', '  studio     '], ['v', 'NG Development']],
       [['k', '  started    '], ['v', '2020']],
-      [['k', '  focus      '], ['v', 'web, mobile, backend, ui/ux']],
+      [['k', '  focus      '], ['v', 'software + it infrastructure']],
+      [['k', '  partner    '], ['v', 'Mekhlef M. Oussama (IT)']],
       [['k', '  shipped    '], ['v', '12+ projects']],
       [['k', '  retention  '], ['v', '100%']]
     ];
@@ -1351,7 +1677,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.isIntersecting) links.forEach(l => l.classList.toggle('is-active', l.getAttribute('href') === '#' + e.target.id));
     });
   }, { rootMargin: '-45% 0px -50% 0px' });
-  ['hero', 'statement', 'services', 'projects', 'about', 'process', 'contact'].forEach(id => {
+  ['hero', 'statement', 'services', 'partner', 'projects', 'about', 'process', 'contact'].forEach(id => {
     const s = document.getElementById(id); if (s) sectionIO.observe(s);
   });
 
