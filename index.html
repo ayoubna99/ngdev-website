@@ -424,6 +424,7 @@
   .contact-info { display: flex; flex-direction: column; gap: 12px; }
   .contact-info a { display: inline-flex; align-items: center; gap: 14px; font-family: var(--mono); font-size: 14px; color: var(--dim); transition: color .2s; width: fit-content; }
   .contact-info a:hover { color: var(--green); }
+  .ci-note { color: var(--muted); }
   .ci-icon { width: 40px; height: 40px; border: 1px solid var(--line-2); border-radius: 12px; display: grid; place-items: center; background: var(--card); flex-shrink: 0; transition: background-color .3s, border-color .3s; }
   .contact-info a:hover .ci-icon { background: var(--lime); border-color: var(--lime); }
   .ci-icon svg { width: 16px; height: 16px; stroke: var(--ink); fill: none; stroke-width: 1.5; }
@@ -742,7 +743,7 @@
   </div>
 
   <dl class="hero-stats" data-hero>
-    <div><dt>Started</dt><dd>2020</dd></div>
+    <div><dt>Started</dt><dd>2022</dd></div>
     <div><dt>Projects shipped</dt><dd>12+</dd></div>
     <div><dt>IT interventions</dt><dd>400+</dd></div>
     <div><dt>Client retention</dt><dd>100%</dd></div>
@@ -1336,6 +1337,10 @@
           <span class="ci-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg></span>
           ngdev.org
         </a>
+        <a href="tel:+213772653469" data-reveal="up">
+          <span class="ci-icon"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.4 1.8.7 2.7a2 2 0 01-.5 2.1L8 9.8a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.4c.9.3 1.8.6 2.7.7a2 2 0 011.7 2z"/></svg></span>
+          +213 772 65 34 69 <span class="ci-note">· Mekhlef M. Oussama</span>
+        </a>
       </div>
     </div>
 
@@ -1601,9 +1606,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const lines = [
       [['p', '$ '], ['c', 'ngdev --info']],
       [['k', '  studio     '], ['v', 'NG Development']],
-      [['k', '  started    '], ['v', '2020']],
+      [['k', '  started    '], ['v', '2022']],
       [['k', '  focus      '], ['v', 'software + it infrastructure']],
-      [['k', '  founders   '], ['v', 'Nadjem Ayoub, Mekhlef M. Oussama']],
+      [['k', '  founders   '], ['v', 'Mekhlef M. Oussama, Nadjem Ayoub']],
       [['k', '  shipped    '], ['v', '12+ projects']],
       [['k', '  retention  '], ['v', '100%']]
     ];
