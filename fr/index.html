@@ -620,6 +620,11 @@
   .shot figcaption b { font-size: 14px; font-weight: 600; line-height: 1.3; }
   .shot figcaption span { font-family: var(--mono); font-size: 11.5px; color: var(--lime); }
   .gallery.is-collapsed .shot.more, .shot.is-hidden { display: none; }
+  /* collapsed: a 5-photo mosaic, two stacked | one big | two stacked */
+  .gallery.is-collapsed { display: grid; columns: auto; grid-template-columns: 1fr 2fr 1fr; grid-template-rows: 290px 290px; grid-auto-flow: column; gap: 14px; }
+  .gallery.is-collapsed .shot { margin: 0; }
+  .gallery.is-collapsed .shot:nth-child(3) { grid-row: 1 / 3; }
+  .gallery.is-collapsed .shot img { height: 100%; min-height: 0; object-fit: cover; }
   .shot.is-shown { animation: case-in .6s var(--ease); }
   .gal-more { display: flex; justify-content: center; margin-top: 18px; }
   .gal-filters { margin: 0 0 22px; }
@@ -645,7 +650,6 @@
   .case.is-hidden, .cases.is-collapsed .case[data-more] { display: none; }
   .cases-more, .svc-more { display: flex; justify-content: center; margin-top: 28px; }
   .it-grid.is-collapsed > .service:nth-child(n+4) { display: none; }
-  .gallery.is-collapsed .shot img { aspect-ratio: 3 / 4; min-height: 0; }
   .case.is-shown, .service.is-shown { animation: case-in .6s var(--ease); }
   @keyframes case-in { from { opacity: 0; transform: translateY(24px); } }
   .sm-servers { background: radial-gradient(120% 100% at 30% 20%, #2b3a2f 0%, #141c17 60%, #0a0e0b 100%); }
@@ -702,6 +706,8 @@
     .it-grid { grid-template-columns: 1fr 1fr; }
     .founders, .team-foot { grid-template-columns: 1fr; }
     .gallery { columns: 2; column-gap: 10px; }
+    .gallery.is-collapsed { grid-template-columns: 1fr 1fr; grid-template-rows: 190px 230px 190px; grid-auto-flow: row; gap: 10px; }
+    .gallery.is-collapsed .shot:nth-child(3) { grid-row: auto; grid-column: 1 / 3; }
     .cred { grid-template-columns: 1fr; padding: 22px 20px; }
     .method { margin: -8px 0 28px; padding: 20px; }
     .sky-media, .recon-media { min-height: 300px; }
@@ -998,12 +1004,12 @@
       <button type="button" class="cf gf" data-f="training" aria-pressed="false">formation<span class="cf-n"></span></button>
     </div>
     <div class="gallery is-collapsed">
-      <figure class="shot" data-cat="servers"><img src="../assets/field/eptv-data-center.webp" alt="Intervention en data center" width="1000" height="563" style="object-position: 30% 50%" loading="lazy"><figcaption><b>Intervention en data center</b><span>EPTV, télévision publique algérienne</span></figcaption></figure>
-      <figure class="shot" data-cat="networks servers"><img src="../assets/field/server-room-grant-thornton.jpg" alt="Salle réseau &amp; serveurs" width="619" height="1100" loading="lazy"><figcaption><b>Salle réseau &amp; serveurs</b><span>Grant Thornton Algeria</span></figcaption></figure>
+      <figure class="shot" data-cat="servers"><img src="../assets/field/eptv-data-center.webp" alt="Intervention en data center" width="1000" height="563" loading="lazy"><figcaption><b>Intervention en data center</b><span>EPTV, télévision publique algérienne</span></figcaption></figure>
       <figure class="shot" data-cat="servers"><img src="../assets/field/hpe-proliant-rack.webp" alt="Serveur HPE ProLiant dans une baie de production" width="562" height="1000" loading="lazy"><figcaption><b>Serveur HPE ProLiant dans une baie de production</b><span>Serveurs</span></figcaption></figure>
+      <figure class="shot" data-cat="training"><img src="../assets/field/training-session.jpg" alt="Formation bureautique" width="1078" height="1080" loading="lazy"><figcaption><b>Formation bureautique</b><span>Session sur site</span></figcaption></figure>
+      <figure class="shot" data-cat="networks servers"><img src="../assets/field/server-room-grant-thornton.jpg" alt="Salle réseau &amp; serveurs" width="619" height="1100" loading="lazy"><figcaption><b>Salle réseau &amp; serveurs</b><span>Grant Thornton Algeria</span></figcaption></figure>
       <figure class="shot" data-cat="storage"><img src="../assets/field/synology-rackstation.webp" alt="Synology RackStation &amp; disques NAS" width="562" height="1000" loading="lazy"><figcaption><b>Synology RackStation &amp; disques NAS</b><span>Sauvegarde &amp; stockage</span></figcaption></figure>
       <figure class="shot more" data-cat="security networks"><img src="../assets/field/sophos-firewalls.webp" alt="Pare-feu Sophos" width="562" height="1000" loading="lazy"><figcaption><b>Pare-feu Sophos</b><span>Sécurité</span></figcaption></figure>
-      <figure class="shot more" data-cat="training"><img src="../assets/field/training-session.jpg" alt="Formation bureautique" width="1078" height="1080" loading="lazy"><figcaption><b>Formation bureautique</b><span>Session sur site</span></figcaption></figure>
       <figure class="shot more" data-cat="networks"><img src="../assets/field/fiber-cisco.webp" alt="Brassage fibre &amp; commutation Cisco" width="562" height="1000" loading="lazy"><figcaption><b>Brassage fibre &amp; commutation Cisco</b><span>Réseaux</span></figcaption></figure>
       <figure class="shot more" data-cat="deployment servers"><img src="../assets/field/rack-2mp-industrie.jpg" alt="Installation de baie &amp; serveurs" width="535" height="1100" loading="lazy"><figcaption><b>Installation de baie &amp; serveurs</b><span>2MP Industrie, Blida</span></figcaption></figure>
       <figure class="shot more" data-cat="networks"><img src="../assets/field/cisco-router.webp" alt="Routeur Cisco série 4300" width="1000" height="563" loading="lazy"><figcaption><b>Routeur Cisco série 4300</b><span>Réseaux</span></figcaption></figure>
