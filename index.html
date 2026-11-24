@@ -591,10 +591,6 @@
   .founder:hover .f-photo img { transform: scale(1.06); }
   .f-role { font-family: var(--mono); font-size: 13.5px; color: var(--lime); }
   .f-name { font-size: clamp(30px, 3vw, 44px); font-weight: 800; font-stretch: 112%; letter-spacing: -0.035em; line-height: 1.02; margin-top: 10px; }
-  .f-cos { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
-  .f-cos > * { font-size: 12.5px; font-weight: 600; padding: 5px 12px; border-radius: 999px; background: rgba(238,240,234,0.08); border: 1px solid rgba(238,240,234,0.14); color: var(--night-text); }
-  .f-cos a { color: var(--lime); border-color: rgba(200,245,61,0.4); transition: background-color .2s, color .2s; }
-  .f-cos a:hover { background: var(--lime); color: var(--ink); }
   .f-bio { font-size: 16.5px; line-height: 1.75; color: rgba(238,240,234,0.74); margin-top: 22px; max-width: 54ch; }
   .f-focus { list-style: none; display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 22px; padding-top: 20px; border-top: 1px solid rgba(238,240,234,0.12); width: 100%; }
   .f-focus li { font-family: var(--mono); font-size: 12.5px; color: rgba(238,240,234,0.62); }
@@ -647,8 +643,10 @@
   .cf-n { font-size: 11px; min-width: 20px; height: 20px; padding: 0 5px; border-radius: 999px; display: grid; place-items: center; background: var(--bg-2); color: var(--muted); }
   .cf.is-on .cf-n { background: var(--lime); color: var(--ink); }
   .case.is-hidden, .cases.is-collapsed .case[data-more] { display: none; }
-  .cases-more { display: flex; justify-content: center; margin-top: 28px; }
-  .case.is-shown { animation: case-in .6s var(--ease); }
+  .cases-more, .svc-more { display: flex; justify-content: center; margin-top: 28px; }
+  .it-grid.is-collapsed > .service:nth-child(n+4) { display: none; }
+  .gallery.is-collapsed .shot img { aspect-ratio: 3 / 4; min-height: 0; }
+  .case.is-shown, .service.is-shown { animation: case-in .6s var(--ease); }
   @keyframes case-in { from { opacity: 0; transform: translateY(24px); } }
   .sm-servers { background: radial-gradient(120% 100% at 30% 20%, #2b3a2f 0%, #141c17 60%, #0a0e0b 100%); }
   .photos .screen { border-radius: 14px; border: 6px solid #f6f8f3; aspect-ratio: 9 / 16; }
@@ -883,7 +881,7 @@
       </div>
       <p class="lead" data-reveal="lines">From the app your customers use to the servers, backups and security behind it, one team designs it, builds it, installs it and keeps it running. No hand-offs between contractors, no gaps.</p>
     </div>
-    <div class="it-grid">
+    <div class="it-grid is-collapsed">
       <article class="service it-card spot" data-reveal="up">
         <span class="fn">ng.agents()</span>
         <h3>AI Agents &amp; Automation</h3>
@@ -964,6 +962,7 @@
         <ul class="it-list"><li>Server cabinet installation</li><li>Server &amp; service migration</li><li>Solution deployment</li><li>Hosting &amp; ongoing support</li></ul>
       </article>
     </div>
+    <div class="svc-more"><button type="button" class="btn btn-ghost magnetic" data-roll>Show all 12 services</button></div>
     <div class="cred" data-reveal="up">
       <div>
         <p class="k">certified-team/</p>
@@ -999,14 +998,14 @@
       <button type="button" class="cf gf" data-f="training" aria-pressed="false">training<span class="cf-n"></span></button>
     </div>
     <div class="gallery is-collapsed">
-      <figure class="shot" data-cat="servers"><img src="assets/field/eptv-data-center.webp" alt="Data center intervention" width="1000" height="563" loading="lazy"><figcaption><b>Data center intervention</b><span>EPTV, Algerian public television</span></figcaption></figure>
-      <figure class="shot" data-cat="servers"><img src="assets/field/hpe-proliant-rack.webp" alt="HPE ProLiant server in a production rack" width="562" height="1000" loading="lazy"><figcaption><b>HPE ProLiant server in a production rack</b><span>Servers</span></figcaption></figure>
+      <figure class="shot" data-cat="servers"><img src="assets/field/eptv-data-center.webp" alt="Data center intervention" width="1000" height="563" style="object-position: 30% 50%" loading="lazy"><figcaption><b>Data center intervention</b><span>EPTV, Algerian public television</span></figcaption></figure>
       <figure class="shot" data-cat="networks servers"><img src="assets/field/server-room-grant-thornton.jpg" alt="Network &amp; server room" width="619" height="1100" loading="lazy"><figcaption><b>Network &amp; server room</b><span>Grant Thornton Algeria</span></figcaption></figure>
+      <figure class="shot" data-cat="servers"><img src="assets/field/hpe-proliant-rack.webp" alt="HPE ProLiant server in a production rack" width="562" height="1000" loading="lazy"><figcaption><b>HPE ProLiant server in a production rack</b><span>Servers</span></figcaption></figure>
       <figure class="shot" data-cat="storage"><img src="assets/field/synology-rackstation.webp" alt="Synology RackStation &amp; NAS drives" width="562" height="1000" loading="lazy"><figcaption><b>Synology RackStation &amp; NAS drives</b><span>Backup &amp; storage</span></figcaption></figure>
-      <figure class="shot" data-cat="security networks"><img src="assets/field/sophos-firewalls.webp" alt="Sophos firewall appliances" width="562" height="1000" loading="lazy"><figcaption><b>Sophos firewall appliances</b><span>Security</span></figcaption></figure>
-      <figure class="shot" data-cat="training"><img src="assets/field/training-session.jpg" alt="Office-tools training" width="1078" height="1080" loading="lazy"><figcaption><b>Office-tools training</b><span>On-site session</span></figcaption></figure>
-      <figure class="shot" data-cat="networks"><img src="assets/field/fiber-cisco.webp" alt="Fiber patching &amp; Cisco switching" width="562" height="1000" loading="lazy"><figcaption><b>Fiber patching &amp; Cisco switching</b><span>Networks</span></figcaption></figure>
-      <figure class="shot" data-cat="deployment servers"><img src="assets/field/rack-2mp-industrie.jpg" alt="Rack &amp; server installation" width="535" height="1100" loading="lazy"><figcaption><b>Rack &amp; server installation</b><span>2MP Industrie, Blida</span></figcaption></figure>
+      <figure class="shot more" data-cat="security networks"><img src="assets/field/sophos-firewalls.webp" alt="Sophos firewall appliances" width="562" height="1000" loading="lazy"><figcaption><b>Sophos firewall appliances</b><span>Security</span></figcaption></figure>
+      <figure class="shot more" data-cat="training"><img src="assets/field/training-session.jpg" alt="Office-tools training" width="1078" height="1080" loading="lazy"><figcaption><b>Office-tools training</b><span>On-site session</span></figcaption></figure>
+      <figure class="shot more" data-cat="networks"><img src="assets/field/fiber-cisco.webp" alt="Fiber patching &amp; Cisco switching" width="562" height="1000" loading="lazy"><figcaption><b>Fiber patching &amp; Cisco switching</b><span>Networks</span></figcaption></figure>
+      <figure class="shot more" data-cat="deployment servers"><img src="assets/field/rack-2mp-industrie.jpg" alt="Rack &amp; server installation" width="535" height="1100" loading="lazy"><figcaption><b>Rack &amp; server installation</b><span>2MP Industrie, Blida</span></figcaption></figure>
       <figure class="shot more" data-cat="networks"><img src="assets/field/cisco-router.webp" alt="Cisco 4300 series router" width="1000" height="563" loading="lazy"><figcaption><b>Cisco 4300 series router</b><span>Networks</span></figcaption></figure>
       <figure class="shot more" data-cat="storage"><img src="assets/field/qnap-nas-rack.webp" alt="QNAP NAS in a rack" width="562" height="1000" loading="lazy"><figcaption><b>QNAP NAS in a rack</b><span>Backup &amp; storage</span></figcaption></figure>
       <figure class="shot more" data-cat="servers"><img src="assets/field/server-internals.webp" alt="Server upgrade: memory &amp; components" width="562" height="1000" loading="lazy"><figcaption><b>Server upgrade: memory &amp; components</b><span>Servers</span></figcaption></figure>
@@ -1044,8 +1043,7 @@
         <div class="f-photo"><img src="assets/team/nadjem-ayoub.jpg" alt="Nadjem Ayoub" width="480" height="480" loading="lazy"></div>
         <p class="f-role">Co-founder · Lead Engineer</p>
         <h3 class="f-name">Nadjem Ayoub</h3>
-        <div class="f-cos"><span>NG Development</span><a href="https://protectiny.com" target="_blank" rel="noopener">Protectiny</a></div>
-        <p class="f-bio">Lead engineer behind our products, specialized in backend systems, autonomous AI agents and application security. From NAQLI's ticketing platform and the Life agent to Protectiny and Recon-AI, our private security scanner: ideas turned into software that holds up in production.</p>
+        <p class="f-bio">Co-founder of NG Development and Protectiny, and the lead engineer behind our products. Specialized in backend systems, autonomous AI agents and application security, from NAQLI's ticketing platform and the Life agent to Recon-AI, our private security scanner: ideas turned into software that holds up in production.</p>
         <ul class="f-focus"><li>Backend &amp; APIs</li><li>AI agents</li><li>Application security</li><li>Mobile</li></ul>
         <a class="f-link" href="https://www.linkedin.com/in/ayoub-n" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a>
       </article>
@@ -1053,8 +1051,7 @@
         <div class="f-photo"><img src="assets/team/mekhlef-oussama.jpg" alt="Mekhlef Mohamed Oussama" width="320" height="320" loading="lazy"></div>
         <p class="f-role">Co-founder · Head of Business Development</p>
         <h3 class="f-name">Mekhlef Mohamed Oussama</h3>
-        <div class="f-cos"><span>NG Development</span><a href="https://protectiny.com" target="_blank" rel="noopener">Protectiny</a></div>
-        <p class="f-bio">Leads business development, partnerships and client relationships, the first person our clients meet. A systems and network engineer with more than 400 on-site and remote interventions for businesses, schools and hospitals, he also leads our infrastructure, backup and IT support work.</p>
+        <p class="f-bio">Co-founder of NG Development and Protectiny. Leads business development, partnerships and client relationships, the first person our clients meet. A systems and network engineer with more than 400 on-site and remote interventions for businesses, schools and hospitals, he also leads our infrastructure, backup and IT support work.</p>
         <ul class="f-focus"><li>Business development</li><li>Partnerships</li><li>Client relations</li><li>IT infrastructure</li></ul>
         <a class="f-link" href="https://www.linkedin.com/in/oussama-mekhelef-853731365" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a>
       </article>
@@ -1207,7 +1204,7 @@
       </article>
 
       <!-- Recon -->
-      <article data-cat="software security ai" class="case">
+      <article data-more="1" data-cat="software security ai" class="case">
         <div class="case-card">
           <div class="case-media recon-media">
             <div class="cm-in">
@@ -1416,7 +1413,7 @@
         </div>
       </article>
     </div>
-    <div class="cases-more"><button type="button" class="btn btn-ghost magnetic" data-roll>Show 4 more case studies</button></div>
+    <div class="cases-more"><button type="button" class="btn btn-ghost magnetic" data-roll>Show 5 more case studies</button></div>
     </div>
   </div>
 </section>
@@ -1517,7 +1514,7 @@
         </a>
         <a href="tel:+213772653469" data-reveal="up">
           <span class="ci-icon"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.4 1.8.7 2.7a2 2 0 01-.5 2.1L8 9.8a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.4c.9.3 1.8.6 2.7.7a2 2 0 011.7 2z"/></svg></span>
-          +213 772 65 34 69 <span class="ci-note">· Mekhlef M. Oussama</span>
+          +213 772 65 34 69 <span class="ci-note">· customer service</span>
         </a>
       </div>
     </div>
@@ -2026,6 +2023,18 @@ document.addEventListener('DOMContentLoaded', () => {
       const sec = document.getElementById('projects');
       if (sec.getBoundingClientRect().top < -40) window.scrollTo({ top: window.scrollY + sec.getBoundingClientRect().top - 20, behavior: 'smooth' });
     }));
+  })();
+
+  /* ── services: show all ── */
+  (function () {
+    const grid = document.querySelector('.it-grid'), wrap = document.querySelector('.svc-more');
+    if (!grid || !wrap) return;
+    wrap.querySelector('button').addEventListener('click', () => {
+      grid.classList.remove('is-collapsed'); wrap.hidden = true;
+      [...grid.children].slice(3).forEach(c => { c.classList.add('is-shown'); });
+      if (window.ScrollTrigger) window.ScrollTrigger.refresh();
+      document.dispatchEvent(new Event('slug:done'));
+    });
   })();
 
   /* ── field gallery: filters, show all, links from service cards ── */

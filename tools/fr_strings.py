@@ -481,3 +481,13 @@ TEXT.update({
 KEEP.update({'ng.network()', 'ng.workplace()', 'Cisco', 'Huawei', 'Aruba', 'Python'})
 
 TEXT.update({'Show 4 more case studies': "Voir 4 autres études de cas"})
+
+TEXT.update({
+    'Show all 12 services': 'Voir les 12 services',
+    'Show 5 more case studies': 'Voir 5 autres études de cas',
+    '· customer service': '· service client',
+    "Co-founder of NG Development and Protectiny, and the lead engineer behind our products. Specialized in backend systems, autonomous AI agents and application security, from NAQLI's ticketing platform and the Life agent to Recon-AI, our private security scanner: ideas turned into software that holds up in production.":
+        "Co-fondateur de NG Development et de Protectiny, et ingénieur principal derrière nos produits. Spécialisé dans les systèmes backend, les agents IA autonomes et la sécurité applicative, de la billetterie NAQLI et de l'agent Life à Recon-AI, notre scanner de sécurité privé : des idées transformées en logiciels qui tiennent en production.",
+    'Co-founder of NG Development and Protectiny. Leads business development, partnerships and client relationships, the first person our clients meet. A systems and network engineer with more than 400 on-site and remote interventions for businesses, schools and hospitals, he also leads our infrastructure, backup and IT support work.':
+        "Co-fondateur de NG Development et de Protectiny. Il dirige le développement commercial, les partenariats et la relation client : c'est la première personne que nos clients rencontrent. Ingénieur systèmes et réseaux fort de plus de 400 interventions sur site et à distance pour des entreprises, des écoles et des hôpitaux, il pilote aussi nos activités d'infrastructure, de sauvegarde et de support informatique.",
+})
