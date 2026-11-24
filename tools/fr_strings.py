@@ -396,8 +396,8 @@ KEEP.update({'ng.agents()', 'LinkedIn', '+9 pts', 'Flutter + Kotlin + Supabase'}
 
 TEXT.update({
     'Co-founder · Lead Engineer': 'Co-fondateur · Ingénieur principal',
-    "Lead engineer behind our products, specialized in backend systems, autonomous AI agents and application security. From NAQLI's ticketing platform and the Life agent to Protectiny and Recon-AI, our private security scanner, he turns ideas into software that holds up in production.":
-        "Ingénieur principal derrière nos produits, spécialisé dans les systèmes backend, les agents IA autonomes et la sécurité applicative. De la billetterie NAQLI et de l'agent Life à Protectiny et Recon-AI, notre scanner de sécurité privé, il transforme les idées en logiciels qui tiennent en production.",
+    "Lead engineer behind our products, specialized in backend systems, autonomous AI agents and application security. From NAQLI's ticketing platform and the Life agent to Protectiny and Recon-AI, our private security scanner: ideas turned into software that holds up in production.":
+        "Ingénieur principal derrière nos produits, spécialisé dans les systèmes backend, les agents IA autonomes et la sécurité applicative. De la billetterie NAQLI et de l'agent Life à Protectiny et Recon-AI, notre scanner de sécurité privé : des idées transformées en logiciels qui tiennent en production.",
     'AI agents': 'Agents IA', 'Application security': 'Sécurité applicative', 'Mobile': 'Mobile',
     'Co-founder · Head of Business Development': 'Co-fondateur · Directeur du développement commercial',
     'Leads business development, partnerships and client relationships, the first person our clients meet. A systems and network engineer with more than 400 on-site and remote interventions for businesses, schools and hospitals, he also leads our infrastructure, backup and IT support work.':
