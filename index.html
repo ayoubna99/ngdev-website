@@ -311,7 +311,7 @@
   .case-media { position: relative; min-height: 420px; overflow: hidden; background: var(--bg-2); }
   .cm-in { position: absolute; inset: 0; transition: transform 1.2s var(--ease); }
   .case-card:hover .cm-in { transform: scale(1.04); }
-  .case-media img { position: absolute; left: 0; top: -8%; width: 100%; height: 116%; object-fit: cover; filter: saturate(.92); }
+  .case-media .cm-in > img { position: absolute; left: 0; top: -8%; width: 100%; height: 116%; object-fit: cover; filter: saturate(.92); }
   .case-file {
     position: absolute; left: 18px; bottom: 18px; z-index: 1;
     font-family: var(--mono); font-size: 12px; color: var(--ink);
@@ -484,6 +484,11 @@
     transition: opacity .6s var(--ease);
   }
   .cat.is-on { opacity: 1; }
+  .cat svg .c-body, .cat svg .c-skull, .cat svg .c-ear-o, .cat svg .c-haunch path { pointer-events: auto; cursor: grab; }
+  .cat svg .c-body:active, .cat svg .c-skull:active { cursor: grabbing; }
+  .cat-heart { position: fixed; z-index: 86; pointer-events: none; margin-left: -6px; font-size: 15px; line-height: 1; color: #ff5c8a; text-shadow: 0 2px 6px rgba(255,92,138,0.35); animation: cat-heart 1.3s var(--ease) forwards; }
+  .cat-heart.big { font-size: 20px; }
+  @keyframes cat-heart { 0% { opacity: 0; transform: translate(0, 0) scale(.4); } 15% { opacity: 1; transform: translate(calc(var(--dx) * .2), -10px) scale(1.1); } 100% { opacity: 0; transform: translate(var(--dx), -62px) scale(.9); } }
   .menu-open .cat { opacity: 0; }
   .cat-flip { width: 100%; height: 100%; transform-origin: 50% 100%; will-change: transform; }
   .cat svg { display: block; width: 100%; height: 100%; overflow: visible; }
@@ -570,18 +575,6 @@
   .prods span { font-size: 12.5px; line-height: 1.45; color: rgba(238,240,234,0.6); }
   .prods i { position: absolute; right: 14px; top: 14px; font-style: normal; color: var(--lime); transition: transform .3s var(--ease); }
   .prods a:hover i { transform: translate(3px, -3px); }
-  .founders { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: stretch; }
-  .founder { display: flex; flex-direction: column; border-radius: 22px; padding: 32px; background: linear-gradient(160deg, rgba(200,245,61,0.12), rgba(238,240,234,0.03) 55%); border: 1px solid rgba(238,240,234,0.12); }
-  .founder .k { margin-top: 22px; margin-bottom: 10px; }
-  .f-head { display: flex; align-items: center; gap: 18px; }
-  .f-mono { width: 84px; height: 84px; flex-shrink: 0; border-radius: 20px; overflow: hidden; box-shadow: 0 0 0 3px var(--night), 0 0 0 4.5px var(--lime); display: grid; place-items: center; background: var(--lime); color: var(--ink); font-family: var(--mono); font-size: 22px; font-weight: 700; letter-spacing: -0.04em; transform: rotate(-4deg); transition: transform .6s var(--ease); }
-  .founder:hover .f-mono { transform: rotate(0); }
-  .f-mono img { width: 100%; height: 100%; object-fit: cover; }
-  .f-name { font-size: clamp(22px, 2vw, 28px); font-weight: 700; font-stretch: 108%; letter-spacing: -0.025em; line-height: 1.15; }
-  .f-role { font-family: var(--mono); font-size: 12.5px; color: var(--lime); margin-top: 6px; }
-  .f-bio { font-size: 15.5px; line-height: 1.7; color: rgba(238,240,234,0.72); margin-top: 22px; max-width: 52ch; }
-  .founder .p-stats { margin: 24px 0 0; }
-  .team-foot { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
   /* ───────── IN THE FIELD (gallery) ───────── */
   .gallery { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 210px; grid-auto-flow: dense; gap: 14px; }
   .shot { position: relative; margin: 0; overflow: hidden; border-radius: 18px; background: var(--night); grid-row: span 2; }
@@ -592,13 +585,39 @@
   .shot figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 40px 16px 14px; display: flex; flex-direction: column; gap: 2px; color: #fff; background: linear-gradient(to top, rgba(12,15,13,0.85), rgba(12,15,13,0)); }
   .shot figcaption b { font-size: 14px; font-weight: 600; line-height: 1.3; }
   .shot figcaption span { font-family: var(--mono); font-size: 11.5px; color: var(--lime); }
+  .founders { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .founder { display: flex; gap: 26px; align-items: flex-start; border-radius: 22px; padding: 30px; background: linear-gradient(160deg, rgba(200,245,61,0.1), rgba(238,240,234,0.03) 55%); border: 1px solid rgba(238,240,234,0.12); transition: border-color .3s; }
+  .founder:hover { border-color: rgba(200,245,61,0.45); }
+  .f-photo { width: 132px; height: 132px; flex-shrink: 0; border-radius: 24px; overflow: hidden; background: var(--night); box-shadow: 0 0 0 3px var(--night), 0 0 0 4.5px var(--lime); }
+  .f-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease); }
+  .founder:hover .f-photo img { transform: scale(1.06); }
+  .f-role { font-family: var(--mono); font-size: 12.5px; color: var(--lime); }
+  .f-name { font-size: clamp(22px, 2vw, 28px); font-weight: 700; font-stretch: 108%; letter-spacing: -0.025em; line-height: 1.15; margin-top: 8px; }
+  .f-bio { font-size: 15px; line-height: 1.7; color: rgba(238,240,234,0.72); margin-top: 14px; }
+  .f-link { display: inline-flex; gap: 6px; margin-top: 16px; font-family: var(--mono); font-size: 13px; color: var(--night-text); border-bottom: 1px solid rgba(200,245,61,0.5); transition: color .2s; }
+  .f-link:hover { color: var(--lime); }
+  /* project screenshots */
+  .screens-media { background: radial-gradient(120% 100% at 30% 20%, #1d3a63 0%, #0b1f3a 60%, #071528 100%); }
+  .sm-gmg { background: radial-gradient(120% 100% at 30% 20%, #6c4cf0 0%, #3a2a8f 55%, #1c1550 100%); }
+  .sm-life { background: radial-gradient(120% 100% at 30% 20%, #ff9a62 0%, #e5582e 45%, #3b1a2e 100%); }
+  .screens { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 34px 20px 56px; }
+  .screen { position: relative; margin: 0; width: 41%; max-width: 220px; aspect-ratio: 560 / 1148; border-radius: 26px; overflow: hidden; background: #000; border: 6px solid #0c0f0d; box-shadow: 0 40px 70px -30px rgba(0,0,0,0.75); transition: transform .8s var(--ease); }
+  .screen img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+  .screen:first-child { transform: rotate(-6deg) translate(8%, 4%); z-index: 1; }
+  .screen:last-child { transform: rotate(5deg) translate(-8%, -4%); z-index: 2; }
+  .case-card:hover .screen:first-child { transform: rotate(-8deg) translate(2%, 3%); }
+  .case-card:hover .screen:last-child { transform: rotate(7deg) translate(-2%, -5%); }
+  .paper-media { background: radial-gradient(120% 100% at 30% 20%, #f4f7ee 0%, #dfe6d6 60%, #cfd8c4 100%); }
+  .paper-wrap { position: absolute; inset: 0; display: grid; place-items: center; padding: 34px 24px 60px; }
+  .paper { width: 70%; max-width: 330px; height: auto; border-radius: 6px; transform: rotate(-3deg); box-shadow: 0 40px 60px -30px rgba(12,15,13,0.55), 0 0 0 1px rgba(12,15,13,0.08); transition: transform .8s var(--ease); }
+  .case-card:hover .paper { transform: rotate(-1deg) scale(1.03); }
   /* ───────── CASE EXTRAS ───────── */
   .case-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 24px; }
   .case-stats div { display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; border-radius: 14px; background: var(--bg); border: 1px solid var(--line); }
   .case-stats dd { order: 1; font-family: var(--mono); font-size: clamp(24px, 2.2vw, 32px); font-weight: 500; letter-spacing: -0.03em; line-height: 1.05; color: var(--green); }
   .case-stats dt { order: 2; font-size: 12.5px; line-height: 1.4; color: var(--muted); }
   .pt-media { background: radial-gradient(120% 90% at 50% 50%, #0f2236 0%, #0a1e2c 55%, #05121f 100%); }
-  .pt-media img { left: 4%; width: 92%; object-fit: contain; filter: none; }
+  .pt-media .cm-in > img { left: 4%; width: 92%; object-fit: contain; filter: none; }
   .pt-media .case-file { background: rgba(5,18,31,0.75); color: var(--night-text); border-color: rgba(238,240,234,0.15); }
   .case-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
   .tag-private { display: inline-flex; align-items: center; gap: 7px; font-family: var(--mono); font-size: 12px; color: var(--lime); background: var(--ink); padding: 4px 11px; border-radius: 999px; }
@@ -649,7 +668,7 @@
     .fn { padding-bottom: 32px; }
     .case-card { grid-template-columns: 1fr; }
     .case-media { min-height: 240px; }
-    .mock-media { min-height: 470px; }
+    .mock-media, .screens-media, .paper-media { min-height: 470px; }
     .mock { padding-bottom: 36px; }
     .case-body { border-left: none; border-top: 1px solid var(--line); padding: 28px 22px 30px; }
     .case-cols { grid-template-columns: 1fr; gap: 18px; }
@@ -679,7 +698,8 @@
     .pillars { grid-template-columns: 1fr; }
     .it-grid { grid-template-columns: 1fr; }
     .certs, .prods { grid-template-columns: 1fr; }
-    .founder { padding: 24px 20px; }
+    .founder { padding: 24px 20px; flex-direction: column; gap: 18px; }
+    .f-photo { width: 104px; height: 104px; }
     .gallery { grid-auto-rows: 120px; gap: 10px; }
     .shot figcaption { padding: 30px 10px 10px; }
     .shot figcaption b { font-size: 12.5px; }
@@ -769,6 +789,8 @@
 <div class="marquee" aria-label="What we build">
   <div class="marquee-track">
     <div class="marquee-group">
+      <span>ai-agents</span>
+      <span>cybersecurity</span>
       <span>web-application-development</span>
       <span>mobile-apps</span>
       <span>backend-systems</span>
@@ -776,12 +798,13 @@
       <span>api-development</span>
       <span>cloud-infrastructure</span>
       <span>servers-and-networks</span>
-      <span>cybersecurity</span>
       <span>backup-and-recovery</span>
       <span>it-support</span>
       <span>security-audits</span>
     </div>
     <div class="marquee-group" aria-hidden="true">
+      <span>ai-agents</span>
+      <span>cybersecurity</span>
       <span>web-application-development</span>
       <span>mobile-apps</span>
       <span>backend-systems</span>
@@ -789,7 +812,6 @@
       <span>api-development</span>
       <span>cloud-infrastructure</span>
       <span>servers-and-networks</span>
-      <span>cybersecurity</span>
       <span>backup-and-recovery</span>
       <span>it-support</span>
       <span>security-audits</span>
@@ -816,34 +838,10 @@
     </div>
     <div class="it-grid">
       <article class="service it-card spot" data-reveal="up">
-        <span class="fn">ng.web()</span>
-        <h3>Web Applications</h3>
-        <p>Full-featured web applications, showcase sites and SaaS products, designed around your users and built to hold up at scale.</p>
-        <ul class="it-list"><li>Custom web apps &amp; SaaS platforms</li><li>Showcase websites</li><li>Online payments (Slick Pay)</li><li>Laravel REST APIs</li></ul>
-      </article>
-      <article class="service it-card spot" data-reveal="up">
-        <span class="fn">ng.mobile()</span>
-        <h3>Mobile Apps</h3>
-        <p>Cross-platform apps for iOS and Android that are fast, intuitive and built around how your users actually behave.</p>
-        <ul class="it-list"><li>iOS &amp; Android (Flutter)</li><li>Native Android apps</li><li>Google Play publishing</li><li>AI-powered features</li></ul>
-      </article>
-      <article class="service it-card spot" data-reveal="up">
-        <span class="fn">ng.backend()</span>
-        <h3>Backend &amp; APIs</h3>
-        <p>Reliable backends that power your product, built for real traffic, with security and maintainability from day one.</p>
-        <ul class="it-list"><li>API design &amp; development</li><li>Data pipelines &amp; integrations</li><li>Billing &amp; subscription systems</li><li>Cloud hosting &amp; monitoring</li></ul>
-      </article>
-      <article class="service it-card spot" data-reveal="up">
-        <span class="fn">ng.servers()</span>
-        <h3>Servers &amp; Infrastructure</h3>
-        <p>Installation, configuration and administration of your server environments, on-premises and in the cloud.</p>
-        <ul class="it-list"><li>Virtualization: Hyper-V, VMware, Proxmox</li><li>Active Directory</li><li>File sharing &amp; DHCP servers</li><li>High-availability services</li><li>Network &amp; infrastructure services</li></ul>
-      </article>
-      <article class="service it-card spot" data-reveal="up">
-        <span class="fn">ng.backup()</span>
-        <h3>Backup &amp; Recovery</h3>
-        <p>Backups only count if they restore. We set them up, schedule them, verify them and test the restore, so a bad day stays a small one.</p>
-        <ul class="it-list"><li>Local backup solutions (Veeam)</li><li>NAS storage servers (Synology, QNAP)</li><li>Scheduling &amp; verification</li><li>Restore testing</li></ul>
+        <span class="fn">ng.agents()</span>
+        <h3>AI Agents &amp; Automation</h3>
+        <p>Autonomous agents that plan, call tools and act on their own, with code that checks every decision against real results instead of trusting the model.</p>
+        <ul class="it-list"><li>LLM tool calling &amp; agent loops</li><li>Self-learning loops (Thompson sampling)</li><li>Voice, document &amp; PDF processing</li><li>Multi-provider LLM integration</li></ul>
       </article>
       <article class="service it-card spot" data-reveal="up">
         <span class="fn">ng.secure()</span>
@@ -852,22 +850,46 @@
         <ul class="it-list"><li>Endpoint protection: Kaspersky, ESET, Sophos, Defender</li><li>Access security</li><li>Rights &amp; permissions management</li><li>Web &amp; application filtering</li><li>Firewall management</li></ul>
       </article>
       <article class="service it-card spot" data-reveal="up">
+        <span class="fn">ng.backend()</span>
+        <h3>Backend &amp; APIs</h3>
+        <p>Reliable backends that power your product, built for real traffic, with security and maintainability from day one.</p>
+        <ul class="it-list"><li>Laravel REST APIs</li><li>Payments: SATIM, PayPal, Slick Pay</li><li>Data pipelines &amp; integrations</li><li>Billing &amp; subscription systems</li><li>Cloud hosting &amp; monitoring</li></ul>
+      </article>
+      <article class="service it-card spot" data-reveal="up">
+        <span class="fn">ng.servers()</span>
+        <h3>Servers &amp; Infrastructure</h3>
+        <p>Installation, administration and migration of your server environments, on-premises and in the cloud, documented so your business keeps running during the switch.</p>
+        <ul class="it-list"><li>Virtualization: Hyper-V, VMware, Proxmox</li><li>Active Directory, file sharing &amp; DHCP</li><li>High-availability services</li><li>Server rack installation</li><li>Server &amp; service migration</li></ul>
+      </article>
+      <article class="service it-card spot" data-reveal="up">
+        <span class="fn">ng.audit()</span>
+        <h3>Security Audits</h3>
+        <p>We test your website the way an attacker would, using Recon-AI, our private in-house engine, then hand you a clear, prioritized list of what to fix.</p>
+        <ul class="it-list"><li>Website &amp; web app pentesting</li><li>OWASP Top 10 checks</li><li>Exposure &amp; misconfiguration checks</li><li>Prioritized remediation report</li><li>Retest after fixes</li></ul>
+      </article>
+      <article class="service it-card spot" data-reveal="up">
+        <span class="fn">ng.backup()</span>
+        <h3>Backup &amp; Recovery</h3>
+        <p>Backups only count if they restore. We set them up, schedule them, verify them and test the restore, so a bad day stays a small one.</p>
+        <ul class="it-list"><li>Local backup solutions (Veeam)</li><li>NAS storage servers (Synology, QNAP)</li><li>Scheduling &amp; verification</li><li>Restore testing</li></ul>
+      </article>
+      <article class="service it-card spot" data-reveal="up">
+        <span class="fn">ng.mobile()</span>
+        <h3>Mobile Apps</h3>
+        <p>Cross-platform apps for iOS and Android that are fast, intuitive and built around how your users actually behave.</p>
+        <ul class="it-list"><li>iOS &amp; Android (Flutter)</li><li>Native Android (Kotlin)</li><li>Google Play publishing</li><li>AI-powered features</li></ul>
+      </article>
+      <article class="service it-card spot" data-reveal="up">
         <span class="fn">ng.support()</span>
         <h3>IT Support &amp; Training</h3>
         <p>Hands-on support for your team and your equipment, on-site or remote, plus training so your people use their tools with confidence.</p>
         <ul class="it-list"><li>Level 2 / Level 3 technical support</li><li>Incident diagnosis &amp; resolution</li><li>User, access &amp; internet management</li><li>Equipment repair &amp; fleet renewal</li><li>Endpoint &amp; office-tools training</li></ul>
       </article>
       <article class="service it-card spot" data-reveal="up">
-        <span class="fn">ng.deploy()</span>
-        <h3>Deployment &amp; Migration</h3>
-        <p>Moving to new servers or rolling out a new solution, planned and documented so your business keeps running during the switch.</p>
-        <ul class="it-list"><li>Server rack installation</li><li>Server &amp; service migration</li><li>Solution deployment</li><li>Hosting &amp; ongoing support</li></ul>
-      </article>
-      <article class="service it-card spot" data-reveal="up">
-        <span class="fn">ng.audit()</span>
-        <h3>Security Audits</h3>
-        <p>We test your website the way an attacker would, using Recon, our private in-house engine, then hand you a clear, prioritized list of what to fix.</p>
-        <ul class="it-list"><li>Website &amp; web app pentesting</li><li>Exposure &amp; misconfiguration checks</li><li>Prioritized remediation report</li><li>Retest after fixes</li></ul>
+        <span class="fn">ng.web()</span>
+        <h3>Web Applications</h3>
+        <p>Full-featured web applications, showcase sites and SaaS products, designed around your users and built to hold up at scale.</p>
+        <ul class="it-list"><li>Custom web apps &amp; SaaS platforms</li><li>Showcase websites</li><li>Online payments (Slick Pay, PayPal)</li><li>Hosting &amp; ongoing support</li></ul>
       </article>
     </div>
   </div>
@@ -900,69 +922,28 @@
     <div class="sec-head">
       <div>
         <h2 class="slug">co-founders<span class="slash">/</span></h2>
-        <p class="sec-title" data-reveal="lines">Meet the people behind NG Development</p>
+        <p class="sec-title" data-reveal="lines">Meet our co-founders</p>
       </div>
-      <p class="lead" data-reveal="lines">Two co-founders, two complementary skill sets: one builds the software, the other runs and protects the infrastructure it lives on. Together they cover the whole stack.</p>
+      <p class="lead" data-reveal="lines">NG Development brings together developers, engineers and IT specialists working across software, infrastructure and security. These are the co-founders who lead the team.</p>
     </div>
     <div class="founders">
       <article class="founder" data-reveal="up">
-        <div class="f-head">
-          <span class="f-mono"><img src="assets/team/nadjem-ayoub.jpg" alt="Nadjem Ayoub" width="480" height="480" loading="lazy"></span>
-          <div>
-            <p class="f-name">Nadjem Ayoub</p>
-            <p class="f-role">Co-founder · Software engineering &amp; security</p>
-          </div>
+        <div class="f-photo"><img src="assets/team/nadjem-ayoub.jpg" alt="Nadjem Ayoub" width="480" height="480" loading="lazy"></div>
+        <div class="f-info">
+          <p class="f-role">Co-founder · Head of Engineering</p>
+          <h3 class="f-name">Nadjem Ayoub</h3>
+          <p class="f-bio">Software engineer specialized in backend systems, autonomous AI agents and application security. Leads engineering across our products, from NAQLI's ticketing platform and the Life agent to Recon-AI, our private security scanner.</p>
+          <a class="f-link" href="https://www.linkedin.com/in/ayoub-n" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a>
         </div>
-        <p class="f-bio">Self-taught software engineer who was coding well before university. Leads engineering on every product, with teams of up to five engineers, and specializes in autonomous AI agents and application &amp; network security: Recon-AI, Life, NAQLI, SkyShift and Protectiny's platform.</p>
-        <dl class="p-stats">
-          <div><dt>Founded NG Development</dt><dd>2022</dd></div>
-          <div><dt>Products shipped to production</dt><dd>12+</dd></div>
-          <div><dt>Engineers led on a single build</dt><dd>5</dd></div>
-        </dl>
-        <p class="k">certifications/</p>
-        <ul class="certs">
-          <li><b>Google Cybersecurity</b><span>Professional Certificate</span></li>
-          <li><b>NASA Space Apps Challenge</b><span>Certificate · 2026</span></li>
-        </ul>
-        <p class="k">stack/</p>
-        <div class="chips"><span>Python (async)</span><span>TypeScript</span><span>LLM agents</span><span>Kotlin</span><span>Flutter</span><span>Docker</span><span>PostgreSQL</span><span>GitHub Actions</span><span>Supabase</span><span>Playwright</span><span>OWASP Top 10</span><span>DAST</span><span>Laravel</span><span>PHP</span><span>MySQL</span></div>
       </article>
       <article class="founder" data-reveal="up">
-        <div class="f-head">
-          <span class="f-mono"><img src="assets/team/mekhlef-oussama.jpg" alt="Mekhlef Mohamed Oussama" width="320" height="320" loading="lazy"></span>
-          <div>
-            <p class="f-name">Mekhlef Mohamed Oussama</p>
-            <p class="f-role">Co-founder · IT infrastructure &amp; security</p>
-          </div>
+        <div class="f-photo"><img src="assets/team/mekhlef-oussama.jpg" alt="Mekhlef Mohamed Oussama" width="320" height="320" loading="lazy"></div>
+        <div class="f-info">
+          <p class="f-role">Co-founder · Head of IT &amp; Security</p>
+          <h3 class="f-name">Mekhlef Mohamed Oussama</h3>
+          <p class="f-bio">Systems, network and security engineer with more than 400 on-site and remote interventions for businesses, schools and hospitals. Leads our infrastructure, cybersecurity, backup and IT support work.</p>
         </div>
-        <p class="f-bio">Leads infrastructure, networks and cybersecurity: more than 400 on-site and remote interventions since 2022, from server rooms and backups to endpoint protection.</p>
-        <dl class="p-stats">
-          <div><dt>In the field since</dt><dd>2022</dd></div>
-          <div><dt>Interventions</dt><dd>400+</dd></div>
-          <div><dt>Certifications</dt><dd>3</dd></div>
-        </dl>
-        <p class="k">certifications/</p>
-        <ul class="certs">
-          <li><b>Kaspersky EDR Foundations</b><span>Kaspersky · 2025</span></li>
-          <li><b>Veeam</b><span>Technical sales</span></li>
-          <li><b>CompTIA A+</b><span>CompTIA</span></li>
-        </ul>
-        <p class="k">stack/</p>
-        <div class="chips"><span>Microsoft Defender</span><span>Intune</span><span>Microsoft 365</span><span>Proxmox</span><span>Veeam</span><span>Active Directory</span><span>Sophos</span><span>Kaspersky</span><span>ESET</span><span>SharePoint</span><span>Exchange</span><span>Hyper-V</span><span>VMware</span><span>Synology</span><span>QNAP</span></div>
       </article>
-    </div>
-    <div class="team-foot">
-      <div class="p-block" data-reveal="up">
-        <p class="k">how-we-work-on-site/</p>
-        <p class="p-quote">Every intervention is scoped, adapted to your context and systematically documented, with full respect for the confidentiality and security of the information shared.</p>
-      </div>
-      <div class="p-block" data-reveal="up">
-        <p class="k">our-saas-products/</p>
-        <div class="prods">
-          <a href="https://protectiny.com" target="_blank" rel="noopener"><b>Protectiny.com</b><span>Cybersecurity made simple for non-technical people</span><i aria-hidden="true">↗</i></a>
-          <a href="https://flotte-360.com" target="_blank" rel="noopener"><b>Flotte-360.com</b><span>SaaS fleet management platform</span><i aria-hidden="true">↗</i></a>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -997,7 +978,7 @@
               </div>
               <div>
                 <p class="k">solution/</p>
-                <p class="v">We built a full DNS filtering platform from scratch, covering the web dashboard, mobile app, billing integrations, and device provisioning API, with an interface that makes security management straightforward for any team size.</p>
+                <p class="v">We built a full DNS filtering platform from scratch, covering the web dashboard, mobile app, SATIM and PayPal payments, and device provisioning API, with an interface that makes security management straightforward for any team size.</p>
               </div>
             </div>
             <div class="result">
@@ -1014,8 +995,13 @@
       <!-- NAQLI -->
       <article class="case">
         <div class="case-card">
-          <div class="case-media">
-            <div class="cm-in"><img src="https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=900&q=80&auto=format" alt="Public transport mobile app" loading="lazy"></div>
+          <div class="case-media screens-media sm-naqli">
+            <div class="cm-in">
+              <div class="screens">
+                <figure class="screen"><img src="assets/projects/naqli-home.webp" alt="NAQLI home screen with quick actions" width="560" height="1148" loading="lazy"></figure>
+                <figure class="screen"><img src="assets/projects/naqli-qr.webp" alt="NAQLI metro subscription QR code" width="560" height="1148" loading="lazy"></figure>
+              </div>
+            </div>
             <span class="case-file">naqli/transit-app</span>
           </div>
           <div class="case-body">
@@ -1042,6 +1028,9 @@
               <p class="k">result/</p>
               <p class="v">Three operators, one app, built by a five-person team on Laravel and Flutter. Tickets are secured with HMAC-SHA256 signed QR codes and paid through SATIM, with an inspector role for on-site validation. The project has been submitted to the Ministry of Transport, which is currently studying it.</p>
             </div>
+            <div class="case-links">
+              <a class="btn btn-primary btn-sm" href="https://ngdev.org/naqli/naqli-landing.html" target="_blank" rel="noopener" data-roll>View the NAQLI project</a>
+            </div>
           </div>
         </div>
       </article>
@@ -1049,8 +1038,13 @@
       <!-- Guess My Grade -->
       <article class="case">
         <div class="case-card">
-          <div class="case-media">
-            <div class="cm-in"><img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=900&q=80&auto=format" alt="Education mobile application" loading="lazy"></div>
+          <div class="case-media screens-media sm-gmg">
+            <div class="cm-in">
+              <div class="screens">
+                <figure class="screen"><img src="assets/projects/gmg-dark.webp" alt="Guess My Grade in dark mode" width="560" height="1148" loading="lazy"></figure>
+                <figure class="screen"><img src="assets/projects/gmg-light.webp" alt="Guess My Grade in light mode" width="560" height="1148" loading="lazy"></figure>
+              </div>
+            </div>
             <span class="case-file">guess-my-grade/android</span>
           </div>
           <div class="case-body">
@@ -1070,6 +1064,9 @@
               <p class="k">result/</p>
               <p class="v">Published on Google Play Store with positive user feedback. Students report using it before every exam session to understand exactly what they need to achieve, turning anxiety into actionable information.</p>
             </div>
+            <div class="case-links">
+              <a class="btn btn-primary btn-sm" href="https://play.google.com/store/apps/details?id=com.guessmygrade.app" target="_blank" rel="noopener" data-roll>Get it on Google Play</a>
+            </div>
           </div>
         </div>
       </article>
@@ -1077,8 +1074,10 @@
       <!-- ngmed -->
       <article class="case wip">
         <div class="case-card">
-          <div class="case-media">
-            <div class="cm-in"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=900&q=80&auto=format" alt="Medical equipment e-commerce platform" loading="lazy"></div>
+          <div class="case-media paper-media">
+            <div class="cm-in">
+              <div class="paper-wrap"><img class="paper" src="assets/projects/ngmed-invoice.webp" alt="Invoice generated by the ngmed platform, client details hidden" width="900" height="1282" loading="lazy"></div>
+            </div>
             <span class="case-file">ngmed/b2b-commerce</span>
           </div>
           <div class="case-body">
@@ -1113,64 +1112,49 @@
       <!-- Life -->
       <article class="case wip">
         <div class="case-card">
-          <div class="case-media mock-media">
+          <div class="case-media screens-media sm-life">
             <div class="cm-in">
-              <div class="mock" aria-hidden="true">
-                <div class="phone">
-                  <div class="ph-notch"></div>
-                  <div class="ph-screen">
-                    <p class="ph-app">Life</p>
-                    <div class="ph-ring">
-                      <svg viewBox="0 0 120 120"><circle class="r-bg" cx="60" cy="60" r="50"/><circle class="r-fg" cx="60" cy="60" r="50"/></svg>
-                      <div class="ph-ring-txt"><b>12</b><span>of 15 min</span></div>
-                    </div>
-                    <p class="ph-label">used this hour</p>
-                    <div class="ph-card">
-                      <p class="ph-k">Tomorrow</p>
-                      <div class="ph-task"><i></i><span>Finish the slides<small>First step: open the draft</small></span><em>25 min</em></div>
-                      <div class="ph-task"><i></i><span>Go for a run</span><em>30 min</em></div>
-                      <div class="ph-task"><i></i><span>Call the bank</span><em>10 min</em></div>
-                    </div>
-                  </div>
-                  <div class="ph-toast"><b>Hour limit reached</b>Your goal: finish the slides. Next: open the draft (25&nbsp;min).</div>
-                </div>
+              <div class="screens">
+                <figure class="screen"><img src="assets/projects/life-chat.webp" alt="Lify explaining its updated strategy in chat" width="560" height="1148" loading="lazy"></figure>
+                <figure class="screen"><img src="assets/projects/life-insights.webp" alt="Life showing what works on you and the Talk to Lify panel" width="560" height="1148" loading="lazy"></figure>
               </div>
             </div>
             <span class="case-file">life/android</span>
           </div>
           <div class="case-body">
             <div class="tags"><span class="tag">Mobile App</span><span class="tag">Android</span><span class="tag">AI Agent</span><span class="tag">Meta Global AI Hackathon</span><span class="tag">Open source</span><span class="tag-soon">Coming soon on Google Play</span></div>
-            <h3 class="case-title">Life — Screen Time &amp; Daily Planning App</h3>
+            <h3 class="case-title">Life — An Autonomous Agent Against Doomscrolling</h3>
             <div class="case-cols">
               <div>
                 <p class="k">problem/</p>
-                <p class="v">Hours disappear into endless scrolling, and generic screen-time warnings are easy to ignore because they say nothing about what you actually wanted to do instead.</p>
+                <p class="v">Screen-time apps count your minutes and block apps, but they never ask why you picked up the phone. Their warnings are easy to ignore, and nothing learns what actually works on you.</p>
               </div>
               <div>
                 <p class="k">solution/</p>
-                <p class="v">Pick the apps that eat your time and set an hourly limit of 5 to 30 minutes. Each night, type tomorrow's plan as messily as you like and Life turns it into a short task list with a first step and a time estimate. When you hit your limit, it reminds you of your own goal and next task. It never blocks your apps.</p>
+                <p class="v">Lify, the agent inside Life, runs a closed loop on Android with no prompting: it watches real usage, slides a personal card over the app you're stuck in at the right moment, and measures whether you actually left. Every night, Meta's Muse Spark Open reads your history and proposes theories about what works on you, and code verifies them against your real results, so the model never grades itself.</p>
               </div>
             </div>
             <div class="features">
-              <span class="feature">Hourly app limits</span>
-              <span class="feature">AI nightly planning</span>
-              <span class="feature">Gentle &amp; Active modes</span>
-              <span class="feature">Reality check</span>
-              <span class="feature">14-day progress</span>
-              <span class="feature">No account needed</span>
-              <span class="feature">EN, FR, AR, DE, ES</span>
+              <span class="feature">Contextual Thompson sampling</span>
+              <span class="feature">3-level hierarchical priors</span>
+              <span class="feature">Nightly self-improvement</span>
+              <span class="feature">Off-policy evaluation</span>
+              <span class="feature">18-tool planning agent</span>
+              <span class="feature">Voice &amp; PDF planning</span>
+              <span class="feature">Flutter + Kotlin + Supabase</span>
             </div>
             <dl class="case-stats">
-              <div><dd>402</dd><dt>Automated tests (backend, Flutter, Kotlin)</dt></div>
-              <div><dd>18</dd><dt>Tools in the planning agent</dt></div>
-              <div><dd>1M</dd><dt>Token context read every night</dt></div>
+              <div><dd>47%</dd><dt>Of nudges led to leaving the app, measured on a real phone</dt></div>
+              <div><dd>+9 pts</dd><dt>Vs a fixed app, on 300 simulated people (43% vs 34%)</dt></div>
+              <div><dd>400+</dd><dt>Automated tests (backend, Flutter, Kotlin)</dt></div>
             </dl>
             <div class="result">
               <p class="k">privacy/</p>
-              <p class="v">App usage stays on the phone. Only the nightly plan text is sent to the server, and it is deleted right after processing. Life doesn't use Android's Accessibility service and never reads what's inside other apps.</p>
+              <p class="v">Life only sees which app is in front and for how long, never what you watch, your messages, location or contacts. Accounts are anonymous: no email, no phone number.</p>
             </div>
             <div class="case-links">
               <a class="btn btn-primary btn-sm" href="https://github.com/ayoubna99/life-agent" target="_blank" rel="noopener" data-roll>View Life on GitHub</a>
+              <a class="btn btn-ghost btn-sm" href="https://www.youtube.com/watch?v=7L-o6Q0FkuQ" target="_blank" rel="noopener" data-roll>Watch the 3-min demo</a>
             </div>
           </div>
         </div>
@@ -1282,16 +1266,16 @@
     </div>
     <div>
       <h2 class="slug">about<span class="slash">/</span></h2>
-      <h3 class="about-h" data-reveal="lines">A team focused on shipping software that actually works.</h3>
+      <h3 class="about-h" data-reveal="lines">Engineers first. Built for production.</h3>
       <div class="about-text">
-        <p data-reveal="lines">At NG Development, we build software the way we'd want it built for ourselves: with clean architecture, thoughtful design, and a serious commitment to reliability. We work closely with our clients through every phase of a project, and we don't ship until we're confident it's ready for the real world.</p>
-        <p data-reveal="lines">We're a lean team with broad expertise across web, mobile, and backend systems, plus IT infrastructure, networks and cybersecurity. That means faster decisions, fewer layers, and direct communication with the people doing the actual work. Our clients come back because we deliver what we commit to, and we're honest when things need to change.</p>
+        <p data-reveal="lines">NG Development is a software and IT company based in Algeria. We design, build and run production systems: Laravel backends and REST APIs, Flutter and Kotlin apps, autonomous AI agents, and the servers, networks and security they depend on.</p>
+        <p data-reveal="lines">Our work ships to real users: a DNS-security SaaS with live SATIM and PayPal payments, a transit ticketing platform now under study by the Ministry of Transport, and an AI-assisted security scanner we run on authorized audits. Every release is checked against the OWASP Top 10, tested automatically in CI and deployed with zero-downtime updates.</p>
       </div>
       <div class="pillars">
-        <div class="pillar" data-reveal="up"><h3>Reliability first</h3><p>We build systems that hold up under real conditions, not just demos.</p></div>
-        <div class="pillar" data-reveal="up"><h3>Clean code, always</h3><p>Every project is built to be maintained, extended, and handed off cleanly.</p></div>
+        <div class="pillar" data-reveal="up"><h3>Security by default</h3><p>Every release is checked against the OWASP Top 10 before it ships.</p></div>
+        <div class="pillar" data-reveal="up"><h3>Tested, not hoped</h3><p>Automated test suites run in CI on every product we build.</p></div>
+        <div class="pillar" data-reveal="up"><h3>AI that proves itself</h3><p>Our agents are measured against real outcomes, never graded by the model itself.</p></div>
         <div class="pillar" data-reveal="up"><h3>Honest communication</h3><p>We tell you what's realistic and flag issues before they become problems.</p></div>
-        <div class="pillar" data-reveal="up"><h3>Long-term thinking</h3><p>We design for where your business is going, not just where it is today.</p></div>
       </div>
     </div>
   </div>
@@ -1391,6 +1375,7 @@
         <label for="service">What are you looking for?</label>
         <select id="service" name="service" required>
           <option value="" disabled selected>Select a service</option>
+          <option>AI Agents &amp; Automation</option>
           <option>Web Application Development</option>
           <option>Mobile App Development</option>
           <option>Backend &amp; System Development</option>
@@ -1451,7 +1436,7 @@
   </div>
 </footer>
 
-<!-- THE CAT: walks down the page with you (fixed, never blocks clicks) -->
+<!-- THE CAT: walks down the page with you; hover or tap her body to pet her -->
 <div class="cat" id="cat" aria-hidden="true">
   <div class="cat-flip">
     <svg viewBox="0 0 130 95" xmlns="http://www.w3.org/2000/svg">
@@ -1901,6 +1886,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const ANCHORS = [
       { sel: '.hero-stats', kind: 'line' },
       { sel: '#services .slug', kind: 'text' },
+      { sel: '#field .slug', kind: 'text' },
+      { sel: '#team .slug', kind: 'text' },
       { sel: '#projects .sec-head .btn', kind: 'box' },
       { sel: '#about .slug', kind: 'text' },
       { sel: '#process .slug', kind: 'text' },
@@ -1974,6 +1961,38 @@ document.addEventListener('DOMContentLoaded', () => {
     let twitchT = -1, twitchEar = 0, nextTwitch = 0, headRot = 0, ex = 0, ey = 0, tailRot = 0, legTuck = 0;
 
     window.addEventListener('pointermove', e => { px = e.clientX; py = e.clientY; }, { passive: true });
+
+    // ── petting: stroke her (hover) or tap her and she leans in, closes her eyes and purrs ──
+    let petUntil = 0, petStart = 0, nextHeart = 0, lastPetX = null, lastPetY = null, strokes = 0;
+    const isPet = now => now < petUntil;
+    function pet(now, ms) {
+      if (!isPet(now)) { petStart = now; strokes = 0; }
+      petUntil = Math.max(petUntil, now + ms);
+    }
+    function heart(big) {
+      const hx = x + faceVis * (102 / 130 - 0.5) * W, hy = y - H + (20 / 95) * H;
+      const el = document.createElement('span');
+      el.className = 'cat-heart' + (big ? ' big' : '');
+      el.textContent = big && strokes % 4 === 3 ? 'prrr' : '♥';
+      el.style.left = (hx + (Math.random() - 0.5) * W * 0.5) + 'px';
+      el.style.top = hy + 'px';
+      el.style.setProperty('--dx', ((Math.random() - 0.5) * 40).toFixed(0) + 'px');
+      document.body.appendChild(el);
+      el.addEventListener('animationend', () => el.remove());
+    }
+    const body = cat.querySelector('svg');
+    body.addEventListener('pointermove', e => {
+      const now = performance.now();
+      if (lastPetX !== null && Math.hypot(e.clientX - lastPetX, e.clientY - lastPetY) > 3) { pet(now, 900); strokes++; }
+      lastPetX = e.clientX; lastPetY = e.clientY;
+    });
+    body.addEventListener('pointerleave', () => { lastPetX = lastPetY = null; });
+    body.addEventListener('pointerdown', e => {
+      e.preventDefault();
+      const now = performance.now();
+      pet(now, 1800); strokes++;
+      heart(true); setTimeout(() => heart(false), 120); setTimeout(() => heart(false), 260);
+    });
 
     // Pick a heading/button that has just come into view in the direction you're scrolling,
     // so it stays on screen long enough for her to land on it.
@@ -2174,7 +2193,7 @@ document.addEventListener('DOMContentLoaded', () => {
         y = L.y;
         const topLimit = (W < 90 ? 88 : 108) + H * 0.6;
         if (started && (!a.ok || L.y < topLimit || L.y > vh - 4)) toFollow();
-        else if (started && now - lastJumpEnd > 400) {
+        else if (started && !isPet(now) && now - lastJumpEnd > 400) {
           // hop straight to the next heading/button once it's better placed than this one
           const dir = scrollDir();
           const c = candidate(sy, dir, perch);
@@ -2189,7 +2208,7 @@ document.addEventListener('DOMContentLoaded', () => {
         y += (f.y - y) * Math.min(1, 0.1 * dt);
         if (Math.abs(x - ox) > 0.25) face = x > ox ? 1 : -1;
         tiltT = clamp(Math.atan2(y - oy, Math.abs(x - ox) + 0.8) * 57.3 * 0.35, -14, 14);
-        if (started && now - lastJumpEnd > 250 && Math.abs(vel) < 70) {
+        if (started && !isPet(now) && now - lastJumpEnd > 250 && Math.abs(vel) < 70) {
           const c = candidate(sy, scrollDir());
           if (c >= 0) jumpTo(c);
         }
@@ -2209,13 +2228,14 @@ document.addEventListener('DOMContentLoaded', () => {
       const speed = Math.hypot(x - ox, y - oy) + (state === 'perch' ? Math.abs(dS) * 0.1 : 0);
       if (state === 'jump' || speed > 0.35 || Math.abs(dS) > 0.3) lastActive = now;
       const idle = now - lastActive > 300;
-      const sitT = idle && state !== 'jump' ? 1 : 0;
+      const petting = isPet(now) && state !== 'jump';
+      const sitT = (idle || petting) && state !== 'jump' ? 1 : 0;
       sit += (sitT - sit) * Math.min(1, (sitT ? 0.1 : 0.25) * dt);
       walkAmt += ((state === 'jump' ? 0 : clamp(speed / 2.5, 0, 1) * (1 - sit)) - walkAmt) * Math.min(1, 0.3 * dt);
       if (walkAmt > 0.02) phase += (0.1 + Math.min(speed, 18) * 0.045) * dt;
 
-      // breathing while sitting
-      if (state !== 'jump') sy2 *= 1 + Math.sin(now / 650) * 0.012 * sit;
+      // breathing while sitting; a fast little purr while she's petted
+      if (state !== 'jump') sy2 *= 1 + Math.sin(now / 650) * 0.012 * sit + (petting ? Math.sin(now / 28) * 0.012 : 0);
 
       // look toward the cursor; turn round if it's behind her while she sits
       const head = setBlinkAndEars(now);
@@ -2229,11 +2249,19 @@ document.addEventListener('DOMContentLoaded', () => {
           if (idle && sit > 0.6 && dxl < -60 && now - lastTurn > 700) { face = -face; lastTurn = now; }
         }
       }
+      if (petting) {
+        // eyes shut, ears relaxed back, head rubbing into your hand
+        T(P.blink, 'scaleY(0.1)');
+        T(P.earB, 'rotate(-16deg)'); T(P.earF, 'rotate(14deg)');
+        hT = -14 + Math.sin(now / 170) * 7; exT = 0; eyT = 0;
+        if (now > nextHeart) { heart(false); nextHeart = now + 420; }
+      }
       headRot += (hT - headRot) * Math.min(1, 0.12 * dt);
       ex += (exT - ex) * Math.min(1, 0.2 * dt); ey += (eyT - ey) * Math.min(1, 0.2 * dt);
 
       // tail: sway when walking, slow flick when sitting, streams back mid-jump
       const tailT = state === 'jump' ? 18
+        : petting ? -34 + Math.sin(now / 260) * 16
         : Math.sin(phase * 0.5) * 14 * walkAmt + (Math.sin(now / 900) * 9 + Math.sin(now / 2300) * 5) * (1 - walkAmt) - 78 * sit;
       tailRot += (tailT - tailRot) * Math.min(1, 0.15 * dt);
 
@@ -2371,7 +2399,7 @@ document.addEventListener('DOMContentLoaded', () => {
     G.utils.toArray('.case').forEach(card => {
       const inner = card.querySelector('.case-card');
       const media = card.querySelector('.case-media');
-      const art = media.querySelector('img') || media.querySelector('.phone');
+      const art = media.querySelector('.cm-in > img');
       G.fromTo(media, { clipPath: 'inset(0% 0% 100% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.4, ease: 'expo.inOut', scrollTrigger: { trigger: card, start: 'top 85%', once: true } });
       if (art) G.fromTo(art, { yPercent: -6 }, { yPercent: 6, ease: 'none', scrollTrigger: { trigger: card, start: 'top bottom', end: 'bottom top', scrub: true } });
       G.from(card.querySelectorAll('.case-body > *'), { y: 30, opacity: 0, duration: 1, ease: 'expo.out', stagger: 0.07, scrollTrigger: { trigger: card, start: 'top 80%', once: true } });

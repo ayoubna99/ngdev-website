@@ -325,3 +325,71 @@ TEXT.update({
     'Tools in the planning agent': "Outils dans l'agent de planification",
     'Token context read every night': 'Tokens de contexte analysés chaque nuit',
 })
+
+TEXT.update({
+    'ai-agents': 'agents-ia',
+    'AI Agents &amp; Automation': 'Agents IA &amp; automatisation',
+    'Autonomous agents that plan, call tools and act on their own, with code that checks every decision against real results instead of trusting the model.':
+        "Des agents autonomes qui planifient, utilisent des outils et agissent seuls, avec du code qui vérifie chaque décision sur des résultats réels au lieu de faire confiance au modèle.",
+    'LLM tool calling &amp; agent loops': "Appels d'outils LLM &amp; boucles d'agents",
+    'Self-learning loops (Thompson sampling)': "Boucles d'auto-apprentissage (Thompson sampling)",
+    'Voice, document &amp; PDF processing': 'Traitement de la voix, des documents &amp; PDF',
+    'Multi-provider LLM integration': 'Intégration LLM multi-fournisseurs',
+    'Payments: SATIM, PayPal, Slick Pay': 'Paiements : SATIM, PayPal, Slick Pay',
+    'Installation, administration and migration of your server environments, on-premises and in the cloud, documented so your business keeps running during the switch.':
+        "Installation, administration et migration de vos environnements serveurs, en local et dans le cloud, de façon documentée pour que votre activité continue pendant la transition.",
+    'Active Directory, file sharing &amp; DHCP': 'Active Directory, partage de fichiers &amp; DHCP',
+    'We test your website the way an attacker would, using Recon-AI, our private in-house engine, then hand you a clear, prioritized list of what to fix.':
+        "Nous testons votre site comme le ferait un attaquant, avec Recon-AI, notre moteur interne privé, puis vous remettons une liste claire et priorisée des corrections à faire.",
+    'OWASP Top 10 checks': 'Contrôles OWASP Top 10',
+    'Native Android (Kotlin)': 'Android natif (Kotlin)',
+    'Online payments (Slick Pay, PayPal)': 'Paiement en ligne (Slick Pay, PayPal)',
+    'Meet our co-founders': 'Nos co-fondateurs',
+    'NG Development brings together developers, engineers and IT specialists working across software, infrastructure and security. These are the co-founders who lead the team.':
+        "NG Development réunit des développeurs, des ingénieurs et des spécialistes IT qui travaillent sur le logiciel, l'infrastructure et la sécurité. Voici les co-fondateurs qui dirigent l'équipe.",
+    'Co-founder · Head of Engineering': "Co-fondateur · Directeur de l'ingénierie",
+    "Software engineer specialized in backend systems, autonomous AI agents and application security. Leads engineering across our products, from NAQLI's ticketing platform and the Life agent to Recon-AI, our private security scanner.":
+        "Ingénieur logiciel spécialisé dans les systèmes backend, les agents IA autonomes et la sécurité applicative. Il dirige le développement de nos produits, de la plateforme de billetterie NAQLI et de l'agent Life à Recon-AI, notre scanner de sécurité privé.",
+    'Co-founder · Head of IT &amp; Security': 'Co-fondateur · Directeur IT &amp; sécurité',
+    'Systems, network and security engineer with more than 400 on-site and remote interventions for businesses, schools and hospitals. Leads our infrastructure, cybersecurity, backup and IT support work.':
+        "Ingénieur systèmes, réseaux et sécurité, avec plus de 400 interventions sur site et à distance pour des entreprises, des écoles et des hôpitaux. Il dirige nos activités d'infrastructure, de cybersécurité, de sauvegarde et de support informatique.",
+    'We built a full DNS filtering platform from scratch, covering the web dashboard, mobile app, SATIM and PayPal payments, and device provisioning API, with an interface that makes security management straightforward for any team size.':
+        "Nous avons construit de zéro une plateforme complète de filtrage DNS : tableau de bord web, application mobile, paiements SATIM et PayPal et API de provisionnement des appareils, avec une interface qui rend la sécurité simple à gérer, quelle que soit la taille de l'équipe.",
+    'View the NAQLI project': 'Voir le projet NAQLI',
+    'Get it on Google Play': 'Disponible sur Google Play',
+    'Life — An Autonomous Agent Against Doomscrolling': 'Life — Un agent autonome contre le doomscrolling',
+    'Screen-time apps count your minutes and block apps, but they never ask why you picked up the phone. Their warnings are easy to ignore, and nothing learns what actually works on you.':
+        "Les applications de temps d'écran comptent vos minutes et bloquent des apps, mais ne se demandent jamais pourquoi vous avez pris votre téléphone. Leurs alertes s'ignorent facilement, et rien n'apprend ce qui fonctionne vraiment sur vous.",
+    "Lify, the agent inside Life, runs a closed loop on Android with no prompting: it watches real usage, slides a personal card over the app you're stuck in at the right moment, and measures whether you actually left. Every night, Meta's Muse Spark Open reads your history and proposes theories about what works on you, and code verifies them against your real results, so the model never grades itself.":
+        "Lify, l'agent de Life, fonctionne en boucle fermée sur Android, sans aucune sollicitation : il observe l'utilisation réelle, affiche au bon moment une carte personnelle par-dessus l'application où vous êtes bloqué, et mesure si vous l'avez vraiment quittée. Chaque nuit, Muse Spark Open de Meta lit votre historique et propose des théories sur ce qui fonctionne pour vous, puis le code les vérifie sur vos résultats réels : le modèle ne s'évalue jamais lui-même.",
+    'Contextual Thompson sampling': 'Thompson sampling contextuel',
+    '3-level hierarchical priors': 'Priors hiérarchiques à 3 niveaux',
+    'Nightly self-improvement': 'Auto-amélioration chaque nuit',
+    'Off-policy evaluation': 'Évaluation off-policy',
+    '18-tool planning agent': 'Agent de planification à 18 outils',
+    'Voice &amp; PDF planning': 'Planification par la voix &amp; PDF',
+    'Of nudges led to leaving the app, measured on a real phone': "Des rappels ont mené à quitter l'app, mesuré sur un vrai téléphone",
+    'Vs a fixed app, on 300 simulated people (43% vs 34%)': 'Face à une app fixe, sur 300 personnes simulées (43 % contre 34 %)',
+    'Life only sees which app is in front and for how long, never what you watch, your messages, location or contacts. Accounts are anonymous: no email, no phone number.':
+        "Life voit seulement quelle application est ouverte et pendant combien de temps, jamais ce que vous regardez, vos messages, votre position ou vos contacts. Les comptes sont anonymes : ni e-mail, ni numéro de téléphone.",
+    'Watch the 3-min demo': 'Voir la démo (3 min)',
+    'Engineers first. Built for production.': "L'ingénierie d'abord. Pensé pour la production.",
+    'NG Development is a software and IT company based in Algeria. We design, build and run production systems: Laravel backends and REST APIs, Flutter and Kotlin apps, autonomous AI agents, and the servers, networks and security they depend on.':
+        "NG Development est une entreprise de logiciels et de services informatiques basée en Algérie. Nous concevons, développons et exploitons des systèmes en production : backends Laravel et API REST, applications Flutter et Kotlin, agents IA autonomes, ainsi que les serveurs, réseaux et la sécurité dont ils dépendent.",
+    'Our work ships to real users: a DNS-security SaaS with live SATIM and PayPal payments, a transit ticketing platform now under study by the Ministry of Transport, and an AI-assisted security scanner we run on authorized audits. Every release is checked against the OWASP Top 10, tested automatically in CI and deployed with zero-downtime updates.':
+        "Notre travail est utilisé par de vrais utilisateurs : un SaaS de sécurité DNS avec paiements SATIM et PayPal en production, une plateforme de billetterie de transport à l'étude au ministère des Transports, et un scanner de sécurité assisté par IA que nous utilisons lors d'audits autorisés. Chaque version est vérifiée selon l'OWASP Top 10, testée automatiquement en CI et déployée sans interruption de service.",
+    'Security by default': 'La sécurité par défaut',
+    'Every release is checked against the OWASP Top 10 before it ships.': "Chaque version est vérifiée selon l'OWASP Top 10 avant sa mise en ligne.",
+    'Tested, not hoped': 'Testé, pas espéré',
+    'Automated test suites run in CI on every product we build.': 'Des tests automatisés tournent en CI sur chacun de nos produits.',
+    'AI that proves itself': "Une IA qui fait ses preuves",
+    'Our agents are measured against real outcomes, never graded by the model itself.': "Nos agents sont mesurés sur des résultats réels, jamais évalués par le modèle lui-même.",
+    'NAQLI home screen with quick actions': "Écran d'accueil NAQLI avec les actions rapides",
+    'NAQLI metro subscription QR code': "QR code d'abonnement métro NAQLI",
+    'Guess My Grade in dark mode': 'Guess My Grade en mode sombre',
+    'Guess My Grade in light mode': 'Guess My Grade en mode clair',
+    'Invoice generated by the ngmed platform, client details hidden': 'Facture générée par la plateforme ngmed, informations client masquées',
+    'Lify explaining its updated strategy in chat': 'Lify explique sa nouvelle stratégie dans le chat',
+    'Life showing what works on you and the Talk to Lify panel': 'Life montre ce qui fonctionne pour vous et le panneau Parler à Lify',
+})
+KEEP.update({'ng.agents()', 'LinkedIn', '+9 pts', 'Flutter + Kotlin + Supabase'})
