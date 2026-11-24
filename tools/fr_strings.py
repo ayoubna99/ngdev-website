@@ -575,3 +575,59 @@ TEXT.update({
     'Network &amp; cabling': 'Réseau &amp; câblage', 'An AI assistant or automation': 'Un assistant IA ou une automatisation',
 })
 KEEP.update({'ng.apps()', 'ng.it()', 'ng.pay()', 'Slick Pay'})
+
+TEXT.update({
+    'Half of our work happens on-site: 400+ interventions in server rooms, data centers and offices, each one scoped, documented and kept confidential.':
+        "La moitié de notre travail se fait sur site : plus de 400 interventions en salles serveurs, data centers et bureaux, chacune cadrée, documentée et confidentielle.",
+    'Small businesses had no affordable, local way to block malicious and unwanted sites across their network.':
+        "Les petites entreprises n'avaient aucune solution locale et abordable pour bloquer les sites malveillants ou indésirables sur leur réseau.",
+    'A complete DNS filtering platform: web dashboard, mobile app, device setup and SATIM/PayPal payments, simple enough for any team.':
+        "Une plateforme complète de filtrage DNS : tableau de bord web, application mobile, configuration des appareils et paiements SATIM/PayPal, simple pour toute équipe.",
+    'The first DNS filtering SaaS for the Algerian market, live in production with paying customers.':
+        'Le premier SaaS de filtrage DNS pour le marché algérien, en production avec des clients payants.',
+    'Metro, tram and train in Algeria meant three operators and three places to buy tickets.':
+        'En Algérie, métro, tram et train voulaient dire trois opérateurs et trois endroits pour acheter ses tickets.',
+    'One app for SEMA metro, SETRAM tram and SNTF train: tickets and subscriptions in one place.':
+        'Une seule application pour le métro SEMA, le tram SETRAM et le train SNTF : tickets et abonnements au même endroit.',
+    'Built by a five-person team, with signed QR tickets and SATIM payments. Now under study by the Ministry of Transport.':
+        "Réalisée par une équipe de cinq personnes, avec des tickets QR signés et le paiement SATIM. Actuellement à l'étude au ministère des Transports.",
+    'Screen-time apps count minutes and block apps, but never learn what actually gets you off the phone.':
+        "Les applications de temps d'écran comptent les minutes et bloquent des apps, mais n'apprennent jamais ce qui vous fait vraiment lâcher le téléphone.",
+    'Lify, the agent inside Life, steps in at the right moment with a personal card and measures whether you left. Every night it tests what works on you and keeps only that.':
+        "Lify, l'agent de Life, intervient au bon moment avec une carte personnelle et mesure si vous avez quitté l'app. Chaque nuit, il teste ce qui fonctionne pour vous et ne garde que ça.",
+    'Only which app is open and for how long. Never what you watch, your messages or your location. Accounts are anonymous.':
+        "Seulement l'application ouverte et la durée. Jamais ce que vous regardez, vos messages ou votre position. Les comptes sont anonymes.",
+    'Most small businesses never get their website security-tested, until someone else finds the holes first.':
+        "La plupart des petites entreprises ne font jamais tester la sécurité de leur site, jusqu'à ce que quelqu'un d'autre trouve les failles.",
+    '20+ detection modules plus an AI agent that confirms real exploits and re-tests every finding, delivered as a clear, prioritized report.':
+        "Plus de 20 modules de détection et un agent IA qui confirme les vraies failles et re-teste chaque résultat, livrés dans un rapport clair et priorisé.",
+    'Server rooms that grew without a plan: tangled cables, undocumented equipment, untested backups.':
+        'Des salles serveurs qui ont grandi sans plan : câbles emmêlés, équipements non documentés, sauvegardes jamais testées.',
+    'We install racks and servers, set up accounts, shared files and backups, document everything and stay on for support.':
+        'Nous installons baies et serveurs, configurons comptes, fichiers partagés et sauvegardes, documentons tout et restons présents pour le support.',
+    "Finding what moved across a patch of sky in NASA's SPHEREx images meant digging through raw data by hand.":
+        "Retrouver ce qui a traversé une zone du ciel dans les images SPHEREx de la NASA imposait de fouiller les données brutes à la main.",
+    "Point at any patch of sky and SkyShift shows the stars, asteroids and satellites that crossed it, with each satellite's temperature.":
+        "Pointez n'importe quelle zone du ciel et SkyShift montre les étoiles, astéroïdes et satellites qui l'ont traversée, avec la température de chaque satellite.",
+    'The first satellite temperature measurements from SPHEREx data, including COSMOS 1980 at ~294 K. Built live at NASA Space Apps 2026.':
+        'Les premières mesures de température de satellites issues des données SPHEREx, dont COSMOS 1980 à ~294 K. Réalisé en direct au NASA Space Apps 2026.',
+    'Students had no quick way to know what grades they needed to reach their target.':
+        "Les étudiants n'avaient aucun moyen rapide de savoir quelles notes viser pour atteindre leur objectif.",
+    'Enter your marks and coefficients and instantly get your average and the minimum grades you need.':
+        'Saisissez vos notes et coefficients, et obtenez instantanément votre moyenne et les notes minimales à viser.',
+    'Published on Google Play, and used by students before every exam session.':
+        "Publiée sur Google Play, et utilisée par les étudiants avant chaque session d'examens.",
+    'Hospitals and clinics ordered equipment by phone and paper, with errors, delays and no order tracking.':
+        'Les hôpitaux et cliniques commandaient leur matériel par téléphone et sur papier : erreurs, retards et aucun suivi des commandes.',
+    'A B2B store for medical supplies: catalogue, orders and automatic invoices with taxes, built for institutional buyers.':
+        'Une boutique B2B de fournitures médicales : catalogue, commandes et factures automatiques avec taxes, pensée pour les acheteurs institutionnels.',
+    'Full platform built for hospitals, clinics and procurement teams, replacing manual ordering with a traceable process.':
+        'Plateforme complète pour les hôpitaux, cliniques et services achats, qui remplace les commandes manuelles par un processus traçable.',
+    'NG Development is a software and IT company based in Algeria. We build apps and websites, set up and look after the IT behind them, and keep both secure, for businesses, schools, hospitals and public institutions.':
+        "NG Development est une entreprise de logiciels et de services informatiques basée en Algérie. Nous créons des applications et des sites web, installons et entretenons l'informatique derrière, et sécurisons le tout, pour des entreprises, des écoles, des hôpitaux et des institutions publiques.",
+    'We learn your business and the problem before writing any code.': "Nous comprenons votre activité et le problème avant d'écrire la moindre ligne de code.",
+    'Scope, architecture and a clear roadmap. No surprises mid-project.': 'Périmètre, architecture et feuille de route claire. Aucune surprise en cours de projet.',
+    'Short cycles, frequent updates, quick to adapt to your feedback.': 'Des cycles courts, des points fréquents, et vos retours intégrés vite.',
+    'Tested on real devices and real edge cases, not just in demos.': 'Testé sur de vrais appareils et de vrais cas limites, pas seulement en démo.',
+    'A stable launch, then monitoring and support after it.': 'Une mise en ligne stable, puis supervision et support.',
+})
