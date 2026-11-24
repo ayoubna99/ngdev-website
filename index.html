@@ -484,8 +484,9 @@
     transition: opacity .6s var(--ease);
   }
   .cat.is-on { opacity: 1; }
-  .wa { position: fixed; left: 18px; bottom: 18px; z-index: 84; display: flex; align-items: center; gap: 10px; height: 54px; padding: 0 15px; border-radius: 999px; background: #25d366; color: #fff; box-shadow: 0 16px 34px -12px rgba(18,140,70,0.6); transition: transform .4s var(--ease), box-shadow .3s; }
-  .wa:hover { transform: translateY(-3px); box-shadow: 0 22px 40px -12px rgba(18,140,70,0.7); }
+  .wa { position: fixed; left: 18px; bottom: 18px; z-index: 84; opacity: 0; visibility: hidden; transform: translateY(20px); display: flex; align-items: center; gap: 10px; height: 54px; padding: 0 15px; border-radius: 999px; background: #25d366; color: #fff; box-shadow: 0 16px 34px -12px rgba(18,140,70,0.6); transition: transform .4s var(--ease), box-shadow .3s; }
+  .wa.is-on { opacity: 1; visibility: visible; transform: none; transition: opacity .4s, visibility .4s, transform .5s var(--ease), box-shadow .3s; }
+  .wa.is-on:hover { transform: translateY(-3px); box-shadow: 0 22px 40px -12px rgba(18,140,70,0.7); }
   .wa svg { width: 25px; height: 25px; fill: #fff; flex-shrink: 0; }
   .wa-label { font-weight: 600; font-size: 14px; max-width: 0; overflow: hidden; white-space: nowrap; transition: max-width .5s var(--ease); }
   .wa:hover .wa-label, .wa:focus-visible .wa-label { max-width: 160px; }
@@ -538,6 +539,8 @@
   .it-card .fn { padding-bottom: 28px; margin-bottom: 0; }
   .it-card h3 { font-size: 21px; }
   .it-card p { font-size: 14.5px; }
+  .it-card.has-photo h3 { padding-right: 92px; }
+  .svc-tech { font-family: var(--mono); font-size: 12px; line-height: 1.5; color: var(--green); margin: -6px 0 12px; }
   .it-list { list-style: none; margin-top: 20px; padding-top: 16px; border-top: 1px dashed var(--line-2); display: flex; flex-direction: column; gap: 7px; }
   .it-list li { position: relative; padding-left: 18px; font-size: 13.5px; line-height: 1.5; color: var(--dim); }
   .it-list li::before { content: ''; position: absolute; left: 0; top: .55em; width: 6px; height: 6px; background: var(--lime-deep); transform: rotate(45deg); }
@@ -750,7 +753,7 @@
     .f-photo { width: 150px; height: 150px; border-radius: 26px; margin-bottom: 24px; }
     .shot { margin-bottom: 10px; border-radius: 14px; }
     .svc-photo { width: 58px; height: 58px; top: 22px; right: 20px; }
-    .it-card.has-photo h3 { padding-right: 64px; }
+    .it-card.has-photo h3 { padding-right: 70px; }
     .shot img { min-height: 150px; }
     .shot figcaption { padding: 30px 10px 10px; }
     .shot figcaption b { font-size: 12.5px; }
@@ -818,9 +821,9 @@
 
   <div class="hero-inner">
     <p class="hero-slug" data-hero>software-and-it-studio/</p>
-    <h1 class="hero-h1" data-hero>We build your software and run the systems behind it.</h1>
+    <h1 class="hero-h1" data-hero>We build it. We run it. We protect it.</h1>
     <div class="hero-row" data-hero>
-      <p class="hero-sub">NG Development designs and builds digital products, and installs, secures and supports the infrastructure they run on, from the first line of code to the server rack.</p>
+      <p class="hero-sub">Apps, websites and the IT behind them, from one team. We build your software, set up and look after your servers and computers, and keep your business safe from attacks.</p>
       <div class="hero-actions">
         <a href="#contact" class="btn btn-primary magnetic" data-roll>Get in touch</a>
         <a href="#services" class="btn btn-ghost magnetic" data-roll>Explore services</a>
@@ -883,92 +886,81 @@
     <div class="sec-head">
       <div>
         <h2 class="slug">services<span class="slash">/</span></h2>
-        <p class="sec-title" data-reveal="lines">Everything your business runs on, under one roof</p>
+        <p class="sec-title" data-reveal="lines">Everything your business runs on, from one team</p>
       </div>
-      <p class="lead" data-reveal="lines">From the app your customers use to the servers, backups and security behind it, one team designs it, builds it, installs it and keeps it running. No hand-offs between contractors, no gaps.</p>
+      <p class="lead" data-reveal="lines">Most agencies build your app and leave you alone with the servers, the backups and the security. We do all of it: the app your customers use, the IT your team works on, and the protection around both.</p>
     </div>
     <div class="it-grid is-collapsed">
       <article class="service it-card spot" data-reveal="up">
-        <span class="fn">ng.agents()</span>
-        <h3>AI Agents &amp; Automation</h3>
-        <p>Autonomous agents that plan, call tools and act on their own, with code that checks every decision against real results instead of trusting the model.</p>
-        <ul class="it-list"><li>LLM tool calling &amp; agent loops</li><li>Self-learning loops (Thompson sampling)</li><li>Voice, document &amp; PDF processing</li><li>Multi-provider LLM integration</li></ul>
+        <span class="fn">ng.apps()</span>
+        <h3>Apps &amp; websites</h3>
+        <p class="svc-tech">Mobile apps · Web apps · iOS &amp; Android · SaaS</p>
+        <p>Built secure from day one: checked against the OWASP Top 10 before every release, by the same team that runs the servers behind it.</p>
+        <ul class="it-list"><li>Mobile apps for iPhone &amp; Android</li><li>Websites and online platforms</li><li>Dashboards for your team</li><li>Published on Google Play</li><li>Updates &amp; maintenance after launch</li></ul>
       </article>
       <article class="service it-card spot has-photo" data-reveal="up">
-        <span class="fn">ng.servers()</span>
+        <span class="fn">ng.it()</span>
         <a class="svc-photo" href="#field" data-gf="servers" aria-label="Photos from our interventions"><img src="assets/field/hpe-proliant-rack.webp" alt="" width="562" height="1000" loading="lazy"></a>
-        <h3>Servers &amp; Virtualization</h3>
-        <p>Installation, configuration and administration of your server environments, on-premises and in the cloud.</p>
-        <ul class="it-list"><li>Virtualization (Hyper-V / VMware / Proxmox)</li><li>Active Directory</li><li>File server</li><li>DHCP server</li><li>High availability of services</li><li>Network &amp; infrastructure services</li></ul>
-      </article>
-      <article class="service it-card spot" data-reveal="up">
-        <span class="fn">ng.backend()</span>
-        <h3>Backend &amp; APIs</h3>
-        <p>Reliable backends that power your product, built for real traffic, with security and maintainability from day one.</p>
-        <ul class="it-list"><li>Laravel REST APIs</li><li>Payments: SATIM, PayPal, Slick Pay</li><li>Data pipelines &amp; integrations</li><li>Billing &amp; subscription systems</li><li>Cloud hosting &amp; monitoring</li></ul>
+        <h3>Your IT, set up and looked after</h3>
+        <p class="svc-tech">Servers · Virtualization · Active Directory · Microsoft 365</p>
+        <p>400+ on-site and remote interventions, from small offices to the EPTV data center. We set it up, document it and stay on call.</p>
+        <ul class="it-list"><li>Servers installed &amp; configured (Hyper-V, VMware, Proxmox)</li><li>User accounts &amp; shared files (Active Directory, file &amp; DHCP servers)</li><li>Email &amp; Office for your team (Microsoft 365, Exchange, SharePoint)</li><li>Services that stay up (high availability)</li><li>Moves to new servers without stopping your work</li></ul>
       </article>
       <article class="service it-card spot has-photo" data-reveal="up">
         <span class="fn">ng.secure()</span>
         <a class="svc-photo" href="#field" data-gf="security" aria-label="Photos from our interventions"><img src="assets/field/sophos-firewalls.webp" alt="" width="562" height="1000" loading="lazy"></a>
-        <h3>Cybersecurity</h3>
-        <p>Protect every device and every account, with the right people having the right access, and nothing more.</p>
-        <ul class="it-list"><li>Endpoint protection: Kaspersky, ESET, Sophos, Defender</li><li>Access security</li><li>Rights &amp; permissions management</li><li>Web &amp; application filtering</li><li>Firewall management</li></ul>
+        <h3>Protect your business from attacks</h3>
+        <p class="svc-tech">Antivirus · Firewall · Access control · Security audits</p>
+        <p>We protect every computer and every account, and we can test your website the way a hacker would with Recon-AI, our own private scanner.</p>
+        <ul class="it-list"><li>Antivirus on every computer (Kaspersky, ESET, Sophos, Defender)</li><li>Firewall &amp; web filtering</li><li>The right access for the right people</li><li>Website security test with a clear fix list</li><li>A second test once it's fixed</li></ul>
       </article>
       <article class="service it-card spot" data-reveal="up">
-        <span class="fn">ng.audit()</span>
-        <h3>Security Audits</h3>
-        <p>We test your website the way an attacker would, using Recon-AI, our private in-house engine, then hand you a clear, prioritized list of what to fix.</p>
-        <ul class="it-list"><li>Website &amp; web app pentesting</li><li>OWASP Top 10 checks</li><li>Exposure &amp; misconfiguration checks</li><li>Prioritized remediation report</li><li>Retest after fixes</li></ul>
+        <span class="fn">ng.pay()</span>
+        <h3>Online payments</h3>
+        <p class="svc-tech">SATIM · PayPal · Slick Pay · Subscriptions</p>
+        <p>Let your customers pay online. Our payment integrations already run in production with paying customers on Protectiny.</p>
+        <ul class="it-list"><li>Card payments (SATIM)</li><li>International payments (PayPal)</li><li>Slick Pay</li><li>Subscriptions &amp; automatic invoices</li><li>Wallet &amp; credit systems</li></ul>
       </article>
       <article class="service it-card spot has-photo" data-reveal="up">
         <span class="fn">ng.backup()</span>
         <a class="svc-photo" href="#field" data-gf="storage" aria-label="Photos from our interventions"><img src="assets/field/synology-rackstation.webp" alt="" width="562" height="1000" loading="lazy"></a>
-        <h3>Backup &amp; Storage</h3>
-        <p>Backups only count if they restore. We set them up, schedule them, verify them and test the restore, so a bad day stays a small one.</p>
-        <ul class="it-list"><li>Local backup solutions (Veeam)</li><li>Network storage servers (NAS: Synology, QNAP)</li><li>Scheduling &amp; verification</li><li>Restore testing</li></ul>
+        <h3>Keep your data safe</h3>
+        <p class="svc-tech">Backups · NAS · Veeam · Synology · QNAP</p>
+        <p>Backups only count if they come back. We set them up, schedule them and actually test restoring them, so a bad day stays a small one.</p>
+        <ul class="it-list"><li>Automatic backups (Veeam)</li><li>Storage for your files (NAS: Synology, QNAP)</li><li>Backups checked on schedule</li><li>Real restore tests, not "set and forget"</li></ul>
       </article>
       <article class="service it-card spot" data-reveal="up">
-        <span class="fn">ng.mobile()</span>
-        <h3>Mobile Apps</h3>
-        <p>Cross-platform apps for iOS and Android that are fast, intuitive and built around how your users actually behave.</p>
-        <ul class="it-list"><li>iOS &amp; Android (Flutter)</li><li>Native Android (Kotlin)</li><li>Google Play publishing</li><li>AI-powered features</li></ul>
+        <span class="fn">ng.agents()</span>
+        <h3>AI that does real work</h3>
+        <p class="svc-tech">AI agents · Automation · LLMs</p>
+        <p>Assistants that plan, act and follow up on their own, and prove it on real results: in real-phone tests, 47% of our Life agent's nudges got the user off the app.</p>
+        <ul class="it-list"><li>Assistants that use your tools (calendar, documents)</li><li>Repetitive tasks done automatically</li><li>Understands voice, photos &amp; PDFs</li><li>Checked against real results, never trusted blindly</li></ul>
       </article>
       <article class="service it-card spot has-photo" data-reveal="up">
         <span class="fn">ng.network()</span>
         <a class="svc-photo" href="#field" data-gf="networks" aria-label="Photos from our interventions"><img src="assets/field/fiber-cisco.webp" alt="" width="562" height="1000" loading="lazy"></a>
-        <h3>Networks &amp; Cabling</h3>
-        <p>The network everything else depends on: switching, routing, fiber and cabling, installed cleanly and labeled so it stays maintainable.</p>
-        <ul class="it-list"><li>Switching &amp; routing (Cisco, Huawei, Aruba)</li><li>Structured cabling &amp; fiber patching</li><li>Firewalls &amp; secure internet access</li><li>Network &amp; server room layout</li></ul>
+        <h3>Networks that just work</h3>
+        <p class="svc-tech">Cisco · Huawei · Aruba · Fiber · Structured cabling</p>
+        <p>Switches, routers, fiber and cabling installed cleanly and labeled, so your network is fast today and easy to fix tomorrow.</p>
+        <ul class="it-list"><li>Network switches &amp; routers (Cisco, Huawei, Aruba)</li><li>Clean cabling &amp; fiber</li><li>Secure internet access</li><li>Server cabinets &amp; server room layout</li></ul>
       </article>
       <article class="service it-card spot" data-reveal="up">
-        <span class="fn">ng.web()</span>
-        <h3>Web Applications</h3>
-        <p>Showcase sites, custom web applications and SaaS products, designed around your users and built to hold up at scale.</p>
-        <ul class="it-list"><li>Showcase websites</li><li>Custom development</li><li>Payment integration (Slick Pay, PayPal)</li><li>SaaS platforms</li></ul>
-      </article>
-      <article class="service it-card spot has-photo" data-reveal="up">
-        <span class="fn">ng.workplace()</span>
-        <a class="svc-photo" href="#field" data-gf="workplace" aria-label="Photos from our interventions"><img src="assets/field/office-workstations.webp" alt="" width="562" height="1000" loading="lazy"></a>
-        <h3>Microsoft 365 &amp; Workplace</h3>
-        <p>Email, files and devices for your whole team: Microsoft 365 set up properly, devices enrolled and protected, and workstations ready on day one.</p>
-        <ul class="it-list"><li>Microsoft 365, Exchange &amp; SharePoint</li><li>Device management (Intune)</li><li>Microsoft Defender</li><li>Workstation rollout</li></ul>
+        <span class="fn">ng.backend()</span>
+        <h3>The engine behind your app</h3>
+        <p class="svc-tech">Backend · REST APIs · Laravel · Cloud</p>
+        <p>The part users never see: accounts, data, payments and connections to other systems, built for real traffic. It runs NAQLI's ticketing for metro, tram and train.</p>
+        <ul class="it-list"><li>Secure user accounts &amp; data</li><li>Connections to other systems (APIs)</li><li>Reports &amp; admin tools</li><li>Hosting &amp; monitoring</li></ul>
       </article>
       <article class="service it-card spot has-photo" data-reveal="up">
         <span class="fn">ng.support()</span>
         <a class="svc-photo" href="#field" data-gf="workplace" aria-label="Photos from our interventions"><img src="assets/field/laptop-setup.webp" alt="" width="562" height="1000" loading="lazy"></a>
-        <h3>IT Support &amp; Training</h3>
-        <p>Hands-on support for your team and your equipment, on-site or remote, plus training so your people use their tools with confidence.</p>
-        <ul class="it-list"><li>Hardware fleet renewal</li><li>Equipment repair</li><li>Level 2 / Level 3 technical support</li><li>User &amp; internet access management</li><li>Incident diagnosis &amp; resolution</li><li>Endpoint &amp; office-tools training</li></ul>
-      </article>
-      <article class="service it-card spot has-photo" data-reveal="up">
-        <span class="fn">ng.deploy()</span>
-        <a class="svc-photo" href="#field" data-gf="deployment" aria-label="Photos from our interventions"><img src="assets/field/rack-deployment.webp" alt="" width="562" height="1000" loading="lazy"></a>
-        <h3>Deployment &amp; Migration</h3>
-        <p>Moving to new servers or rolling out a new solution, planned and documented so your business keeps running during the switch.</p>
-        <ul class="it-list"><li>Server cabinet installation</li><li>Server &amp; service migration</li><li>Solution deployment</li><li>Hosting &amp; ongoing support</li></ul>
+        <h3>Help when something breaks</h3>
+        <p class="svc-tech">Level 2/3 support · Repairs · Equipment · Training</p>
+        <p>On-site or remote, from a broken laptop to a server that won't start, plus training so your team uses its tools with confidence.</p>
+        <ul class="it-list"><li>Fast diagnosis &amp; fixes</li><li>Repairs &amp; new equipment</li><li>User &amp; internet access management</li><li>Training for your team (antivirus, office tools)</li></ul>
       </article>
     </div>
-    <div class="svc-more"><button type="button" class="btn btn-ghost magnetic" data-roll>Show all 12 services</button></div>
+    <div class="svc-more"><button type="button" class="btn btn-ghost magnetic" data-roll>Show all 9 services</button></div>
     <div class="cred" data-reveal="up">
       <div>
         <p class="k">certified-team/</p>
@@ -1548,19 +1540,13 @@
         <label for="service">What are you looking for?</label>
         <select id="service" name="service" required>
           <option value="" disabled selected>Select a service</option>
-          <option>AI Agents &amp; Automation</option>
-          <option>Web Application Development</option>
-          <option>Mobile App Development</option>
-          <option>Backend &amp; System Development</option>
-          <option>Servers &amp; Virtualization</option>
-          <option>Networks &amp; Cabling</option>
-          <option>Microsoft 365 &amp; Workplace</option>
-          <option>Backup &amp; Storage</option>
-          <option>Cybersecurity</option>
-          <option>IT Support</option>
-          <option>Deployment &amp; Migration</option>
-          <option>Website Security Audit</option>
-          <option>Full Product Build</option>
+          <option>I need an app or a website</option>
+          <option>Online payments for my business</option>
+          <option>Help with our IT (servers, computers, Microsoft 365)</option>
+          <option>Protect our business / website security test</option>
+          <option>Backups &amp; keeping our data safe</option>
+          <option>Network &amp; cabling</option>
+          <option>An AI assistant or automation</option>
           <option>Something else</option>
         </select>
       </div>
@@ -2029,6 +2015,14 @@ document.addEventListener('DOMContentLoaded', () => {
       const sec = document.getElementById('projects');
       if (sec.getBoundingClientRect().top < -40) window.scrollTo({ top: window.scrollY + sec.getBoundingClientRect().top - 20, behavior: 'smooth' });
     }));
+  })();
+
+  /* ── WhatsApp button: appears once you scroll past the first screen ── */
+  (function () {
+    const wa = document.querySelector('.wa');
+    if (!wa) return;
+    const check = () => wa.classList.toggle('is-on', window.scrollY > window.innerHeight * 0.6);
+    window.addEventListener('scroll', check, { passive: true }); check();
   })();
 
   /* ── services: show all ── */

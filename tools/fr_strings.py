@@ -491,3 +491,87 @@ TEXT.update({
     'Co-founder of NG Development and Protectiny. Leads business development, partnerships and client relationships, the first person our clients meet. A systems and network engineer with more than 400 on-site and remote interventions for businesses, schools and hospitals, he also leads our infrastructure, backup and IT support work.':
         "Co-fondateur de NG Development et de Protectiny. Il dirige le développement commercial, les partenariats et la relation client : c'est la première personne que nos clients rencontrent. Ingénieur systèmes et réseaux fort de plus de 400 interventions sur site et à distance pour des entreprises, des écoles et des hôpitaux, il pilote aussi nos activités d'infrastructure, de sauvegarde et de support informatique.",
 })
+
+TEXT.update({
+    'We build it. We run it. We protect it.': 'On le construit. On le gère. On le protège.',
+    'Apps, websites and the IT behind them, from one team. We build your software, set up and look after your servers and computers, and keep your business safe from attacks.':
+        "Applications, sites web et l'informatique derrière, avec une seule équipe. Nous développons vos logiciels, installons et entretenons vos serveurs et ordinateurs, et protégeons votre entreprise contre les attaques.",
+    'Everything your business runs on, from one team': 'Tout ce qui fait tourner votre entreprise, avec une seule équipe',
+    'Most agencies build your app and leave you alone with the servers, the backups and the security. We do all of it: the app your customers use, the IT your team works on, and the protection around both.':
+        "La plupart des agences livrent votre application et vous laissent seuls avec les serveurs, les sauvegardes et la sécurité. Nous faisons tout : l'application de vos clients, l'informatique de votre équipe, et la protection des deux.",
+    'Apps &amp; websites': 'Applications &amp; sites web',
+    'Mobile apps · Web apps · iOS &amp; Android · SaaS': 'Apps mobiles · Apps web · iOS &amp; Android · SaaS',
+    'Built secure from day one: checked against the OWASP Top 10 before every release, by the same team that runs the servers behind it.':
+        "Sécurisées dès le premier jour : vérifiées selon l'OWASP Top 10 avant chaque mise en ligne, par l'équipe qui gère aussi les serveurs derrière.",
+    'Mobile apps for iPhone &amp; Android': 'Applications mobiles iPhone &amp; Android',
+    'Websites and online platforms': 'Sites web et plateformes en ligne',
+    'Dashboards for your team': 'Tableaux de bord pour votre équipe',
+    'Published on Google Play': 'Publication sur Google Play',
+    'Updates &amp; maintenance after launch': 'Mises à jour &amp; maintenance après le lancement',
+    'Your IT, set up and looked after': 'Votre informatique, installée et suivie',
+    'Servers · Virtualization · Active Directory · Microsoft 365': 'Serveurs · Virtualisation · Active Directory · Microsoft 365',
+    '400+ on-site and remote interventions, from small offices to the EPTV data center. We set it up, document it and stay on call.':
+        "Plus de 400 interventions sur site et à distance, des petits bureaux au data center de l'EPTV. Nous installons, documentons et restons joignables.",
+    'Servers installed &amp; configured (Hyper-V, VMware, Proxmox)': 'Serveurs installés &amp; configurés (Hyper-V, VMware, Proxmox)',
+    'User accounts &amp; shared files (Active Directory, file &amp; DHCP servers)': 'Comptes utilisateurs &amp; fichiers partagés (Active Directory, serveurs de partage &amp; DHCP)',
+    'Email &amp; Office for your team (Microsoft 365, Exchange, SharePoint)': 'E-mail &amp; Office pour votre équipe (Microsoft 365, Exchange, SharePoint)',
+    'Services that stay up (high availability)': 'Des services qui restent disponibles (haute disponibilité)',
+    'Moves to new servers without stopping your work': 'Migration vers de nouveaux serveurs sans arrêter votre activité',
+    'Protect your business from attacks': 'Protéger votre entreprise des attaques',
+    'Antivirus · Firewall · Access control · Security audits': 'Antivirus · Pare-feu · Contrôle des accès · Audits de sécurité',
+    'We protect every computer and every account, and we can test your website the way a hacker would with Recon-AI, our own private scanner.':
+        "Nous protégeons chaque ordinateur et chaque compte, et pouvons tester votre site comme le ferait un pirate, avec Recon-AI, notre propre scanner privé.",
+    'Antivirus on every computer (Kaspersky, ESET, Sophos, Defender)': 'Antivirus sur chaque ordinateur (Kaspersky, ESET, Sophos, Defender)',
+    'Firewall &amp; web filtering': 'Pare-feu &amp; filtrage web',
+    'The right access for the right people': 'Les bons accès pour les bonnes personnes',
+    'Website security test with a clear fix list': 'Test de sécurité du site avec une liste claire de corrections',
+    "A second test once it's fixed": 'Un second test une fois corrigé',
+    'Online payments': 'Paiement en ligne',
+    'SATIM · PayPal · Slick Pay · Subscriptions': 'SATIM · PayPal · Slick Pay · Abonnements',
+    'Let your customers pay online. Our payment integrations already run in production with paying customers on Protectiny.':
+        "Permettez à vos clients de payer en ligne. Nos intégrations de paiement tournent déjà en production avec des clients payants sur Protectiny.",
+    'Card payments (SATIM)': 'Paiement par carte (SATIM)', 'International payments (PayPal)': 'Paiements internationaux (PayPal)',
+    'Subscriptions &amp; automatic invoices': 'Abonnements &amp; factures automatiques', 'Wallet &amp; credit systems': 'Portefeuille &amp; systèmes de crédit',
+    'Keep your data safe': 'Vos données en sécurité',
+    'Backups · NAS · Veeam · Synology · QNAP': 'Sauvegardes · NAS · Veeam · Synology · QNAP',
+    'Backups only count if they come back. We set them up, schedule them and actually test restoring them, so a bad day stays a small one.':
+        "Une sauvegarde ne compte que si elle revient. Nous la mettons en place, la planifions et testons vraiment la restauration, pour qu'un incident reste un petit incident.",
+    'Automatic backups (Veeam)': 'Sauvegardes automatiques (Veeam)', 'Storage for your files (NAS: Synology, QNAP)': 'Stockage de vos fichiers (NAS : Synology, QNAP)',
+    'Backups checked on schedule': 'Sauvegardes vérifiées régulièrement', 'Real restore tests, not "set and forget"': 'De vrais tests de restauration, pas « on installe et on oublie »',
+    'AI that does real work': 'Une IA qui travaille vraiment',
+    'AI agents · Automation · LLMs': 'Agents IA · Automatisation · LLM',
+    "Assistants that plan, act and follow up on their own, and prove it on real results: in real-phone tests, 47% of our Life agent's nudges got the user off the app.":
+        "Des assistants qui planifient, agissent et assurent le suivi seuls, et le prouvent sur des résultats réels : lors de tests sur un vrai téléphone, 47 % des rappels de notre agent Life ont fait quitter l'app.",
+    'Assistants that use your tools (calendar, documents)': 'Des assistants qui utilisent vos outils (agenda, documents)',
+    'Repetitive tasks done automatically': 'Les tâches répétitives faites automatiquement',
+    'Understands voice, photos &amp; PDFs': 'Comprend la voix, les photos &amp; les PDF',
+    'Checked against real results, never trusted blindly': 'Vérifié sur des résultats réels, jamais aveuglément',
+    'Networks that just work': 'Des réseaux qui fonctionnent',
+    'Cisco · Huawei · Aruba · Fiber · Structured cabling': 'Cisco · Huawei · Aruba · Fibre · Câblage structuré',
+    'Switches, routers, fiber and cabling installed cleanly and labeled, so your network is fast today and easy to fix tomorrow.':
+        "Switchs, routeurs, fibre et câblage installés proprement et étiquetés : un réseau rapide aujourd'hui et facile à réparer demain.",
+    'Network switches &amp; routers (Cisco, Huawei, Aruba)': 'Switchs &amp; routeurs (Cisco, Huawei, Aruba)',
+    'Clean cabling &amp; fiber': 'Câblage propre &amp; fibre', 'Secure internet access': 'Accès internet sécurisé',
+    'Server cabinets &amp; server room layout': 'Armoires serveurs &amp; aménagement de salle serveurs',
+    'The engine behind your app': 'Le moteur de votre application',
+    'Backend · REST APIs · Laravel · Cloud': 'Backend · API REST · Laravel · Cloud',
+    "The part users never see: accounts, data, payments and connections to other systems, built for real traffic. It runs NAQLI's ticketing for metro, tram and train.":
+        "La partie que les utilisateurs ne voient jamais : comptes, données, paiements et connexions aux autres systèmes, prêts pour un vrai trafic. C'est elle qui fait tourner la billetterie NAQLI pour le métro, le tram et le train.",
+    'Secure user accounts &amp; data': 'Comptes utilisateurs &amp; données sécurisés',
+    'Connections to other systems (APIs)': 'Connexions aux autres systèmes (API)',
+    'Reports &amp; admin tools': "Rapports &amp; outils d'administration", 'Hosting &amp; monitoring': 'Hébergement &amp; supervision',
+    'Help when something breaks': 'De l’aide quand ça casse',
+    'Level 2/3 support · Repairs · Equipment · Training': 'Support N2/N3 · Réparations · Matériel · Formation',
+    "On-site or remote, from a broken laptop to a server that won't start, plus training so your team uses its tools with confidence.":
+        "Sur site ou à distance, d'un portable en panne à un serveur qui ne démarre plus, et des formations pour que votre équipe maîtrise ses outils.",
+    'Fast diagnosis &amp; fixes': 'Diagnostic &amp; réparation rapides', 'Repairs &amp; new equipment': 'Réparations &amp; nouveau matériel',
+    'Training for your team (antivirus, office tools)': 'Formation de votre équipe (antivirus, bureautique)',
+    'Show all 9 services': 'Voir les 9 services',
+    'I need an app or a website': "J'ai besoin d'une application ou d'un site web",
+    'Online payments for my business': 'Paiement en ligne pour mon entreprise',
+    'Help with our IT (servers, computers, Microsoft 365)': 'Aide pour notre informatique (serveurs, ordinateurs, Microsoft 365)',
+    'Protect our business / website security test': 'Protéger notre entreprise / tester la sécurité du site',
+    'Backups &amp; keeping our data safe': 'Sauvegardes &amp; sécurité des données',
+    'Network &amp; cabling': 'Réseau &amp; câblage', 'An AI assistant or automation': 'Un assistant IA ou une automatisation',
+})
+KEEP.update({'ng.apps()', 'ng.it()', 'ng.pay()', 'Slick Pay'})
