@@ -426,3 +426,56 @@ TEXT.update({
 KEEP.update({'Protectiny', 'it/server-rooms', 'WhatsApp'})
 JS.append(("text=Hello%20NG%20Development%2C%20I%27d%20like%20to%20talk%20about%20a%20project.",
            "text=Bonjour%20NG%20Development%2C%20j%27aimerais%20parler%20d%27un%20projet."))
+
+TEXT.update({
+    'Servers &amp; Virtualization': 'Serveurs &amp; virtualisation',
+    'Virtualization (Hyper-V / VMware / Proxmox)': 'Virtualisation (Hyper-V / VMware / Proxmox)',
+    'File server': 'Serveur de partage', 'DHCP server': 'Serveur DHCP',
+    'High availability of services': 'Haute disponibilité des services',
+    'Backup &amp; Storage': 'Sauvegarde &amp; stockage',
+    'Network storage servers (NAS: Synology, QNAP)': 'Serveurs de stockage réseau (NAS : Synology, QNAP)',
+    'Networks &amp; Cabling': 'Réseaux &amp; câblage',
+    'The network everything else depends on: switching, routing, fiber and cabling, installed cleanly and labeled so it stays maintainable.':
+        "Le réseau dont tout le reste dépend : commutation, routage, fibre et câblage, installés proprement et étiquetés pour rester maintenables.",
+    'Switching &amp; routing (Cisco, Huawei, Aruba)': 'Commutation &amp; routage (Cisco, Huawei, Aruba)',
+    'Structured cabling &amp; fiber patching': 'Câblage structuré &amp; brassage fibre',
+    'Firewalls &amp; secure internet access': 'Pare-feu &amp; accès internet sécurisé',
+    'Network &amp; server room layout': 'Aménagement réseau &amp; salle serveurs',
+    'Showcase sites, custom web applications and SaaS products, designed around your users and built to hold up at scale.':
+        'Sites vitrines, applications web sur mesure et produits SaaS, pensés pour vos utilisateurs et conçus pour tenir la charge.',
+    'Custom development': 'Développement sur mesure', 'Payment integration (Slick Pay, PayPal)': 'Intégration de paiement (Slick Pay, PayPal)',
+    'SaaS platforms': 'Plateformes SaaS',
+    'Microsoft 365 &amp; Workplace': 'Microsoft 365 &amp; poste de travail',
+    'Email, files and devices for your whole team: Microsoft 365 set up properly, devices enrolled and protected, and workstations ready on day one.':
+        "E-mails, fichiers et appareils pour toute votre équipe : Microsoft 365 bien configuré, appareils enrôlés et protégés, et postes de travail prêts dès le premier jour.",
+    'Microsoft 365, Exchange &amp; SharePoint': 'Microsoft 365, Exchange &amp; SharePoint',
+    'Device management (Intune)': 'Gestion des appareils (Intune)', 'Workstation rollout': 'Déploiement de postes de travail',
+    'Hardware fleet renewal': 'Renouvellement du parc', 'Equipment repair': 'Réparation des équipements',
+    'User &amp; internet access management': 'Gestion des utilisateurs et accès internet',
+    'Server cabinet installation': 'Installation des armoires serveurs',
+    'certified-team/': 'équipe-certifiée/', 'we-work-with/': 'nos-technologies/',
+    'Half of what we do happens on-site: 400+ interventions across server rooms, data centers, networks, backups and workstations for businesses, schools, hospitals and public institutions.':
+        "La moitié de notre travail se fait sur site : plus de 400 interventions dans des salles serveurs, data centers, réseaux, sauvegardes et postes de travail pour des entreprises, des écoles, des hôpitaux et des institutions publiques.",
+    'how-we-intervene/': 'notre-façon-d-intervenir/',
+    'servers': 'serveurs', 'storage-&amp;-backup': 'stockage-&amp;-sauvegarde', 'networks': 'réseaux',
+    'deployment': 'déploiement', 'workplace': 'postes-de-travail', 'training': 'formation',
+    'Data center intervention': 'Intervention en data center',
+    'EPTV, Algerian public television': 'EPTV, télévision publique algérienne',
+    'HPE ProLiant server in a production rack': 'Serveur HPE ProLiant dans une baie de production',
+    'Synology RackStation &amp; NAS drives': 'Synology RackStation &amp; disques NAS',
+    'Backup &amp; storage': 'Sauvegarde &amp; stockage',
+    'Sophos firewall appliances': 'Pare-feu Sophos',
+    'Fiber patching &amp; Cisco switching': 'Brassage fibre &amp; commutation Cisco',
+    'Networks': 'Réseaux', 'Cisco 4300 series router': 'Routeur Cisco série 4300',
+    'QNAP NAS in a rack': 'NAS QNAP en baie',
+    'Server upgrade: memory &amp; components': 'Mise à niveau serveur : mémoire &amp; composants',
+    'Huawei CloudEngine switch': 'Switch Huawei CloudEngine', 'Office workstations rollout': 'Déploiement des postes de bureau',
+    'Workplace': 'Postes de travail', '12-bay NAS setup': 'Installation d’un NAS 12 baies',
+    'Structured cabling': 'Câblage structuré', 'Tower server deployment': "Déploiement d'un serveur tour",
+    'Rack build: switching, NAS &amp; server': 'Montage de baie : switch, NAS &amp; serveur',
+    'Laptop fleet setup': "Préparation d'un parc d'ordinateurs portables", 'Workstation deployment': 'Déploiement de postes de travail',
+    'HPE ProLiant first boot': 'Premier démarrage HPE ProLiant', 'Synology NAS installation': "Installation d'un NAS Synology",
+    'Show all 25 photos': 'Voir les 25 photos', 'Photos from our interventions': 'Photos de nos interventions',
+    'Filter photos': 'Filtrer les photos',
+})
+KEEP.update({'ng.network()', 'ng.workplace()', 'Cisco', 'Huawei', 'Aruba', 'Python'})

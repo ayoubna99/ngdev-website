@@ -583,15 +583,6 @@
   .prods i { position: absolute; right: 14px; top: 14px; font-style: normal; color: var(--lime); transition: transform .3s var(--ease); }
   .prods a:hover i { transform: translate(3px, -3px); }
   /* ───────── IN THE FIELD (gallery) ───────── */
-  .gallery { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 210px; grid-auto-flow: dense; gap: 14px; }
-  .shot { position: relative; margin: 0; overflow: hidden; border-radius: 18px; background: var(--night); grid-row: span 2; }
-  .shot-wide { grid-column: span 2; grid-row: span 1; }
-  .shot-big { grid-column: span 2; grid-row: span 2; }
-  .shot img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--ease), filter .5s; filter: saturate(.9); }
-  .shot:hover img { transform: scale(1.05); filter: saturate(1.05); }
-  .shot figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 40px 16px 14px; display: flex; flex-direction: column; gap: 2px; color: #fff; background: linear-gradient(to top, rgba(12,15,13,0.85), rgba(12,15,13,0)); }
-  .shot figcaption b { font-size: 14px; font-weight: 600; line-height: 1.3; }
-  .shot figcaption span { font-family: var(--mono); font-size: 11.5px; color: var(--lime); }
   .founders { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
   .founder { position: relative; display: flex; flex-direction: column; align-items: flex-start; border-radius: 28px; padding: 40px; background: linear-gradient(160deg, rgba(200,245,61,0.1), rgba(238,240,234,0.03) 55%); border: 1px solid rgba(238,240,234,0.12); transition: border-color .3s, transform .6s var(--ease); }
   .founder:hover { border-color: rgba(200,245,61,0.45); }
@@ -625,6 +616,29 @@
   .paper-wrap { position: absolute; inset: 0; display: grid; place-items: center; padding: 34px 24px 60px; }
   .paper { width: 70%; max-width: 330px; height: auto; border-radius: 6px; transform: rotate(-3deg); box-shadow: 0 40px 60px -30px rgba(12,15,13,0.55), 0 0 0 1px rgba(12,15,13,0.08); transition: transform .8s var(--ease); }
   .case-card:hover .paper { transform: rotate(-1deg) scale(1.03); }
+  .gallery { columns: 4 240px; column-gap: 14px; }
+  .shot { position: relative; margin: 0 0 14px; overflow: hidden; border-radius: 18px; background: var(--night); break-inside: avoid; }
+  .shot img { display: block; width: 100%; height: auto; min-height: 210px; object-fit: cover; transition: transform 1s var(--ease), filter .5s; filter: saturate(.9); }
+  .shot:hover img { transform: scale(1.05); filter: saturate(1.05); }
+  .shot figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 40px 16px 14px; display: flex; flex-direction: column; gap: 2px; color: #fff; background: linear-gradient(to top, rgba(12,15,13,0.85), rgba(12,15,13,0)); }
+  .shot figcaption b { font-size: 14px; font-weight: 600; line-height: 1.3; }
+  .shot figcaption span { font-family: var(--mono); font-size: 11.5px; color: var(--lime); }
+  .gallery.is-collapsed .shot.more, .shot.is-hidden { display: none; }
+  .shot.is-shown { animation: case-in .6s var(--ease); }
+  .gal-more { display: flex; justify-content: center; margin-top: 18px; }
+  .gal-filters { margin: 0 0 22px; }
+  .method { position: relative; margin: -24px 0 36px; padding: 24px 28px; border-radius: 18px; background: var(--card); border: 1px solid var(--line); font-size: clamp(17px, 1.5vw, 20px); line-height: 1.5; letter-spacing: -0.01em; max-width: 900px; }
+  .method .k { display: block; margin-bottom: 8px; }
+  .svc-photo { position: absolute; top: 26px; right: 26px; width: 72px; height: 72px; border-radius: 16px; overflow: hidden; z-index: 2; transform: rotate(4deg); box-shadow: 0 0 0 3px var(--card), 0 14px 26px -12px rgba(12,15,13,0.55); transition: transform .5s var(--ease), width .5s var(--ease), height .5s var(--ease); }
+  .svc-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .svc-photo:hover { transform: rotate(0) scale(1.9); transform-origin: top right; }
+  .cred { display: grid; grid-template-columns: 1fr 2fr; gap: 28px 48px; margin-top: 18px; padding: 28px 32px; border-radius: 20px; background: var(--card); border: 1px solid var(--line); }
+  .cred .k { margin-bottom: 12px; }
+  .cred-certs { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .cred-certs li { font-weight: 600; font-size: 15px; padding-left: 16px; position: relative; }
+  .cred-certs li::before { content: ''; position: absolute; left: 0; top: .55em; width: 7px; height: 7px; background: var(--lime-deep); transform: rotate(45deg); }
+  .cred-tech { display: flex; flex-wrap: wrap; gap: 7px; }
+  .cred-tech span { font-family: var(--mono); font-size: 12.5px; padding: 5px 11px; border-radius: 999px; border: 1px solid var(--line-2); color: var(--dim); background: var(--bg); }
   /* ───────── CASE EXTRAS ───────── */
   .case-filters { display: flex; flex-wrap: wrap; gap: 8px; margin: -28px 0 32px; }
   .cf { display: inline-flex; align-items: center; gap: 8px; height: 42px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--line-2); background: var(--card); font-family: var(--mono); font-size: 13.5px; color: var(--dim); cursor: pointer; transition: background-color .25s, color .25s, border-color .25s; }
@@ -688,7 +702,9 @@
     .services-grid { grid-template-columns: 1fr; }
     .it-grid { grid-template-columns: 1fr 1fr; }
     .founders, .team-foot { grid-template-columns: 1fr; }
-    .gallery { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 170px; }
+    .gallery { columns: 2; column-gap: 10px; }
+    .cred { grid-template-columns: 1fr; padding: 22px 20px; }
+    .method { margin: -8px 0 28px; padding: 20px; }
     .sky-media, .recon-media { min-height: 300px; }
     .service { min-height: 0; padding: 30px 24px 34px; }
     .fn { padding-bottom: 32px; }
@@ -727,7 +743,10 @@
     .certs, .prods { grid-template-columns: 1fr; }
     .founder { padding: 28px 22px; }
     .f-photo { width: 150px; height: 150px; border-radius: 26px; margin-bottom: 24px; }
-    .gallery { grid-auto-rows: 120px; gap: 10px; }
+    .shot { margin-bottom: 10px; border-radius: 14px; }
+    .svc-photo { width: 58px; height: 58px; top: 22px; right: 20px; }
+    .it-card.has-photo h3 { padding-right: 64px; }
+    .shot img { min-height: 150px; }
     .shot figcaption { padding: 30px 10px 10px; }
     .shot figcaption b { font-size: 12.5px; }
     .p-stats { grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
@@ -870,11 +889,12 @@
         <p>Autonomous agents that plan, call tools and act on their own, with code that checks every decision against real results instead of trusting the model.</p>
         <ul class="it-list"><li>LLM tool calling &amp; agent loops</li><li>Self-learning loops (Thompson sampling)</li><li>Voice, document &amp; PDF processing</li><li>Multi-provider LLM integration</li></ul>
       </article>
-      <article class="service it-card spot" data-reveal="up">
-        <span class="fn">ng.secure()</span>
-        <h3>Cybersecurity</h3>
-        <p>Protect every device and every account, with the right people having the right access, and nothing more.</p>
-        <ul class="it-list"><li>Endpoint protection: Kaspersky, ESET, Sophos, Defender</li><li>Access security</li><li>Rights &amp; permissions management</li><li>Web &amp; application filtering</li><li>Firewall management</li></ul>
+      <article class="service it-card spot has-photo" data-reveal="up">
+        <span class="fn">ng.servers()</span>
+        <a class="svc-photo" href="#field" data-gf="servers" aria-label="Photos from our interventions"><img src="assets/field/hpe-proliant-rack.webp" alt="" width="562" height="1000" loading="lazy"></a>
+        <h3>Servers &amp; Virtualization</h3>
+        <p>Installation, configuration and administration of your server environments, on-premises and in the cloud.</p>
+        <ul class="it-list"><li>Virtualization (Hyper-V / VMware / Proxmox)</li><li>Active Directory</li><li>File server</li><li>DHCP server</li><li>High availability of services</li><li>Network &amp; infrastructure services</li></ul>
       </article>
       <article class="service it-card spot" data-reveal="up">
         <span class="fn">ng.backend()</span>
@@ -882,11 +902,12 @@
         <p>Reliable backends that power your product, built for real traffic, with security and maintainability from day one.</p>
         <ul class="it-list"><li>Laravel REST APIs</li><li>Payments: SATIM, PayPal, Slick Pay</li><li>Data pipelines &amp; integrations</li><li>Billing &amp; subscription systems</li><li>Cloud hosting &amp; monitoring</li></ul>
       </article>
-      <article class="service it-card spot" data-reveal="up">
-        <span class="fn">ng.servers()</span>
-        <h3>Servers &amp; Infrastructure</h3>
-        <p>Installation, administration and migration of your server environments, on-premises and in the cloud, documented so your business keeps running during the switch.</p>
-        <ul class="it-list"><li>Virtualization: Hyper-V, VMware, Proxmox</li><li>Active Directory, file sharing &amp; DHCP</li><li>High-availability services</li><li>Server rack installation</li><li>Server &amp; service migration</li></ul>
+      <article class="service it-card spot has-photo" data-reveal="up">
+        <span class="fn">ng.secure()</span>
+        <a class="svc-photo" href="#field" data-gf="security" aria-label="Photos from our interventions"><img src="assets/field/sophos-firewalls.webp" alt="" width="562" height="1000" loading="lazy"></a>
+        <h3>Cybersecurity</h3>
+        <p>Protect every device and every account, with the right people having the right access, and nothing more.</p>
+        <ul class="it-list"><li>Endpoint protection: Kaspersky, ESET, Sophos, Defender</li><li>Access security</li><li>Rights &amp; permissions management</li><li>Web &amp; application filtering</li><li>Firewall management</li></ul>
       </article>
       <article class="service it-card spot" data-reveal="up">
         <span class="fn">ng.audit()</span>
@@ -894,11 +915,12 @@
         <p>We test your website the way an attacker would, using Recon-AI, our private in-house engine, then hand you a clear, prioritized list of what to fix.</p>
         <ul class="it-list"><li>Website &amp; web app pentesting</li><li>OWASP Top 10 checks</li><li>Exposure &amp; misconfiguration checks</li><li>Prioritized remediation report</li><li>Retest after fixes</li></ul>
       </article>
-      <article class="service it-card spot" data-reveal="up">
+      <article class="service it-card spot has-photo" data-reveal="up">
         <span class="fn">ng.backup()</span>
-        <h3>Backup &amp; Recovery</h3>
+        <a class="svc-photo" href="#field" data-gf="storage" aria-label="Photos from our interventions"><img src="assets/field/synology-rackstation.webp" alt="" width="562" height="1000" loading="lazy"></a>
+        <h3>Backup &amp; Storage</h3>
         <p>Backups only count if they restore. We set them up, schedule them, verify them and test the restore, so a bad day stays a small one.</p>
-        <ul class="it-list"><li>Local backup solutions (Veeam)</li><li>NAS storage servers (Synology, QNAP)</li><li>Scheduling &amp; verification</li><li>Restore testing</li></ul>
+        <ul class="it-list"><li>Local backup solutions (Veeam)</li><li>Network storage servers (NAS: Synology, QNAP)</li><li>Scheduling &amp; verification</li><li>Restore testing</li></ul>
       </article>
       <article class="service it-card spot" data-reveal="up">
         <span class="fn">ng.mobile()</span>
@@ -906,18 +928,50 @@
         <p>Cross-platform apps for iOS and Android that are fast, intuitive and built around how your users actually behave.</p>
         <ul class="it-list"><li>iOS &amp; Android (Flutter)</li><li>Native Android (Kotlin)</li><li>Google Play publishing</li><li>AI-powered features</li></ul>
       </article>
-      <article class="service it-card spot" data-reveal="up">
-        <span class="fn">ng.support()</span>
-        <h3>IT Support &amp; Training</h3>
-        <p>Hands-on support for your team and your equipment, on-site or remote, plus training so your people use their tools with confidence.</p>
-        <ul class="it-list"><li>Level 2 / Level 3 technical support</li><li>Incident diagnosis &amp; resolution</li><li>User, access &amp; internet management</li><li>Equipment repair &amp; fleet renewal</li><li>Endpoint &amp; office-tools training</li></ul>
+      <article class="service it-card spot has-photo" data-reveal="up">
+        <span class="fn">ng.network()</span>
+        <a class="svc-photo" href="#field" data-gf="networks" aria-label="Photos from our interventions"><img src="assets/field/fiber-cisco.webp" alt="" width="562" height="1000" loading="lazy"></a>
+        <h3>Networks &amp; Cabling</h3>
+        <p>The network everything else depends on: switching, routing, fiber and cabling, installed cleanly and labeled so it stays maintainable.</p>
+        <ul class="it-list"><li>Switching &amp; routing (Cisco, Huawei, Aruba)</li><li>Structured cabling &amp; fiber patching</li><li>Firewalls &amp; secure internet access</li><li>Network &amp; server room layout</li></ul>
       </article>
       <article class="service it-card spot" data-reveal="up">
         <span class="fn">ng.web()</span>
         <h3>Web Applications</h3>
-        <p>Full-featured web applications, showcase sites and SaaS products, designed around your users and built to hold up at scale.</p>
-        <ul class="it-list"><li>Custom web apps &amp; SaaS platforms</li><li>Showcase websites</li><li>Online payments (Slick Pay, PayPal)</li><li>Hosting &amp; ongoing support</li></ul>
+        <p>Showcase sites, custom web applications and SaaS products, designed around your users and built to hold up at scale.</p>
+        <ul class="it-list"><li>Showcase websites</li><li>Custom development</li><li>Payment integration (Slick Pay, PayPal)</li><li>SaaS platforms</li></ul>
       </article>
+      <article class="service it-card spot has-photo" data-reveal="up">
+        <span class="fn">ng.workplace()</span>
+        <a class="svc-photo" href="#field" data-gf="workplace" aria-label="Photos from our interventions"><img src="assets/field/office-workstations.webp" alt="" width="562" height="1000" loading="lazy"></a>
+        <h3>Microsoft 365 &amp; Workplace</h3>
+        <p>Email, files and devices for your whole team: Microsoft 365 set up properly, devices enrolled and protected, and workstations ready on day one.</p>
+        <ul class="it-list"><li>Microsoft 365, Exchange &amp; SharePoint</li><li>Device management (Intune)</li><li>Microsoft Defender</li><li>Workstation rollout</li></ul>
+      </article>
+      <article class="service it-card spot has-photo" data-reveal="up">
+        <span class="fn">ng.support()</span>
+        <a class="svc-photo" href="#field" data-gf="workplace" aria-label="Photos from our interventions"><img src="assets/field/laptop-setup.webp" alt="" width="562" height="1000" loading="lazy"></a>
+        <h3>IT Support &amp; Training</h3>
+        <p>Hands-on support for your team and your equipment, on-site or remote, plus training so your people use their tools with confidence.</p>
+        <ul class="it-list"><li>Hardware fleet renewal</li><li>Equipment repair</li><li>Level 2 / Level 3 technical support</li><li>User &amp; internet access management</li><li>Incident diagnosis &amp; resolution</li><li>Endpoint &amp; office-tools training</li></ul>
+      </article>
+      <article class="service it-card spot has-photo" data-reveal="up">
+        <span class="fn">ng.deploy()</span>
+        <a class="svc-photo" href="#field" data-gf="deployment" aria-label="Photos from our interventions"><img src="assets/field/rack-deployment.webp" alt="" width="562" height="1000" loading="lazy"></a>
+        <h3>Deployment &amp; Migration</h3>
+        <p>Moving to new servers or rolling out a new solution, planned and documented so your business keeps running during the switch.</p>
+        <ul class="it-list"><li>Server cabinet installation</li><li>Server &amp; service migration</li><li>Solution deployment</li><li>Hosting &amp; ongoing support</li></ul>
+      </article>
+    </div>
+    <div class="cred" data-reveal="up">
+      <div>
+        <p class="k">certified-team/</p>
+        <ul class="cred-certs"><li>Kaspersky EDR Foundations</li><li>Veeam</li><li>CompTIA A+</li><li>Google Cybersecurity</li></ul>
+      </div>
+      <div>
+        <p class="k">we-work-with/</p>
+        <div class="cred-tech"><span>Kaspersky</span><span>ESET</span><span>Sophos</span><span>Microsoft Defender</span><span>Intune</span><span>Microsoft 365</span><span>Exchange</span><span>SharePoint</span><span>Veeam</span><span>Synology</span><span>QNAP</span><span>Hyper-V</span><span>VMware</span><span>Proxmox</span><span>Active Directory</span><span>Cisco</span><span>Huawei</span><span>Aruba</span><span>Laravel</span><span>Flutter</span><span>Kotlin</span><span>Python</span><span>Docker</span><span>PostgreSQL</span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -930,16 +984,47 @@
         <h2 class="slug">in-the-field<span class="slash">/</span></h2>
         <p class="sec-title" data-reveal="lines">Real interventions, real server rooms</p>
       </div>
-      <p class="lead" data-reveal="lines">Half of what we do happens on-site: racks, servers, security appliances, workstations and training for the teams that depend on them. A few moments from recent interventions.</p>
+      <p class="lead" data-reveal="lines">Half of what we do happens on-site: 400+ interventions across server rooms, data centers, networks, backups and workstations for businesses, schools, hospitals and public institutions.</p>
     </div>
-    <div class="gallery">
-<figure class="shot shot-tall" data-reveal="up"><img src="assets/field/server-room-grant-thornton.jpg" alt="Network &amp; server room, Grant Thornton Algeria" width="619" height="1100" loading="lazy"><figcaption><b>Network &amp; server room</b><span>Grant Thornton Algeria</span></figcaption></figure>
-      <figure class="shot shot-big" data-reveal="up"><img src="assets/field/training-session.jpg" alt="Office-tools training session led by our team" width="1078" height="1080" loading="lazy"><figcaption><b>Office-tools training</b><span>On-site session</span></figcaption></figure>
-      <figure class="shot shot-tall" data-reveal="up"><img src="assets/field/rack-2mp-industrie.jpg" alt="Rack &amp; server installation, 2MP Industrie, Blida" width="535" height="1100" loading="lazy"><figcaption><b>Rack &amp; server installation</b><span>2MP Industrie, Blida</span></figcaption></figure>
-      <figure class="shot shot-tall" data-reveal="up"><img src="assets/field/symantec-appliance.jpg" alt="Security appliance maintenance, Symantec hardware" width="825" height="1100" loading="lazy"><figcaption><b>Security appliance maintenance</b><span>Symantec hardware</span></figcaption></figure>
-      <figure class="shot shot-big" data-reveal="up"><img src="assets/field/hp-proliant-diagnostic.jpg" alt="HP ProLiant server diagnostic, Workshop" width="1100" height="535" loading="lazy"><figcaption><b>HP ProLiant server diagnostic</b><span>Workshop</span></figcaption></figure>
-      <figure class="shot shot-tall" data-reveal="up"><img src="assets/field/server-room-alrim.jpg" alt="Server room intervention, Alrim, Oued Smar" width="535" height="1100" loading="lazy"><figcaption><b>Server room intervention</b><span>Alrim, Oued Smar</span></figcaption></figure>
+    <blockquote class="method" data-reveal="up"><span class="k">how-we-intervene/</span>Every intervention is scoped, adapted to your context and systematically documented, with full respect for the confidentiality and security of the information shared.</blockquote>
+    <div class="case-filters gal-filters" role="group" aria-label="Filter photos">
+      <button type="button" class="cf gf is-on" data-f="all" aria-pressed="true">all<span class="cf-n"></span></button>
+      <button type="button" class="cf gf" data-f="servers" aria-pressed="false">servers<span class="cf-n"></span></button>
+      <button type="button" class="cf gf" data-f="storage" aria-pressed="false">storage-&amp;-backup<span class="cf-n"></span></button>
+      <button type="button" class="cf gf" data-f="networks" aria-pressed="false">networks<span class="cf-n"></span></button>
+      <button type="button" class="cf gf" data-f="security" aria-pressed="false">security<span class="cf-n"></span></button>
+      <button type="button" class="cf gf" data-f="deployment" aria-pressed="false">deployment<span class="cf-n"></span></button>
+      <button type="button" class="cf gf" data-f="workplace" aria-pressed="false">workplace<span class="cf-n"></span></button>
+      <button type="button" class="cf gf" data-f="training" aria-pressed="false">training<span class="cf-n"></span></button>
     </div>
+    <div class="gallery is-collapsed">
+      <figure class="shot" data-cat="servers"><img src="assets/field/eptv-data-center.webp" alt="Data center intervention" width="1000" height="563" loading="lazy"><figcaption><b>Data center intervention</b><span>EPTV, Algerian public television</span></figcaption></figure>
+      <figure class="shot" data-cat="servers"><img src="assets/field/hpe-proliant-rack.webp" alt="HPE ProLiant server in a production rack" width="562" height="1000" loading="lazy"><figcaption><b>HPE ProLiant server in a production rack</b><span>Servers</span></figcaption></figure>
+      <figure class="shot" data-cat="networks servers"><img src="assets/field/server-room-grant-thornton.jpg" alt="Network &amp; server room" width="619" height="1100" loading="lazy"><figcaption><b>Network &amp; server room</b><span>Grant Thornton Algeria</span></figcaption></figure>
+      <figure class="shot" data-cat="storage"><img src="assets/field/synology-rackstation.webp" alt="Synology RackStation &amp; NAS drives" width="562" height="1000" loading="lazy"><figcaption><b>Synology RackStation &amp; NAS drives</b><span>Backup &amp; storage</span></figcaption></figure>
+      <figure class="shot" data-cat="security networks"><img src="assets/field/sophos-firewalls.webp" alt="Sophos firewall appliances" width="562" height="1000" loading="lazy"><figcaption><b>Sophos firewall appliances</b><span>Security</span></figcaption></figure>
+      <figure class="shot" data-cat="training"><img src="assets/field/training-session.jpg" alt="Office-tools training" width="1078" height="1080" loading="lazy"><figcaption><b>Office-tools training</b><span>On-site session</span></figcaption></figure>
+      <figure class="shot" data-cat="networks"><img src="assets/field/fiber-cisco.webp" alt="Fiber patching &amp; Cisco switching" width="562" height="1000" loading="lazy"><figcaption><b>Fiber patching &amp; Cisco switching</b><span>Networks</span></figcaption></figure>
+      <figure class="shot" data-cat="deployment servers"><img src="assets/field/rack-2mp-industrie.jpg" alt="Rack &amp; server installation" width="535" height="1100" loading="lazy"><figcaption><b>Rack &amp; server installation</b><span>2MP Industrie, Blida</span></figcaption></figure>
+      <figure class="shot" data-cat="networks"><img src="assets/field/cisco-router.webp" alt="Cisco 4300 series router" width="1000" height="563" loading="lazy"><figcaption><b>Cisco 4300 series router</b><span>Networks</span></figcaption></figure>
+      <figure class="shot" data-cat="storage"><img src="assets/field/qnap-nas-rack.webp" alt="QNAP NAS in a rack" width="562" height="1000" loading="lazy"><figcaption><b>QNAP NAS in a rack</b><span>Backup &amp; storage</span></figcaption></figure>
+      <figure class="shot" data-cat="servers"><img src="assets/field/server-internals.webp" alt="Server upgrade: memory &amp; components" width="562" height="1000" loading="lazy"><figcaption><b>Server upgrade: memory &amp; components</b><span>Servers</span></figcaption></figure>
+      <figure class="shot" data-cat="networks"><img src="assets/field/huawei-switch.webp" alt="Huawei CloudEngine switch" width="562" height="1000" loading="lazy"><figcaption><b>Huawei CloudEngine switch</b><span>Networks</span></figcaption></figure>
+      <figure class="shot more" data-cat="workplace"><img src="assets/field/office-workstations.webp" alt="Office workstations rollout" width="562" height="1000" loading="lazy"><figcaption><b>Office workstations rollout</b><span>Workplace</span></figcaption></figure>
+      <figure class="shot more" data-cat="servers"><img src="assets/field/hp-proliant-diagnostic.jpg" alt="HP ProLiant server diagnostic" width="1100" height="535" loading="lazy"><figcaption><b>HP ProLiant server diagnostic</b><span>Workshop</span></figcaption></figure>
+      <figure class="shot more" data-cat="security"><img src="assets/field/symantec-appliance.jpg" alt="Security appliance maintenance" width="825" height="1100" loading="lazy"><figcaption><b>Security appliance maintenance</b><span>Symantec hardware</span></figcaption></figure>
+      <figure class="shot more" data-cat="storage"><img src="assets/field/nas-12-bay.webp" alt="12-bay NAS setup" width="562" height="1000" loading="lazy"><figcaption><b>12-bay NAS setup</b><span>Backup &amp; storage</span></figcaption></figure>
+      <figure class="shot more" data-cat="networks"><img src="assets/field/structured-cabling.webp" alt="Structured cabling" width="562" height="1000" loading="lazy"><figcaption><b>Structured cabling</b><span>Networks</span></figcaption></figure>
+      <figure class="shot more" data-cat="servers deployment"><img src="assets/field/tower-server.webp" alt="Tower server deployment" width="562" height="1000" loading="lazy"><figcaption><b>Tower server deployment</b><span>Servers</span></figcaption></figure>
+      <figure class="shot more" data-cat="deployment storage"><img src="assets/field/rack-switch-nas.webp" alt="Rack build: switching, NAS &amp; server" width="1000" height="563" loading="lazy"><figcaption><b>Rack build: switching, NAS &amp; server</b><span>Deployment</span></figcaption></figure>
+      <figure class="shot more" data-cat="workplace"><img src="assets/field/laptop-setup.webp" alt="Laptop fleet setup" width="1000" height="563" loading="lazy"><figcaption><b>Laptop fleet setup</b><span>Workplace</span></figcaption></figure>
+      <figure class="shot more" data-cat="workplace"><img src="assets/field/workstation-rollout.webp" alt="Workstation deployment" width="486" height="1000" loading="lazy"><figcaption><b>Workstation deployment</b><span>Workplace</span></figcaption></figure>
+      <figure class="shot more" data-cat="deployment"><img src="assets/field/rack-deployment.webp" alt="Rack installation" width="486" height="1000" loading="lazy"><figcaption><b>Rack installation</b><span>Deployment</span></figcaption></figure>
+      <figure class="shot more" data-cat="servers"><img src="assets/field/hpe-proliant-boot.webp" alt="HPE ProLiant first boot" width="486" height="1000" loading="lazy"><figcaption><b>HPE ProLiant first boot</b><span>Servers</span></figcaption></figure>
+      <figure class="shot more" data-cat="storage"><img src="assets/field/synology-nas-rack.webp" alt="Synology NAS installation" width="562" height="1000" loading="lazy"><figcaption><b>Synology NAS installation</b><span>Backup &amp; storage</span></figcaption></figure>
+      <figure class="shot more" data-cat="servers networks"><img src="assets/field/server-room-alrim.jpg" alt="Server room intervention" width="535" height="1100" loading="lazy"><figcaption><b>Server room intervention</b><span>Alrim, Oued Smar</span></figcaption></figure>
+    </div>
+    <div class="gal-more"><button type="button" class="btn btn-ghost btn-sm" data-roll>Show all 25 photos</button></div>
   </div>
 </section>
 
@@ -1463,8 +1548,10 @@
           <option>Web Application Development</option>
           <option>Mobile App Development</option>
           <option>Backend &amp; System Development</option>
-          <option>Servers &amp; IT Infrastructure</option>
-          <option>Backup &amp; Recovery</option>
+          <option>Servers &amp; Virtualization</option>
+          <option>Networks &amp; Cabling</option>
+          <option>Microsoft 365 &amp; Workplace</option>
+          <option>Backup &amp; Storage</option>
           <option>Cybersecurity</option>
           <option>IT Support</option>
           <option>Deployment &amp; Migration</option>
@@ -1907,7 +1994,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ── case study filters ── */
   (function () {
-    const btns = [...document.querySelectorAll('.cf')];
+    const btns = [...document.querySelectorAll('.case-filters:not(.gal-filters) .cf')];
     const cases = [...document.querySelectorAll('.case[data-cat]')];
     if (!btns.length) return;
     const has = (c, f) => f === 'all' || c.dataset.cat.split(' ').includes(f);
@@ -1926,6 +2013,32 @@ document.addEventListener('DOMContentLoaded', () => {
       const sec = document.getElementById('projects');
       if (sec.getBoundingClientRect().top < -40) window.scrollTo({ top: window.scrollY + sec.getBoundingClientRect().top - 20, behavior: 'smooth' });
     }));
+  })();
+
+  /* ── field gallery: filters, show all, links from service cards ── */
+  (function () {
+    const gal = document.querySelector('.gallery');
+    if (!gal) return;
+    const shots = [...gal.querySelectorAll('.shot')];
+    const btns = [...document.querySelectorAll('.gf')];
+    const moreWrap = document.querySelector('.gal-more');
+    const has = (s, f) => f === 'all' || s.dataset.cat.split(' ').includes(f);
+    btns.forEach(b => { b.querySelector('.cf-n').textContent = shots.filter(s => has(s, b.dataset.f)).length; });
+    const refresh = () => { if (window.ScrollTrigger) window.ScrollTrigger.refresh(); document.dispatchEvent(new Event('slug:done')); };
+    function setFilter(f) {
+      btns.forEach(x => { const on = x.dataset.f === f; x.classList.toggle('is-on', on); x.setAttribute('aria-pressed', on); });
+      if (f !== 'all') { gal.classList.remove('is-collapsed'); moreWrap.hidden = true; }
+      shots.forEach(s => {
+        const show = has(s, f);
+        s.classList.toggle('is-hidden', !show);
+        s.classList.remove('is-shown');
+        if (show) { void s.offsetWidth; s.classList.add('is-shown'); }
+      });
+      refresh();
+    }
+    btns.forEach(b => b.addEventListener('click', () => setFilter(b.dataset.f)));
+    moreWrap.querySelector('button').addEventListener('click', () => { gal.classList.remove('is-collapsed'); moreWrap.hidden = true; refresh(); });
+    document.querySelectorAll('.svc-photo').forEach(a => a.addEventListener('click', () => setFilter(a.dataset.gf)));
   })();
 
   /* ── contact form → POST /send-email ── */
