@@ -646,7 +646,8 @@
   .cf.is-on { background: var(--ink); border-color: var(--ink); color: #fff; }
   .cf-n { font-size: 11px; min-width: 20px; height: 20px; padding: 0 5px; border-radius: 999px; display: grid; place-items: center; background: var(--bg-2); color: var(--muted); }
   .cf.is-on .cf-n { background: var(--lime); color: var(--ink); }
-  .case.is-hidden { display: none; }
+  .case.is-hidden, .cases.is-collapsed .case[data-more] { display: none; }
+  .cases-more { display: flex; justify-content: center; margin-top: 28px; }
   .case.is-shown { animation: case-in .6s var(--ease); }
   @keyframes case-in { from { opacity: 0; transform: translateY(24px); } }
   .sm-servers { background: radial-gradient(120% 100% at 30% 20%, #2b3a2f 0%, #141c17 60%, #0a0e0b 100%); }
@@ -1006,10 +1007,10 @@
       <figure class="shot" data-cat="training"><img src="assets/field/training-session.jpg" alt="Office-tools training" width="1078" height="1080" loading="lazy"><figcaption><b>Office-tools training</b><span>On-site session</span></figcaption></figure>
       <figure class="shot" data-cat="networks"><img src="assets/field/fiber-cisco.webp" alt="Fiber patching &amp; Cisco switching" width="562" height="1000" loading="lazy"><figcaption><b>Fiber patching &amp; Cisco switching</b><span>Networks</span></figcaption></figure>
       <figure class="shot" data-cat="deployment servers"><img src="assets/field/rack-2mp-industrie.jpg" alt="Rack &amp; server installation" width="535" height="1100" loading="lazy"><figcaption><b>Rack &amp; server installation</b><span>2MP Industrie, Blida</span></figcaption></figure>
-      <figure class="shot" data-cat="networks"><img src="assets/field/cisco-router.webp" alt="Cisco 4300 series router" width="1000" height="563" loading="lazy"><figcaption><b>Cisco 4300 series router</b><span>Networks</span></figcaption></figure>
-      <figure class="shot" data-cat="storage"><img src="assets/field/qnap-nas-rack.webp" alt="QNAP NAS in a rack" width="562" height="1000" loading="lazy"><figcaption><b>QNAP NAS in a rack</b><span>Backup &amp; storage</span></figcaption></figure>
-      <figure class="shot" data-cat="servers"><img src="assets/field/server-internals.webp" alt="Server upgrade: memory &amp; components" width="562" height="1000" loading="lazy"><figcaption><b>Server upgrade: memory &amp; components</b><span>Servers</span></figcaption></figure>
-      <figure class="shot" data-cat="networks"><img src="assets/field/huawei-switch.webp" alt="Huawei CloudEngine switch" width="562" height="1000" loading="lazy"><figcaption><b>Huawei CloudEngine switch</b><span>Networks</span></figcaption></figure>
+      <figure class="shot more" data-cat="networks"><img src="assets/field/cisco-router.webp" alt="Cisco 4300 series router" width="1000" height="563" loading="lazy"><figcaption><b>Cisco 4300 series router</b><span>Networks</span></figcaption></figure>
+      <figure class="shot more" data-cat="storage"><img src="assets/field/qnap-nas-rack.webp" alt="QNAP NAS in a rack" width="562" height="1000" loading="lazy"><figcaption><b>QNAP NAS in a rack</b><span>Backup &amp; storage</span></figcaption></figure>
+      <figure class="shot more" data-cat="servers"><img src="assets/field/server-internals.webp" alt="Server upgrade: memory &amp; components" width="562" height="1000" loading="lazy"><figcaption><b>Server upgrade: memory &amp; components</b><span>Servers</span></figcaption></figure>
+      <figure class="shot more" data-cat="networks"><img src="assets/field/huawei-switch.webp" alt="Huawei CloudEngine switch" width="562" height="1000" loading="lazy"><figcaption><b>Huawei CloudEngine switch</b><span>Networks</span></figcaption></figure>
       <figure class="shot more" data-cat="workplace"><img src="assets/field/office-workstations.webp" alt="Office workstations rollout" width="562" height="1000" loading="lazy"><figcaption><b>Office workstations rollout</b><span>Workplace</span></figcaption></figure>
       <figure class="shot more" data-cat="servers"><img src="assets/field/hp-proliant-diagnostic.jpg" alt="HP ProLiant server diagnostic" width="1100" height="535" loading="lazy"><figcaption><b>HP ProLiant server diagnostic</b><span>Workshop</span></figcaption></figure>
       <figure class="shot more" data-cat="security"><img src="assets/field/symantec-appliance.jpg" alt="Security appliance maintenance" width="825" height="1100" loading="lazy"><figcaption><b>Security appliance maintenance</b><span>Symantec hardware</span></figcaption></figure>
@@ -1079,8 +1080,7 @@
       <button type="button" class="cf" data-f="security" aria-pressed="false">security<span class="cf-n"></span></button>
       <button type="button" class="cf" data-f="servers" aria-pressed="false">servers-&amp;-it<span class="cf-n"></span></button>
     </div>
-    <div class="cases">
-
+    <div class="cases is-collapsed">
       <!-- Protectiny -->
       <article data-cat="software security" class="case">
         <div class="case-card">
@@ -1155,125 +1155,6 @@
         </div>
       </article>
 
-      <!-- Servers -->
-      <article data-cat="servers" class="case">
-        <div class="case-card">
-          <div class="case-media screens-media sm-servers">
-            <div class="cm-in">
-              <div class="screens photos">
-                <figure class="screen"><img src="assets/field/server-room-grant-thornton.jpg" alt="Network and server room at Grant Thornton Algeria" width="619" height="1100" loading="lazy"></figure>
-                <figure class="screen"><img src="assets/field/rack-2mp-industrie.jpg" alt="Rack and server installation at 2MP Industrie, Blida" width="535" height="1100" loading="lazy"></figure>
-              </div>
-            </div>
-            <span class="case-file">it/server-rooms</span>
-          </div>
-          <div class="case-body">
-            <div class="tags"><span class="tag">IT Infrastructure</span><span class="tag">Servers</span><span class="tag">On-site</span></div>
-            <h3 class="case-title">Server Rooms &amp; Rack Installations — On-site Infrastructure</h3>
-            <div class="case-cols">
-              <div>
-                <p class="k">problem/</p>
-                <p class="v">Many businesses run on server rooms that grew without a plan: tangled cabling, undocumented equipment, aging servers and backups nobody has tested.</p>
-              </div>
-              <div>
-                <p class="k">solution/</p>
-                <p class="v">Our IT team installs racks and servers, sets up virtualization, Active Directory and file sharing, puts backups in place and documents everything, on-site or remotely, then stays on for support.</p>
-              </div>
-            </div>
-            <div class="features">
-              <span class="feature">Rack installation</span>
-              <span class="feature">Server setup &amp; virtualization</span>
-              <span class="feature">Network cabling</span>
-              <span class="feature">Backups (Veeam, NAS)</span>
-              <span class="feature">Hardware diagnostics</span>
-              <span class="feature">Documentation</span>
-            </div>
-            <div class="result">
-              <p class="k">result/</p>
-              <p class="v">More than 400 on-site and remote interventions for businesses, schools and hospitals, including Grant Thornton Algeria and 2MP Industrie in Blida.</p>
-            </div>
-            <div class="case-links">
-              <a class="btn btn-primary btn-sm" href="#contact" data-roll>Plan a server setup</a>
-              <a class="btn btn-ghost btn-sm" href="#field" data-roll>See us in the field</a>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- Guess My Grade -->
-      <article data-cat="software" class="case">
-        <div class="case-card">
-          <div class="case-media screens-media sm-gmg">
-            <div class="cm-in">
-              <div class="screens">
-                <figure class="screen"><img src="assets/projects/gmg-dark.webp" alt="Guess My Grade in dark mode" width="560" height="1148" loading="lazy"></figure>
-                <figure class="screen"><img src="assets/projects/gmg-light.webp" alt="Guess My Grade in light mode" width="560" height="1148" loading="lazy"></figure>
-              </div>
-            </div>
-            <span class="case-file">guess-my-grade/android</span>
-          </div>
-          <div class="case-body">
-            <div class="tags"><span class="tag">Mobile App</span><span class="tag">Education</span><span class="tag">Android</span></div>
-            <h3 class="case-title">Guess My Grade — Academic Performance Tool</h3>
-            <div class="case-cols">
-              <div>
-                <p class="k">problem/</p>
-                <p class="v">Students had no quick way to estimate their final grades or understand what scores they needed on upcoming exams to reach their target, forcing manual, error-prone calculations.</p>
-              </div>
-              <div>
-                <p class="k">solution/</p>
-                <p class="v">A lightweight Android app allowing students to input their module scores and weighted credits, instantly calculating current averages and the minimum grades needed to reach a target GPA. Clean UI designed for quick daily use.</p>
-              </div>
-            </div>
-            <div class="result">
-              <p class="k">result/</p>
-              <p class="v">Published on Google Play Store with positive user feedback. Students report using it before every exam session to understand exactly what they need to achieve, turning anxiety into actionable information.</p>
-            </div>
-            <div class="case-links">
-              <a class="btn btn-primary btn-sm" href="https://play.google.com/store/apps/details?id=com.guessmygrade.app" target="_blank" rel="noopener" data-roll>Get it on Google Play</a>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- ngmed -->
-      <article data-cat="software" class="case wip">
-        <div class="case-card">
-          <div class="case-media paper-media">
-            <div class="cm-in">
-              <div class="paper-wrap"><img class="paper" src="assets/projects/ngmed-invoice.webp" alt="Invoice generated by the ngmed platform, client details hidden" width="900" height="1282" loading="lazy"></div>
-            </div>
-            <span class="case-file">ngmed/b2b-commerce</span>
-          </div>
-          <div class="case-body">
-            <div class="tags"><span class="tag">E-Commerce</span><span class="tag">Healthcare</span><span class="tag">B2B Platform</span><span class="tag-soon">Shipped</span></div>
-            <h3 class="case-title">ngmed — B2B Medical Equipment Commerce Platform</h3>
-            <div class="case-cols">
-              <div>
-                <p class="k">problem/</p>
-                <p class="v">Hospitals and clinics procuring medical equipment had no dedicated digital channel. Purchases happened through phone calls, paper catalogues, and manual invoicing that introduced errors, delays, and zero visibility into order status.</p>
-              </div>
-              <div>
-                <p class="k">solution/</p>
-                <p class="v">A full B2B e-commerce platform purpose-built for the medical supply chain, covering product catalogue management, order processing, and automated invoice generation with tax calculation, all in one coherent system tailored for institutional buyers.</p>
-              </div>
-            </div>
-            <div class="features">
-              <span class="feature">Product catalogue &amp; inventory</span>
-              <span class="feature">Order management</span>
-              <span class="feature">Tax-aware invoicing</span>
-              <span class="feature">Client accounts &amp; pricing tiers</span>
-              <span class="feature">PDF invoice generation</span>
-              <span class="feature">Order history &amp; tracking</span>
-            </div>
-            <div class="result">
-              <p class="k">result/</p>
-              <p class="v">Full platform built, pre-deployment phase. Targets hospitals, clinics, and medical procurement teams, replacing manual ordering workflows with a structured, auditable digital process.</p>
-            </div>
-          </div>
-        </div>
-      </article>
-
       <!-- Life -->
       <article data-cat="software ai" class="case wip">
         <div class="case-card">
@@ -1320,46 +1201,6 @@
             <div class="case-links">
               <a class="btn btn-primary btn-sm" href="https://github.com/ayoubna99/life-agent" target="_blank" rel="noopener" data-roll>View Life on GitHub</a>
               <a class="btn btn-ghost btn-sm" href="https://www.youtube.com/watch?v=7L-o6Q0FkuQ" target="_blank" rel="noopener" data-roll>Watch the 3-min demo</a>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- SkyShift -->
-      <article data-cat="software" class="case">
-        <div class="case-card">
-          <div class="case-media sky-media">
-            <div class="cm-in">
-              <div class="sky" aria-hidden="true">
-                <div class="sky-stars"><i style="--x:8%;--y:12%;--s:1"></i><i style="--x:22%;--y:30%;--s:0.6"></i><i style="--x:35%;--y:8%;--s:0.8"></i><i style="--x:48%;--y:22%;--s:1.2"></i><i style="--x:61%;--y:40%;--s:0.7"></i><i style="--x:74%;--y:14%;--s:1"></i><i style="--x:88%;--y:28%;--s:0.6"></i><i style="--x:14%;--y:55%;--s:0.9"></i><i style="--x:29%;--y:72%;--s:0.7"></i><i style="--x:43%;--y:63%;--s:1.1"></i><i style="--x:57%;--y:80%;--s:0.6"></i><i style="--x:70%;--y:66%;--s:0.9"></i><i style="--x:84%;--y:58%;--s:1.2"></i><i style="--x:92%;--y:84%;--s:0.7"></i><i style="--x:6%;--y:88%;--s:0.8"></i><i style="--x:38%;--y:44%;--s:0.6"></i><i style="--x:66%;--y:90%;--s:1"></i><i style="--x:80%;--y:40%;--s:0.5"></i><i style="--x:18%;--y:40%;--s:0.5"></i><i style="--x:52%;--y:6%;--s:0.6"></i></div>
-                <span class="sky-track"></span>
-                <span class="sky-sat"></span>
-                <span class="sky-aim"></span>
-                <span class="sky-label"><b>COSMOS 1980</b> ~294 K</span>
-              </div>
-            </div>
-            <span class="case-file">skyshift/spherex</span>
-          </div>
-          <div class="case-body">
-            <div class="tags"><span class="tag">Web App</span><span class="tag">Space Data</span><span class="tag">NASA Space Apps 2026</span><span class="tag">Open source</span></div>
-            <h3 class="case-title">SkyShift — See What Moved Across the Sky</h3>
-            <div class="case-cols">
-              <div>
-                <p class="k">problem/</p>
-                <p class="v">NASA's SPHEREx telescope maps the whole sky, but finding what moved through a given patch, like asteroids or satellites streaking across the frames, means digging through raw survey images by hand.</p>
-              </div>
-              <div>
-                <p class="k">solution/</p>
-                <p class="v">Point at any patch of sky and SkyShift shows what moved through it in SPHEREx images: stars, asteroids, and the satellites crossing the data, with each satellite's temperature estimated from SPHEREx's two cameras.</p>
-              </div>
-            </div>
-            <div class="result">
-              <p class="k">result/</p>
-              <p class="v">Recovered satellite thermal signatures that the SPHEREx pipeline normally masks and discards, the first such temperature measurements from this telescope, including COSMOS 1980 at ~294 K. Built by a three-person team and shipped live during the NASA Space Apps Challenge 2026.</p>
-            </div>
-            <div class="case-links">
-              <a class="btn btn-primary btn-sm" href="https://spherex.ngdev.org" target="_blank" rel="noopener" data-roll>Open spherex.ngdev.org</a>
-              <a class="btn btn-ghost btn-sm" href="https://github.com/ayoubna99/spherex-skyshift" target="_blank" rel="noopener" data-roll>Source on GitHub</a>
             </div>
           </div>
         </div>
@@ -1416,6 +1257,166 @@
         </div>
       </article>
 
+      <!-- Servers -->
+      <article data-more="1" data-cat="servers" class="case">
+        <div class="case-card">
+          <div class="case-media screens-media sm-servers">
+            <div class="cm-in">
+              <div class="screens photos">
+                <figure class="screen"><img src="assets/field/server-room-grant-thornton.jpg" alt="Network and server room at Grant Thornton Algeria" width="619" height="1100" loading="lazy"></figure>
+                <figure class="screen"><img src="assets/field/rack-2mp-industrie.jpg" alt="Rack and server installation at 2MP Industrie, Blida" width="535" height="1100" loading="lazy"></figure>
+              </div>
+            </div>
+            <span class="case-file">it/server-rooms</span>
+          </div>
+          <div class="case-body">
+            <div class="tags"><span class="tag">IT Infrastructure</span><span class="tag">Servers</span><span class="tag">On-site</span></div>
+            <h3 class="case-title">Server Rooms &amp; Rack Installations — On-site Infrastructure</h3>
+            <div class="case-cols">
+              <div>
+                <p class="k">problem/</p>
+                <p class="v">Many businesses run on server rooms that grew without a plan: tangled cabling, undocumented equipment, aging servers and backups nobody has tested.</p>
+              </div>
+              <div>
+                <p class="k">solution/</p>
+                <p class="v">Our IT team installs racks and servers, sets up virtualization, Active Directory and file sharing, puts backups in place and documents everything, on-site or remotely, then stays on for support.</p>
+              </div>
+            </div>
+            <div class="features">
+              <span class="feature">Rack installation</span>
+              <span class="feature">Server setup &amp; virtualization</span>
+              <span class="feature">Network cabling</span>
+              <span class="feature">Backups (Veeam, NAS)</span>
+              <span class="feature">Hardware diagnostics</span>
+              <span class="feature">Documentation</span>
+            </div>
+            <div class="result">
+              <p class="k">result/</p>
+              <p class="v">More than 400 on-site and remote interventions for businesses, schools and hospitals, including Grant Thornton Algeria and 2MP Industrie in Blida.</p>
+            </div>
+            <div class="case-links">
+              <a class="btn btn-primary btn-sm" href="#contact" data-roll>Plan a server setup</a>
+              <a class="btn btn-ghost btn-sm" href="#field" data-roll>See us in the field</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- SkyShift -->
+      <article data-more="1" data-cat="software" class="case">
+        <div class="case-card">
+          <div class="case-media sky-media">
+            <div class="cm-in">
+              <div class="sky" aria-hidden="true">
+                <div class="sky-stars"><i style="--x:8%;--y:12%;--s:1"></i><i style="--x:22%;--y:30%;--s:0.6"></i><i style="--x:35%;--y:8%;--s:0.8"></i><i style="--x:48%;--y:22%;--s:1.2"></i><i style="--x:61%;--y:40%;--s:0.7"></i><i style="--x:74%;--y:14%;--s:1"></i><i style="--x:88%;--y:28%;--s:0.6"></i><i style="--x:14%;--y:55%;--s:0.9"></i><i style="--x:29%;--y:72%;--s:0.7"></i><i style="--x:43%;--y:63%;--s:1.1"></i><i style="--x:57%;--y:80%;--s:0.6"></i><i style="--x:70%;--y:66%;--s:0.9"></i><i style="--x:84%;--y:58%;--s:1.2"></i><i style="--x:92%;--y:84%;--s:0.7"></i><i style="--x:6%;--y:88%;--s:0.8"></i><i style="--x:38%;--y:44%;--s:0.6"></i><i style="--x:66%;--y:90%;--s:1"></i><i style="--x:80%;--y:40%;--s:0.5"></i><i style="--x:18%;--y:40%;--s:0.5"></i><i style="--x:52%;--y:6%;--s:0.6"></i></div>
+                <span class="sky-track"></span>
+                <span class="sky-sat"></span>
+                <span class="sky-aim"></span>
+                <span class="sky-label"><b>COSMOS 1980</b> ~294 K</span>
+              </div>
+            </div>
+            <span class="case-file">skyshift/spherex</span>
+          </div>
+          <div class="case-body">
+            <div class="tags"><span class="tag">Web App</span><span class="tag">Space Data</span><span class="tag">NASA Space Apps 2026</span><span class="tag">Open source</span></div>
+            <h3 class="case-title">SkyShift — See What Moved Across the Sky</h3>
+            <div class="case-cols">
+              <div>
+                <p class="k">problem/</p>
+                <p class="v">NASA's SPHEREx telescope maps the whole sky, but finding what moved through a given patch, like asteroids or satellites streaking across the frames, means digging through raw survey images by hand.</p>
+              </div>
+              <div>
+                <p class="k">solution/</p>
+                <p class="v">Point at any patch of sky and SkyShift shows what moved through it in SPHEREx images: stars, asteroids, and the satellites crossing the data, with each satellite's temperature estimated from SPHEREx's two cameras.</p>
+              </div>
+            </div>
+            <div class="result">
+              <p class="k">result/</p>
+              <p class="v">Recovered satellite thermal signatures that the SPHEREx pipeline normally masks and discards, the first such temperature measurements from this telescope, including COSMOS 1980 at ~294 K. Built by a three-person team and shipped live during the NASA Space Apps Challenge 2026.</p>
+            </div>
+            <div class="case-links">
+              <a class="btn btn-primary btn-sm" href="https://spherex.ngdev.org" target="_blank" rel="noopener" data-roll>Open spherex.ngdev.org</a>
+              <a class="btn btn-ghost btn-sm" href="https://github.com/ayoubna99/spherex-skyshift" target="_blank" rel="noopener" data-roll>Source on GitHub</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Guess My Grade -->
+      <article data-more="1" data-cat="software" class="case">
+        <div class="case-card">
+          <div class="case-media screens-media sm-gmg">
+            <div class="cm-in">
+              <div class="screens">
+                <figure class="screen"><img src="assets/projects/gmg-dark.webp" alt="Guess My Grade in dark mode" width="560" height="1148" loading="lazy"></figure>
+                <figure class="screen"><img src="assets/projects/gmg-light.webp" alt="Guess My Grade in light mode" width="560" height="1148" loading="lazy"></figure>
+              </div>
+            </div>
+            <span class="case-file">guess-my-grade/android</span>
+          </div>
+          <div class="case-body">
+            <div class="tags"><span class="tag">Mobile App</span><span class="tag">Education</span><span class="tag">Android</span></div>
+            <h3 class="case-title">Guess My Grade — Academic Performance Tool</h3>
+            <div class="case-cols">
+              <div>
+                <p class="k">problem/</p>
+                <p class="v">Students had no quick way to estimate their final grades or understand what scores they needed on upcoming exams to reach their target, forcing manual, error-prone calculations.</p>
+              </div>
+              <div>
+                <p class="k">solution/</p>
+                <p class="v">A lightweight Android app allowing students to input their module scores and weighted credits, instantly calculating current averages and the minimum grades needed to reach a target GPA. Clean UI designed for quick daily use.</p>
+              </div>
+            </div>
+            <div class="result">
+              <p class="k">result/</p>
+              <p class="v">Published on Google Play Store with positive user feedback. Students report using it before every exam session to understand exactly what they need to achieve, turning anxiety into actionable information.</p>
+            </div>
+            <div class="case-links">
+              <a class="btn btn-primary btn-sm" href="https://play.google.com/store/apps/details?id=com.guessmygrade.app" target="_blank" rel="noopener" data-roll>Get it on Google Play</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ngmed -->
+      <article data-more="1" data-cat="software" class="case wip">
+        <div class="case-card">
+          <div class="case-media paper-media">
+            <div class="cm-in">
+              <div class="paper-wrap"><img class="paper" src="assets/projects/ngmed-invoice.webp" alt="Invoice generated by the ngmed platform, client details hidden" width="900" height="1282" loading="lazy"></div>
+            </div>
+            <span class="case-file">ngmed/b2b-commerce</span>
+          </div>
+          <div class="case-body">
+            <div class="tags"><span class="tag">E-Commerce</span><span class="tag">Healthcare</span><span class="tag">B2B Platform</span><span class="tag-soon">Shipped</span></div>
+            <h3 class="case-title">ngmed — B2B Medical Equipment Commerce Platform</h3>
+            <div class="case-cols">
+              <div>
+                <p class="k">problem/</p>
+                <p class="v">Hospitals and clinics procuring medical equipment had no dedicated digital channel. Purchases happened through phone calls, paper catalogues, and manual invoicing that introduced errors, delays, and zero visibility into order status.</p>
+              </div>
+              <div>
+                <p class="k">solution/</p>
+                <p class="v">A full B2B e-commerce platform purpose-built for the medical supply chain, covering product catalogue management, order processing, and automated invoice generation with tax calculation, all in one coherent system tailored for institutional buyers.</p>
+              </div>
+            </div>
+            <div class="features">
+              <span class="feature">Product catalogue &amp; inventory</span>
+              <span class="feature">Order management</span>
+              <span class="feature">Tax-aware invoicing</span>
+              <span class="feature">Client accounts &amp; pricing tiers</span>
+              <span class="feature">PDF invoice generation</span>
+              <span class="feature">Order history &amp; tracking</span>
+            </div>
+            <div class="result">
+              <p class="k">result/</p>
+              <p class="v">Full platform built, pre-deployment phase. Targets hospitals, clinics, and medical procurement teams, replacing manual ordering workflows with a structured, auditable digital process.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div class="cases-more"><button type="button" class="btn btn-ghost magnetic" data-roll>Show 4 more case studies</button></div>
     </div>
   </div>
 </section>
@@ -1999,10 +2000,22 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!btns.length) return;
     const has = (c, f) => f === 'all' || c.dataset.cat.split(' ').includes(f);
     btns.forEach(b => { b.querySelector('.cf-n').textContent = cases.filter(c => has(c, b.dataset.f)).length; });
+    const list = document.querySelector('.cases'), moreWrap = document.querySelector('.cases-more');
+    function expand() {
+      if (!list.classList.contains('is-collapsed')) return;
+      list.classList.remove('is-collapsed'); moreWrap.hidden = true;
+      cases.filter(c => c.dataset.more).forEach(c => { c.classList.remove('is-shown'); void c.offsetWidth; c.classList.add('is-shown'); });
+    }
+    moreWrap.querySelector('button').addEventListener('click', () => {
+      if (window.ngStack) window.ngStack.revert();
+      expand();
+      if (window.ngStack) window.ngStack.build();
+    });
     btns.forEach(b => b.addEventListener('click', () => {
       const f = b.dataset.f;
       btns.forEach(x => { const on = x === b; x.classList.toggle('is-on', on); x.setAttribute('aria-pressed', on); });
       if (window.ngStack) window.ngStack.revert();
+      expand();
       cases.forEach(c => {
         const show = has(c, f);
         c.classList.toggle('is-hidden', !show);
@@ -2637,7 +2650,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function buildStack() {
     stackMM = G.matchMedia();
     stackMM.add('(min-width: 1025px) and (min-height: 700px)', () => {
-      const cards = G.utils.toArray('.case:not(.is-hidden)');
+      const cards = G.utils.toArray('.case').filter(c => getComputedStyle(c).display !== 'none');
       if (cards.length < 2) return;
       const TOP = 92, STEP = 12;
       const fits = cards.every((c, i) => c.offsetHeight + TOP + i * STEP + 16 < window.innerHeight);

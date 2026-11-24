@@ -646,7 +646,8 @@
   .cf.is-on { background: var(--ink); border-color: var(--ink); color: #fff; }
   .cf-n { font-size: 11px; min-width: 20px; height: 20px; padding: 0 5px; border-radius: 999px; display: grid; place-items: center; background: var(--bg-2); color: var(--muted); }
   .cf.is-on .cf-n { background: var(--lime); color: var(--ink); }
-  .case.is-hidden { display: none; }
+  .case.is-hidden, .cases.is-collapsed .case[data-more] { display: none; }
+  .cases-more { display: flex; justify-content: center; margin-top: 28px; }
   .case.is-shown { animation: case-in .6s var(--ease); }
   @keyframes case-in { from { opacity: 0; transform: translateY(24px); } }
   .sm-servers { background: radial-gradient(120% 100% at 30% 20%, #2b3a2f 0%, #141c17 60%, #0a0e0b 100%); }
@@ -1006,10 +1007,10 @@
       <figure class="shot" data-cat="training"><img src="../assets/field/training-session.jpg" alt="Formation bureautique" width="1078" height="1080" loading="lazy"><figcaption><b>Formation bureautique</b><span>Session sur site</span></figcaption></figure>
       <figure class="shot" data-cat="networks"><img src="../assets/field/fiber-cisco.webp" alt="Brassage fibre &amp; commutation Cisco" width="562" height="1000" loading="lazy"><figcaption><b>Brassage fibre &amp; commutation Cisco</b><span>Réseaux</span></figcaption></figure>
       <figure class="shot" data-cat="deployment servers"><img src="../assets/field/rack-2mp-industrie.jpg" alt="Installation de baie &amp; serveurs" width="535" height="1100" loading="lazy"><figcaption><b>Installation de baie &amp; serveurs</b><span>2MP Industrie, Blida</span></figcaption></figure>
-      <figure class="shot" data-cat="networks"><img src="../assets/field/cisco-router.webp" alt="Routeur Cisco série 4300" width="1000" height="563" loading="lazy"><figcaption><b>Routeur Cisco série 4300</b><span>Réseaux</span></figcaption></figure>
-      <figure class="shot" data-cat="storage"><img src="../assets/field/qnap-nas-rack.webp" alt="NAS QNAP en baie" width="562" height="1000" loading="lazy"><figcaption><b>NAS QNAP en baie</b><span>Sauvegarde &amp; stockage</span></figcaption></figure>
-      <figure class="shot" data-cat="servers"><img src="../assets/field/server-internals.webp" alt="Mise à niveau serveur : mémoire &amp; composants" width="562" height="1000" loading="lazy"><figcaption><b>Mise à niveau serveur : mémoire &amp; composants</b><span>Serveurs</span></figcaption></figure>
-      <figure class="shot" data-cat="networks"><img src="../assets/field/huawei-switch.webp" alt="Switch Huawei CloudEngine" width="562" height="1000" loading="lazy"><figcaption><b>Switch Huawei CloudEngine</b><span>Réseaux</span></figcaption></figure>
+      <figure class="shot more" data-cat="networks"><img src="../assets/field/cisco-router.webp" alt="Routeur Cisco série 4300" width="1000" height="563" loading="lazy"><figcaption><b>Routeur Cisco série 4300</b><span>Réseaux</span></figcaption></figure>
+      <figure class="shot more" data-cat="storage"><img src="../assets/field/qnap-nas-rack.webp" alt="NAS QNAP en baie" width="562" height="1000" loading="lazy"><figcaption><b>NAS QNAP en baie</b><span>Sauvegarde &amp; stockage</span></figcaption></figure>
+      <figure class="shot more" data-cat="servers"><img src="../assets/field/server-internals.webp" alt="Mise à niveau serveur : mémoire &amp; composants" width="562" height="1000" loading="lazy"><figcaption><b>Mise à niveau serveur : mémoire &amp; composants</b><span>Serveurs</span></figcaption></figure>
+      <figure class="shot more" data-cat="networks"><img src="../assets/field/huawei-switch.webp" alt="Switch Huawei CloudEngine" width="562" height="1000" loading="lazy"><figcaption><b>Switch Huawei CloudEngine</b><span>Réseaux</span></figcaption></figure>
       <figure class="shot more" data-cat="workplace"><img src="../assets/field/office-workstations.webp" alt="Déploiement des postes de bureau" width="562" height="1000" loading="lazy"><figcaption><b>Déploiement des postes de bureau</b><span>Postes de travail</span></figcaption></figure>
       <figure class="shot more" data-cat="servers"><img src="../assets/field/hp-proliant-diagnostic.jpg" alt="Diagnostic de serveur HP ProLiant" width="1100" height="535" loading="lazy"><figcaption><b>Diagnostic de serveur HP ProLiant</b><span>Atelier</span></figcaption></figure>
       <figure class="shot more" data-cat="security"><img src="../assets/field/symantec-appliance.jpg" alt="Maintenance d'un équipement de sécurité" width="825" height="1100" loading="lazy"><figcaption><b>Maintenance d'un équipement de sécurité</b><span>Matériel Symantec</span></figcaption></figure>
@@ -1079,8 +1080,7 @@
       <button type="button" class="cf" data-f="security" aria-pressed="false">sécurité<span class="cf-n"></span></button>
       <button type="button" class="cf" data-f="servers" aria-pressed="false">serveurs-&amp;-it<span class="cf-n"></span></button>
     </div>
-    <div class="cases">
-
+    <div class="cases is-collapsed">
       <!-- Protectiny -->
       <article data-cat="software security" class="case">
         <div class="case-card">
@@ -1155,125 +1155,6 @@
         </div>
       </article>
 
-      <!-- Servers -->
-      <article data-cat="servers" class="case">
-        <div class="case-card">
-          <div class="case-media screens-media sm-servers">
-            <div class="cm-in">
-              <div class="screens photos">
-                <figure class="screen"><img src="../assets/field/server-room-grant-thornton.jpg" alt="Salle réseau et serveurs chez Grant Thornton Algeria" width="619" height="1100" loading="lazy"></figure>
-                <figure class="screen"><img src="../assets/field/rack-2mp-industrie.jpg" alt="Installation de baie et de serveurs chez 2MP Industrie, Blida" width="535" height="1100" loading="lazy"></figure>
-              </div>
-            </div>
-            <span class="case-file">it/server-rooms</span>
-          </div>
-          <div class="case-body">
-            <div class="tags"><span class="tag">Infrastructure IT</span><span class="tag">Serveurs</span><span class="tag">Sur site</span></div>
-            <h3 class="case-title">Salles serveurs &amp; installation de baies — Infrastructure sur site</h3>
-            <div class="case-cols">
-              <div>
-                <p class="k">problème/</p>
-                <p class="v">Beaucoup d'entreprises fonctionnent avec des salles serveurs qui ont grandi sans plan : câblage emmêlé, équipements non documentés, serveurs vieillissants et sauvegardes jamais testées.</p>
-              </div>
-              <div>
-                <p class="k">solution/</p>
-                <p class="v">Notre équipe IT installe les baies et les serveurs, met en place la virtualisation, Active Directory et le partage de fichiers, configure les sauvegardes et documente tout, sur site ou à distance, puis reste présente pour le support.</p>
-              </div>
-            </div>
-            <div class="features">
-              <span class="feature">Installation de baies</span>
-              <span class="feature">Mise en place de serveurs &amp; virtualisation</span>
-              <span class="feature">Câblage réseau</span>
-              <span class="feature">Sauvegardes (Veeam, NAS)</span>
-              <span class="feature">Diagnostic matériel</span>
-              <span class="feature">Documentation</span>
-            </div>
-            <div class="result">
-              <p class="k">résultat/</p>
-              <p class="v">Plus de 400 interventions sur site et à distance pour des entreprises, des écoles et des hôpitaux, dont Grant Thornton Algeria et 2MP Industrie à Blida.</p>
-            </div>
-            <div class="case-links">
-              <a class="btn btn-primary btn-sm" href="#contact" data-roll>Planifier une installation serveur</a>
-              <a class="btn btn-ghost btn-sm" href="#field" data-roll>Nous voir sur le terrain</a>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- Guess My Grade -->
-      <article data-cat="software" class="case">
-        <div class="case-card">
-          <div class="case-media screens-media sm-gmg">
-            <div class="cm-in">
-              <div class="screens">
-                <figure class="screen"><img src="../assets/projects/gmg-dark.webp" alt="Guess My Grade en mode sombre" width="560" height="1148" loading="lazy"></figure>
-                <figure class="screen"><img src="../assets/projects/gmg-light.webp" alt="Guess My Grade en mode clair" width="560" height="1148" loading="lazy"></figure>
-              </div>
-            </div>
-            <span class="case-file">guess-my-grade/android</span>
-          </div>
-          <div class="case-body">
-            <div class="tags"><span class="tag">Application mobile</span><span class="tag">Éducation</span><span class="tag">Android</span></div>
-            <h3 class="case-title">Guess My Grade — Outil de suivi des résultats</h3>
-            <div class="case-cols">
-              <div>
-                <p class="k">problème/</p>
-                <p class="v">Les étudiants n'avaient aucun moyen rapide d'estimer leur moyenne ou de savoir quelles notes viser aux prochains examens, d'où des calculs manuels sources d'erreurs.</p>
-              </div>
-              <div>
-                <p class="k">solution/</p>
-                <p class="v">Une application Android légère : l'étudiant saisit ses notes et coefficients, et obtient instantanément sa moyenne actuelle et les notes minimales nécessaires pour atteindre son objectif. Une interface claire, pensée pour un usage quotidien.</p>
-              </div>
-            </div>
-            <div class="result">
-              <p class="k">résultat/</p>
-              <p class="v">Publiée sur Google Play avec des retours positifs. Les étudiants l'utilisent avant chaque session d'examens pour savoir exactement ce qu'ils doivent obtenir : l'angoisse devient une information concrète.</p>
-            </div>
-            <div class="case-links">
-              <a class="btn btn-primary btn-sm" href="https://play.google.com/store/apps/details?id=com.guessmygrade.app" target="_blank" rel="noopener" data-roll>Disponible sur Google Play</a>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- ngmed -->
-      <article data-cat="software" class="case wip">
-        <div class="case-card">
-          <div class="case-media paper-media">
-            <div class="cm-in">
-              <div class="paper-wrap"><img class="paper" src="../assets/projects/ngmed-invoice.webp" alt="Facture générée par la plateforme ngmed, informations client masquées" width="900" height="1282" loading="lazy"></div>
-            </div>
-            <span class="case-file">ngmed/b2b-commerce</span>
-          </div>
-          <div class="case-body">
-            <div class="tags"><span class="tag">E-Commerce</span><span class="tag">Santé</span><span class="tag">Plateforme B2B</span><span class="tag-soon">Livré</span></div>
-            <h3 class="case-title">ngmed — Plateforme B2B de vente d'équipement médical</h3>
-            <div class="case-cols">
-              <div>
-                <p class="k">problème/</p>
-                <p class="v">Les hôpitaux et cliniques n'avaient aucun canal numérique dédié pour acheter du matériel médical. Tout passait par téléphone, catalogues papier et factures manuelles : erreurs, retards et aucune visibilité sur les commandes.</p>
-              </div>
-              <div>
-                <p class="k">solution/</p>
-                <p class="v">Une plateforme e-commerce B2B complète, conçue pour la chaîne d'approvisionnement médicale : catalogue produits, traitement des commandes et facturation automatique avec calcul des taxes, dans un système cohérent adapté aux acheteurs institutionnels.</p>
-              </div>
-            </div>
-            <div class="features">
-              <span class="feature">Catalogue &amp; stock</span>
-              <span class="feature">Gestion des commandes</span>
-              <span class="feature">Facturation avec taxes</span>
-              <span class="feature">Comptes clients &amp; grilles tarifaires</span>
-              <span class="feature">Factures PDF</span>
-              <span class="feature">Historique &amp; suivi des commandes</span>
-            </div>
-            <div class="result">
-              <p class="k">résultat/</p>
-              <p class="v">Plateforme complète développée, en phase de pré-déploiement. Elle cible les hôpitaux, cliniques et services achats médicaux, en remplaçant les commandes manuelles par un processus numérique structuré et traçable.</p>
-            </div>
-          </div>
-        </div>
-      </article>
-
       <!-- Life -->
       <article data-cat="software ai" class="case wip">
         <div class="case-card">
@@ -1320,46 +1201,6 @@
             <div class="case-links">
               <a class="btn btn-primary btn-sm" href="https://github.com/ayoubna99/life-agent" target="_blank" rel="noopener" data-roll>Voir Life sur GitHub</a>
               <a class="btn btn-ghost btn-sm" href="https://www.youtube.com/watch?v=7L-o6Q0FkuQ" target="_blank" rel="noopener" data-roll>Voir la démo (3 min)</a>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- SkyShift -->
-      <article data-cat="software" class="case">
-        <div class="case-card">
-          <div class="case-media sky-media">
-            <div class="cm-in">
-              <div class="sky" aria-hidden="true">
-                <div class="sky-stars"><i style="--x:8%;--y:12%;--s:1"></i><i style="--x:22%;--y:30%;--s:0.6"></i><i style="--x:35%;--y:8%;--s:0.8"></i><i style="--x:48%;--y:22%;--s:1.2"></i><i style="--x:61%;--y:40%;--s:0.7"></i><i style="--x:74%;--y:14%;--s:1"></i><i style="--x:88%;--y:28%;--s:0.6"></i><i style="--x:14%;--y:55%;--s:0.9"></i><i style="--x:29%;--y:72%;--s:0.7"></i><i style="--x:43%;--y:63%;--s:1.1"></i><i style="--x:57%;--y:80%;--s:0.6"></i><i style="--x:70%;--y:66%;--s:0.9"></i><i style="--x:84%;--y:58%;--s:1.2"></i><i style="--x:92%;--y:84%;--s:0.7"></i><i style="--x:6%;--y:88%;--s:0.8"></i><i style="--x:38%;--y:44%;--s:0.6"></i><i style="--x:66%;--y:90%;--s:1"></i><i style="--x:80%;--y:40%;--s:0.5"></i><i style="--x:18%;--y:40%;--s:0.5"></i><i style="--x:52%;--y:6%;--s:0.6"></i></div>
-                <span class="sky-track"></span>
-                <span class="sky-sat"></span>
-                <span class="sky-aim"></span>
-                <span class="sky-label"><b>COSMOS 1980</b> ~294 K</span>
-              </div>
-            </div>
-            <span class="case-file">skyshift/spherex</span>
-          </div>
-          <div class="case-body">
-            <div class="tags"><span class="tag">Application web</span><span class="tag">Données spatiales</span><span class="tag">NASA Space Apps 2026</span><span class="tag">Open source</span></div>
-            <h3 class="case-title">SkyShift — Voir ce qui a traversé le ciel</h3>
-            <div class="case-cols">
-              <div>
-                <p class="k">problème/</p>
-                <p class="v">Le télescope SPHEREx de la NASA cartographie tout le ciel, mais retrouver ce qui a traversé une zone donnée, comme des astéroïdes ou des satellites, impose de fouiller à la main les images brutes.</p>
-              </div>
-              <div>
-                <p class="k">solution/</p>
-                <p class="v">Pointez n'importe quelle zone du ciel et SkyShift montre ce qui l'a traversée dans les images SPHEREx : étoiles, astéroïdes et satellites, avec la température de chaque satellite estimée grâce aux deux caméras de SPHEREx.</p>
-              </div>
-            </div>
-            <div class="result">
-              <p class="k">résultat/</p>
-              <p class="v">Récupération de signatures thermiques de satellites que le pipeline SPHEREx masque et écarte habituellement : les premières mesures de température de ce type issues de ce télescope, dont COSMOS 1980 à ~294 K. Réalisé par une équipe de trois personnes et mis en ligne pendant le NASA Space Apps Challenge 2026.</p>
-            </div>
-            <div class="case-links">
-              <a class="btn btn-primary btn-sm" href="https://spherex.ngdev.org" target="_blank" rel="noopener" data-roll>Ouvrir spherex.ngdev.org</a>
-              <a class="btn btn-ghost btn-sm" href="https://github.com/ayoubna99/spherex-skyshift" target="_blank" rel="noopener" data-roll>Code source sur GitHub</a>
             </div>
           </div>
         </div>
@@ -1416,6 +1257,166 @@
         </div>
       </article>
 
+      <!-- Servers -->
+      <article data-more="1" data-cat="servers" class="case">
+        <div class="case-card">
+          <div class="case-media screens-media sm-servers">
+            <div class="cm-in">
+              <div class="screens photos">
+                <figure class="screen"><img src="../assets/field/server-room-grant-thornton.jpg" alt="Salle réseau et serveurs chez Grant Thornton Algeria" width="619" height="1100" loading="lazy"></figure>
+                <figure class="screen"><img src="../assets/field/rack-2mp-industrie.jpg" alt="Installation de baie et de serveurs chez 2MP Industrie, Blida" width="535" height="1100" loading="lazy"></figure>
+              </div>
+            </div>
+            <span class="case-file">it/server-rooms</span>
+          </div>
+          <div class="case-body">
+            <div class="tags"><span class="tag">Infrastructure IT</span><span class="tag">Serveurs</span><span class="tag">Sur site</span></div>
+            <h3 class="case-title">Salles serveurs &amp; installation de baies — Infrastructure sur site</h3>
+            <div class="case-cols">
+              <div>
+                <p class="k">problème/</p>
+                <p class="v">Beaucoup d'entreprises fonctionnent avec des salles serveurs qui ont grandi sans plan : câblage emmêlé, équipements non documentés, serveurs vieillissants et sauvegardes jamais testées.</p>
+              </div>
+              <div>
+                <p class="k">solution/</p>
+                <p class="v">Notre équipe IT installe les baies et les serveurs, met en place la virtualisation, Active Directory et le partage de fichiers, configure les sauvegardes et documente tout, sur site ou à distance, puis reste présente pour le support.</p>
+              </div>
+            </div>
+            <div class="features">
+              <span class="feature">Installation de baies</span>
+              <span class="feature">Mise en place de serveurs &amp; virtualisation</span>
+              <span class="feature">Câblage réseau</span>
+              <span class="feature">Sauvegardes (Veeam, NAS)</span>
+              <span class="feature">Diagnostic matériel</span>
+              <span class="feature">Documentation</span>
+            </div>
+            <div class="result">
+              <p class="k">résultat/</p>
+              <p class="v">Plus de 400 interventions sur site et à distance pour des entreprises, des écoles et des hôpitaux, dont Grant Thornton Algeria et 2MP Industrie à Blida.</p>
+            </div>
+            <div class="case-links">
+              <a class="btn btn-primary btn-sm" href="#contact" data-roll>Planifier une installation serveur</a>
+              <a class="btn btn-ghost btn-sm" href="#field" data-roll>Nous voir sur le terrain</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- SkyShift -->
+      <article data-more="1" data-cat="software" class="case">
+        <div class="case-card">
+          <div class="case-media sky-media">
+            <div class="cm-in">
+              <div class="sky" aria-hidden="true">
+                <div class="sky-stars"><i style="--x:8%;--y:12%;--s:1"></i><i style="--x:22%;--y:30%;--s:0.6"></i><i style="--x:35%;--y:8%;--s:0.8"></i><i style="--x:48%;--y:22%;--s:1.2"></i><i style="--x:61%;--y:40%;--s:0.7"></i><i style="--x:74%;--y:14%;--s:1"></i><i style="--x:88%;--y:28%;--s:0.6"></i><i style="--x:14%;--y:55%;--s:0.9"></i><i style="--x:29%;--y:72%;--s:0.7"></i><i style="--x:43%;--y:63%;--s:1.1"></i><i style="--x:57%;--y:80%;--s:0.6"></i><i style="--x:70%;--y:66%;--s:0.9"></i><i style="--x:84%;--y:58%;--s:1.2"></i><i style="--x:92%;--y:84%;--s:0.7"></i><i style="--x:6%;--y:88%;--s:0.8"></i><i style="--x:38%;--y:44%;--s:0.6"></i><i style="--x:66%;--y:90%;--s:1"></i><i style="--x:80%;--y:40%;--s:0.5"></i><i style="--x:18%;--y:40%;--s:0.5"></i><i style="--x:52%;--y:6%;--s:0.6"></i></div>
+                <span class="sky-track"></span>
+                <span class="sky-sat"></span>
+                <span class="sky-aim"></span>
+                <span class="sky-label"><b>COSMOS 1980</b> ~294 K</span>
+              </div>
+            </div>
+            <span class="case-file">skyshift/spherex</span>
+          </div>
+          <div class="case-body">
+            <div class="tags"><span class="tag">Application web</span><span class="tag">Données spatiales</span><span class="tag">NASA Space Apps 2026</span><span class="tag">Open source</span></div>
+            <h3 class="case-title">SkyShift — Voir ce qui a traversé le ciel</h3>
+            <div class="case-cols">
+              <div>
+                <p class="k">problème/</p>
+                <p class="v">Le télescope SPHEREx de la NASA cartographie tout le ciel, mais retrouver ce qui a traversé une zone donnée, comme des astéroïdes ou des satellites, impose de fouiller à la main les images brutes.</p>
+              </div>
+              <div>
+                <p class="k">solution/</p>
+                <p class="v">Pointez n'importe quelle zone du ciel et SkyShift montre ce qui l'a traversée dans les images SPHEREx : étoiles, astéroïdes et satellites, avec la température de chaque satellite estimée grâce aux deux caméras de SPHEREx.</p>
+              </div>
+            </div>
+            <div class="result">
+              <p class="k">résultat/</p>
+              <p class="v">Récupération de signatures thermiques de satellites que le pipeline SPHEREx masque et écarte habituellement : les premières mesures de température de ce type issues de ce télescope, dont COSMOS 1980 à ~294 K. Réalisé par une équipe de trois personnes et mis en ligne pendant le NASA Space Apps Challenge 2026.</p>
+            </div>
+            <div class="case-links">
+              <a class="btn btn-primary btn-sm" href="https://spherex.ngdev.org" target="_blank" rel="noopener" data-roll>Ouvrir spherex.ngdev.org</a>
+              <a class="btn btn-ghost btn-sm" href="https://github.com/ayoubna99/spherex-skyshift" target="_blank" rel="noopener" data-roll>Code source sur GitHub</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Guess My Grade -->
+      <article data-more="1" data-cat="software" class="case">
+        <div class="case-card">
+          <div class="case-media screens-media sm-gmg">
+            <div class="cm-in">
+              <div class="screens">
+                <figure class="screen"><img src="../assets/projects/gmg-dark.webp" alt="Guess My Grade en mode sombre" width="560" height="1148" loading="lazy"></figure>
+                <figure class="screen"><img src="../assets/projects/gmg-light.webp" alt="Guess My Grade en mode clair" width="560" height="1148" loading="lazy"></figure>
+              </div>
+            </div>
+            <span class="case-file">guess-my-grade/android</span>
+          </div>
+          <div class="case-body">
+            <div class="tags"><span class="tag">Application mobile</span><span class="tag">Éducation</span><span class="tag">Android</span></div>
+            <h3 class="case-title">Guess My Grade — Outil de suivi des résultats</h3>
+            <div class="case-cols">
+              <div>
+                <p class="k">problème/</p>
+                <p class="v">Les étudiants n'avaient aucun moyen rapide d'estimer leur moyenne ou de savoir quelles notes viser aux prochains examens, d'où des calculs manuels sources d'erreurs.</p>
+              </div>
+              <div>
+                <p class="k">solution/</p>
+                <p class="v">Une application Android légère : l'étudiant saisit ses notes et coefficients, et obtient instantanément sa moyenne actuelle et les notes minimales nécessaires pour atteindre son objectif. Une interface claire, pensée pour un usage quotidien.</p>
+              </div>
+            </div>
+            <div class="result">
+              <p class="k">résultat/</p>
+              <p class="v">Publiée sur Google Play avec des retours positifs. Les étudiants l'utilisent avant chaque session d'examens pour savoir exactement ce qu'ils doivent obtenir : l'angoisse devient une information concrète.</p>
+            </div>
+            <div class="case-links">
+              <a class="btn btn-primary btn-sm" href="https://play.google.com/store/apps/details?id=com.guessmygrade.app" target="_blank" rel="noopener" data-roll>Disponible sur Google Play</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ngmed -->
+      <article data-more="1" data-cat="software" class="case wip">
+        <div class="case-card">
+          <div class="case-media paper-media">
+            <div class="cm-in">
+              <div class="paper-wrap"><img class="paper" src="../assets/projects/ngmed-invoice.webp" alt="Facture générée par la plateforme ngmed, informations client masquées" width="900" height="1282" loading="lazy"></div>
+            </div>
+            <span class="case-file">ngmed/b2b-commerce</span>
+          </div>
+          <div class="case-body">
+            <div class="tags"><span class="tag">E-Commerce</span><span class="tag">Santé</span><span class="tag">Plateforme B2B</span><span class="tag-soon">Livré</span></div>
+            <h3 class="case-title">ngmed — Plateforme B2B de vente d'équipement médical</h3>
+            <div class="case-cols">
+              <div>
+                <p class="k">problème/</p>
+                <p class="v">Les hôpitaux et cliniques n'avaient aucun canal numérique dédié pour acheter du matériel médical. Tout passait par téléphone, catalogues papier et factures manuelles : erreurs, retards et aucune visibilité sur les commandes.</p>
+              </div>
+              <div>
+                <p class="k">solution/</p>
+                <p class="v">Une plateforme e-commerce B2B complète, conçue pour la chaîne d'approvisionnement médicale : catalogue produits, traitement des commandes et facturation automatique avec calcul des taxes, dans un système cohérent adapté aux acheteurs institutionnels.</p>
+              </div>
+            </div>
+            <div class="features">
+              <span class="feature">Catalogue &amp; stock</span>
+              <span class="feature">Gestion des commandes</span>
+              <span class="feature">Facturation avec taxes</span>
+              <span class="feature">Comptes clients &amp; grilles tarifaires</span>
+              <span class="feature">Factures PDF</span>
+              <span class="feature">Historique &amp; suivi des commandes</span>
+            </div>
+            <div class="result">
+              <p class="k">résultat/</p>
+              <p class="v">Plateforme complète développée, en phase de pré-déploiement. Elle cible les hôpitaux, cliniques et services achats médicaux, en remplaçant les commandes manuelles par un processus numérique structuré et traçable.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div class="cases-more"><button type="button" class="btn btn-ghost magnetic" data-roll>Voir 4 autres études de cas</button></div>
     </div>
   </div>
 </section>
@@ -1999,10 +2000,22 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!btns.length) return;
     const has = (c, f) => f === 'all' || c.dataset.cat.split(' ').includes(f);
     btns.forEach(b => { b.querySelector('.cf-n').textContent = cases.filter(c => has(c, b.dataset.f)).length; });
+    const list = document.querySelector('.cases'), moreWrap = document.querySelector('.cases-more');
+    function expand() {
+      if (!list.classList.contains('is-collapsed')) return;
+      list.classList.remove('is-collapsed'); moreWrap.hidden = true;
+      cases.filter(c => c.dataset.more).forEach(c => { c.classList.remove('is-shown'); void c.offsetWidth; c.classList.add('is-shown'); });
+    }
+    moreWrap.querySelector('button').addEventListener('click', () => {
+      if (window.ngStack) window.ngStack.revert();
+      expand();
+      if (window.ngStack) window.ngStack.build();
+    });
     btns.forEach(b => b.addEventListener('click', () => {
       const f = b.dataset.f;
       btns.forEach(x => { const on = x === b; x.classList.toggle('is-on', on); x.setAttribute('aria-pressed', on); });
       if (window.ngStack) window.ngStack.revert();
+      expand();
       cases.forEach(c => {
         const show = has(c, f);
         c.classList.toggle('is-hidden', !show);
@@ -2637,7 +2650,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function buildStack() {
     stackMM = G.matchMedia();
     stackMM.add('(min-width: 1025px) and (min-height: 700px)', () => {
-      const cards = G.utils.toArray('.case:not(.is-hidden)');
+      const cards = G.utils.toArray('.case').filter(c => getComputedStyle(c).display !== 'none');
       if (cards.length < 2) return;
       const TOP = 92, STEP = 12;
       const fits = cards.every((c, i) => c.offsetHeight + TOP + i * STEP + 16 < window.innerHeight);

@@ -479,3 +479,5 @@ TEXT.update({
     'Filter photos': 'Filtrer les photos',
 })
 KEEP.update({'ng.network()', 'ng.workplace()', 'Cisco', 'Huawei', 'Aruba', 'Python'})
+
+TEXT.update({'Show 4 more case studies': "Voir 4 autres études de cas"})
