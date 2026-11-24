@@ -393,3 +393,36 @@ TEXT.update({
     'Life showing what works on you and the Talk to Lify panel': 'Life montre ce qui fonctionne pour vous et le panneau Parler à Lify',
 })
 KEEP.update({'ng.agents()', 'LinkedIn', '+9 pts', 'Flutter + Kotlin + Supabase'})
+
+TEXT.update({
+    'Co-founder · Lead Engineer': 'Co-fondateur · Ingénieur principal',
+    "Lead engineer behind our products, specialized in backend systems, autonomous AI agents and application security. From NAQLI's ticketing platform and the Life agent to Protectiny and Recon-AI, our private security scanner, he turns ideas into software that holds up in production.":
+        "Ingénieur principal derrière nos produits, spécialisé dans les systèmes backend, les agents IA autonomes et la sécurité applicative. De la billetterie NAQLI et de l'agent Life à Protectiny et Recon-AI, notre scanner de sécurité privé, il transforme les idées en logiciels qui tiennent en production.",
+    'AI agents': 'Agents IA', 'Application security': 'Sécurité applicative', 'Mobile': 'Mobile',
+    'Co-founder · Head of Business Development': 'Co-fondateur · Directeur du développement commercial',
+    'Leads business development, partnerships and client relationships, the first person our clients meet. A systems and network engineer with more than 400 on-site and remote interventions for businesses, schools and hospitals, he also leads our infrastructure, backup and IT support work.':
+        "Il dirige le développement commercial, les partenariats et la relation client : c'est la première personne que nos clients rencontrent. Ingénieur systèmes et réseaux fort de plus de 400 interventions sur site et à distance pour des entreprises, des écoles et des hôpitaux, il pilote aussi nos activités d'infrastructure, de sauvegarde et de support informatique.",
+    'Business development': 'Développement commercial', 'Partnerships': 'Partenariats',
+    'Client relations': 'Relation client', 'IT infrastructure': 'Infrastructure IT',
+    'all': 'tout', 'software': 'logiciel', 'ai': 'ia', 'security': 'sécurité', 'servers-&amp;-it': 'serveurs-&amp;-it',
+    'IT Infrastructure': 'Infrastructure IT', 'Servers': 'Serveurs', 'On-site': 'Sur site',
+    'Server Rooms &amp; Rack Installations — On-site Infrastructure': 'Salles serveurs &amp; installation de baies — Infrastructure sur site',
+    'Many businesses run on server rooms that grew without a plan: tangled cabling, undocumented equipment, aging servers and backups nobody has tested.':
+        "Beaucoup d'entreprises fonctionnent avec des salles serveurs qui ont grandi sans plan : câblage emmêlé, équipements non documentés, serveurs vieillissants et sauvegardes jamais testées.",
+    'Our IT team installs racks and servers, sets up virtualization, Active Directory and file sharing, puts backups in place and documents everything, on-site or remotely, then stays on for support.':
+        "Notre équipe IT installe les baies et les serveurs, met en place la virtualisation, Active Directory et le partage de fichiers, configure les sauvegardes et documente tout, sur site ou à distance, puis reste présente pour le support.",
+    'Rack installation': 'Installation de baies', 'Server setup &amp; virtualization': 'Mise en place de serveurs &amp; virtualisation',
+    'Network cabling': 'Câblage réseau', 'Backups (Veeam, NAS)': 'Sauvegardes (Veeam, NAS)',
+    'Hardware diagnostics': 'Diagnostic matériel', 'Documentation': 'Documentation',
+    'More than 400 on-site and remote interventions for businesses, schools and hospitals, including Grant Thornton Algeria and 2MP Industrie in Blida.':
+        "Plus de 400 interventions sur site et à distance pour des entreprises, des écoles et des hôpitaux, dont Grant Thornton Algeria et 2MP Industrie à Blida.",
+    'Plan a server setup': 'Planifier une installation serveur', 'See us in the field': 'Nous voir sur le terrain',
+    'Filter case studies': 'Filtrer les études de cas',
+    'Network and server room at Grant Thornton Algeria': 'Salle réseau et serveurs chez Grant Thornton Algeria',
+    'Rack and server installation at 2MP Industrie, Blida': 'Installation de baie et de serveurs chez 2MP Industrie, Blida',
+    '· replies fast': '· réponse rapide',
+    'Chat with us on WhatsApp': 'Discutez avec nous sur WhatsApp', 'Chat on WhatsApp': 'Écrire sur WhatsApp',
+})
+KEEP.update({'Protectiny', 'it/server-rooms', 'WhatsApp'})
+JS.append(("text=Hello%20NG%20Development%2C%20I%27d%20like%20to%20talk%20about%20a%20project.",
+           "text=Bonjour%20NG%20Development%2C%20j%27aimerais%20parler%20d%27un%20projet."))
